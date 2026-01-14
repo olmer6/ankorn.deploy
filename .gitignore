@@ -1,0 +1,12 @@
+/bitrix/*
+!/bitrix/modules
+/bitrix/modules/*
+# !/bitrix/modules/olm.tools
+!/bitrix/php_interface
+!/bitrix/.settings.php
+/upload
+/products_files
+/local/log
+/.well-known
+/.idea
+/.osp

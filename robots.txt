@@ -1,0 +1,5 @@
+User-Agent: Yandex
+Disallow: /
+
+User-Agent: *               # правила для всех роботов
+Disallow: /

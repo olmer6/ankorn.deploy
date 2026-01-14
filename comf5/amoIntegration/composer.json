@@ -1,0 +1,5 @@
+{
+    "require": {
+        "ufee/amoapi-v4": "^1.0"
+    }
+}

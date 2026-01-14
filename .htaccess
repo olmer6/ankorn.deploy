@@ -1,0 +1,83 @@
+Options -Indexes
+ErrorDocument 404 /404.php
+
+<IfModule mod_php5.c>
+  php_flag allow_call_time_pass_reference 1
+  php_flag session.use_trans_sid off
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  Options +FollowSymLinks
+  RewriteEngine On
+
+  #Добавил
+  RewriteBase /
+
+  RewriteRule ^(.*)catalog/datchiki-izmereniya-urovnya/ultrazvukovye-urovnemery-dlya-zhidkosti/?$ /catalog/datchiki-izmereniya-urovnya/urovnemery-ultrazvukovye/ultrazvukovye-urovnemery-dlya-zhidkosti/ [R=301,L]
+  RewriteRule ^(.*)catalog/datchiki-izmereniya-urovnya/ultrazvukovye-urovnemery-dlya-sypuchikh-materialov/?$ /catalog/datchiki-izmereniya-urovnya/urovnemery-ultrazvukovye/ultrazvukovye-urovnemery-dlya-sypuchikh-materialov/ [R=301,L]
+  RewriteRule ^(.*)catalog/signalizatory-urovnya/emkostnye/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-emkostnye/ [R=301,L]
+  RewriteRule ^(.*)catalog/signalizatory-urovnya/konduktivnye/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-conductive/ [R=301,L]
+  RewriteRule ^(.*)catalog/signalizatory-urovnya/magnitnye/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-magnitnye/ [R=301,L]
+  RewriteRule ^(.*)catalog/signalizatory-urovnya/nivocont/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-nivocont/ [R=301,L]
+  RewriteRule ^(.*)catalog/signalizatory-urovnya/nivoswitch/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-nivoswitch/ [R=301,L]
+  RewriteRule ^(.*)catalog/signalizatory-urovnya/rotacionnye/?$ /catalog/datchiki-izmereniya-urovnya/rotacionnye-signalizatory-urovnya/ [R=301,L]
+  RewriteRule ^(.*)catalog/signalizatory-urovnya/sypuchih/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-urovnya-sypuchih-materialov/ [R=301,L]
+  RewriteRule ^(.*)catalog/signalizatory-urovnya/vibracionnye/?$ /catalog/datchiki-izmereniya-urovnya/urovnemery-vibracionnye/ [R=301,L]
+  RewriteRule ^(.*)catalog/signalizatory-urovnya/zhidkosti/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-urovnya-zhidkosti/ [R=301,L]
+  RewriteRule ^(.*)catalog/signalizatory-urovnya/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-urovnya/ [R=301,L]
+
+
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  #Проверяет, что строка запроса пустая (после ? нет параметров). Это исключает бесконечный цикл.
+  RewriteCond %{QUERY_STRING} ^$
+  # /\?[\s?] → ловит запросы вида /? (с пустым параметром).
+  RewriteCond %{THE_REQUEST} /\?[\s?]
+  RewriteRule (.*) /$1 [QSD,R=301,L]
+
+
+
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^(.*) https://%1/$1 [L,R=301]
+
+  # Добавление слэша в конце URL, если его нет
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+#  RewriteCond %{REQUEST_URI} !(.*)/$  # Убедитесь, что URL не заканчивается на слэш
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [L,R=301]  # Перенаправление на URL с добавленным слэшем
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+  RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+
+  # Для авторизации
+  RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+  
+  #Добавил
+  RewriteRule ^(.*)index\.php$ $1 [R=301,L]
+
+
+  # Убирает множественные слэши в конце
+  RewriteCond %{REQUEST_URI} ^(.*?)\/{2,}(.*?)$
+  RewriteRule . %1/%2 [L,R=301]
+  RewriteCond %{THE_REQUEST} //
+  RewriteRule .* /$0 [R=301,L]
+  
+
+
+</IfModule>
+
+<IfModule mod_dir.c>
+  DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive on
+  ExpiresByType image/jpeg "access plus 3 day"
+  ExpiresByType image/gif "access plus 3 day"
+</IfModule>

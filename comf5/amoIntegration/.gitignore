@@ -1,0 +1,8 @@
+/.vscode
+/.idea
+/.htaccess
+/parents.htaccess
+/config/*!.htaccess
+/vendor/*
+/composer.lock
+*.log
