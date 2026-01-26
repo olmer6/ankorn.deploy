@@ -68,6 +68,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 						<div class="<?if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL"):?>col-sm-6 col-md-4<?else:?>col-12<?endif?> mb-2 smart-filter-parameters-box <?=$arItem['CODE']?> bx-active">
 							<div class="smart-filter-parameters-box-title" onclick="smartFilter.hideFilterProps(this)">
 								<span class="smart-filter-container-modef"></span>
+                                <div class="" style="padding: 0 15px 0;">Цена</div>
 								<span class="smart-filter-parameters-box-title-text"><?=$arItem["NAME"]?></span>
 								<span data-role="prop_angle" class="smart-filter-angle smart-filter-angle-up">
 									<span  class="smart-filter-angles"></span>
