@@ -4,6 +4,7 @@ use CIBlock;
 use CIBlockElement;
 use CIBlockSection;
 use logArray;
+use mysql_xdevapi\DatabaseObject;
 
 class AnkornCatalogPropApdater
 {
@@ -66,6 +67,7 @@ class AnkornCatalogPropApdater
             $tmpRes=[];
             $tmpRes['ID']=$res['ID'];
             $tmpRes['NAME']=$res['NAME'];
+            $tmpRes['IBLOCK_SECTION_ID']=$res['IBLOCK_SECTION_ID'];
             $tmpRes['PREVIEW_TEXT']=$res['PREVIEW_TEXT'];
             $elementIDs[] =&$row;
             $tmpRes['DETAIL_TEXT']=$res['DETAIL_TEXT'];
@@ -368,13 +370,73 @@ class AnkornCatalogPropApdater
      * @return array
      *
      */
-    public static function addPropertyValue(array $item, array $associated_properties)
+    public static function addPropertyValue(array $item)
     {
-        $associated_properties = dataArrays::associated_properties;
         $ArPropertyValues = [];
         $mainFeatures = [];
         $additionalFeatures = [];
 
+
+        if($item["IBLOCK_SECTION_ID"] == 62){
+            $ArPropertyValues['PARAM_ENV'] = ['Жидкости', 'Сыпучие материалы'];
+        }
+
+        if(false)  // временно отключаем этот функционал
+        {
+            if ($item["PROPERTIES"]['PARAM_TYPE1']['VALUE'] && $item["PROPERTIES"]['MODEL']['VALUE']) {
+                $productType = $item["PROPERTIES"]['PARAM_TYPE1']['VALUE'];
+                $productModel = $item["PROPERTIES"]['MODEL']['VALUE'];
+                // Устнавливаем принцип действия в зависимости от типа оборудования и модели
+                foreach (dataArrays::associated_principle_typeAndModel as $principleName => $principle) {
+                    foreach ($principle as $model) {
+                        if (($productType == $model['productType']) && ($productModel == $model['productModel'])) {
+                            $ArPropertyValues['PARAM_PRINCIP'][] = $principleName;
+                            break 2;
+                        }
+                    }
+                }
+
+                // устанавливаем контролируемую среду в зависимости от типа оборудования и модели
+                foreach (dataArrays::associated_controlled_environment as $environmentKay => $environment) {
+                    foreach ($environment as $model) {
+                        if (($productType == $model['productType']) && ($productModel == $model['productModel'])) {
+                            $ArPropertyValues['PARAM_ENV'][] = $environmentKay;
+                            break 2;
+                        }
+                    }
+                }
+
+                //  устанавливаем метод взаимодействия со средой в зависимости от типа оборудования и модели
+                if ($productModel == 'EasyTREK' || $productModel == 'PiloTREK') {
+                    $ArPropertyValues['PARAM_METHOD'] = 'Бесконтактный';
+                } elseif ($productType == 'Уровнемер' || $productType == 'Сигнализатор уровня')
+                    $ArPropertyValues['PARAM_METHOD'] = 'Контактный';
+
+                // устанавливаем установку (наклон) в зависимости от типа оборудования и модели
+                foreach (dataArrays::associated_Installation as $InstalKays => $Instal) {
+                    foreach ($Instal as $model) {
+                        if (($productType == $model['productType']) && ($productModel == $model['productModel'])) {
+                            $ArPropertyValues['PARAM_INSTALL'][] = $InstalKays;
+                            break 2;
+                        }
+                    }
+                }
+                if (empty($ArPropertyValues['PARAM_INSTALL']) && ($productType == 'Уровнемер' || $productType == 'Сигнализатор уровня'))
+                    $ArPropertyValues['PARAM_INSTALL'] = 'Вертикально';
+            }
+        }
+
+        if(false)  // временно отключаем этот функционал
+        {
+        // расставляем имена моделей измерителей уровня
+        foreach (dataArrays::modelNames as $modelName) {
+            if (stristr(mb_strtoupper($item['NAME']), mb_strtoupper($modelName)))
+                $ArPropertyValues['MODEL'] = $modelName;
+        }
+        }
+
+        if(false)  // временно отключаем этот функционал
+        {
         // обрабатываем имена разделов и имя товара
         $itemSections = self::getItemSections($item['ID']);
         $names = array_column($itemSections, 'NAME');
@@ -391,57 +453,62 @@ class AnkornCatalogPropApdater
                 }
             }
         }
-
-        /*
-        // обрабатывем таблицы "характеристики модификаций"
-        if($item["PROPERTIES"]["CHARACTERISTICS_MOD"]["VALUE"]['PARS_DATA']["FROM_LIST_DATA"]["table"]){
-            $CMTs = $item["PROPERTIES"]["CHARACTERISTICS_MOD"]["VALUE"]['PARS_DATA']["FROM_LIST_DATA"]["table"];
-            foreach($CMTs as $Num=>$cm){
-                foreach($cm as $cmPropName=>$cmPropValue){
-                    if(!$associated_properties[$cmPropName]) continue;
-                    $propertyCode = $associated_properties[$cmPropName]['CODE'];
-                    $ArPropertyValues[$propertyCode] = trim($cmPropValue);
-                    if($Num == 0)
-                        $mainFeatures[] = trim($associated_properties[$cmPropName]['NAME'].' ('.$associated_properties[$cmPropName]['CODE'].')');
-                    if($Num == 1)
-                        $additionalFeatures[] = trim($associated_properties[$cmPropName]['NAME'].' ('.$associated_properties[$cmPropName]['CODE'].')');
-                }
-            }
         }
 
-        // обрабатываем списки
-        foreach($item["PROPERTIES"] as $ItemPropKay=>$itemPropValue){
-            if(!empty($itemPropValue["VALUE"]['PARS_DATA']["FROM_LIST_DATA"]["list"])){
-                $CMTs = $itemPropValue["VALUE"]['PARS_DATA']["FROM_LIST_DATA"]["list"];
-                foreach($CMTs as $Num=>$cm){
-                    foreach($cm as $cmPropName=>$cmPropValue){
-                        if(!$associated_properties[$cmPropName]) continue;
-                        $propertyCode = $associated_properties[$cmPropName]['CODE'];
-                        if(is_string($cmPropValue))
-                            $ArPropertyValues[$propertyCode] = trim($cmPropValue);
-                        if(is_array($cmPropValue))
-                            $ArPropertyValues[$propertyCode] = $cmPropValue;
-                        if($Num == 0)
-                            $mainFeatures[] = trim($associated_properties[$cmPropName]['NAME'].' ('.$associated_properties[$cmPropName]['CODE'].')');
-                        if($Num == 1)
-                            $additionalFeatures[] = trim($associated_properties[$cmPropName]['NAME'].' ('.$associated_properties[$cmPropName]['CODE'].')');
+        if(false)  // временно отключаем этот функционал
+        {
+            // обрабатывем таблицы "характеристики модификаций"
+            if ($item["PROPERTIES"]["CHARACTERISTICS_MOD"]["VALUE"]['PARS_DATA']["FROM_LIST_DATA"]["table"]) {
+                $CMTs = $item["PROPERTIES"]["CHARACTERISTICS_MOD"]["VALUE"]['PARS_DATA']["FROM_LIST_DATA"]["table"];
+                foreach ($CMTs as $Num => $cm) {
+                    foreach ($cm as $cmPropName => $cmPropValue) {
+                        if (!dataArrays::associated_properties[$cmPropName]) continue;
+                        $propertyCode = dataArrays::associated_properties[$cmPropName]['CODE'];
+                        $ArPropertyValues[$propertyCode] = trim($cmPropValue);
+                        if ($Num == 0)
+                            $mainFeatures[] = trim(dataArrays::associated_properties[$cmPropName]['NAME'] . ' (' . dataArrays::associated_properties[$cmPropName]['CODE'] . ')');
+                        if ($Num == 1)
+                            $additionalFeatures[] = trim(dataArrays::associated_properties[$cmPropName]['NAME'] . ' (' . dataArrays::associated_properties[$cmPropName]['CODE'] . ')');
+                    }
+                }
+            }
+
+            // обрабатываем списки
+            foreach ($item["PROPERTIES"] as $ItemPropKay => $itemPropValue) {
+                if (!empty($itemPropValue["VALUE"]['PARS_DATA']["FROM_LIST_DATA"]["list"])) {
+                    $CMTs = $itemPropValue["VALUE"]['PARS_DATA']["FROM_LIST_DATA"]["list"];
+                    foreach ($CMTs as $Num => $cm) {
+                        foreach ($cm as $cmPropName => $cmPropValue) {
+                            if (!$associated_properties[$cmPropName]) continue;
+                            $propertyCode = $associated_properties[$cmPropName]['CODE'];
+                            if (is_string($cmPropValue))
+                                $ArPropertyValues[$propertyCode] = trim($cmPropValue);
+                            if (is_array($cmPropValue))
+                                $ArPropertyValues[$propertyCode] = $cmPropValue;
+                            if ($Num == 0)
+                                $mainFeatures[] = trim($associated_properties[$cmPropName]['NAME'] . ' (' . $associated_properties[$cmPropName]['CODE'] . ')');
+                            if ($Num == 1)
+                                $additionalFeatures[] = trim($associated_properties[$cmPropName]['NAME'] . ' (' . $associated_properties[$cmPropName]['CODE'] . ')');
+                        }
                     }
                 }
             }
         }
 
-        */
 
         if($mainFeatures != []) $ArPropertyValues['MAIN_FEATURES'] = $mainFeatures;
         if($additionalFeatures != []) $ArPropertyValues['ADDITIONAL_FEATURES'] = $additionalFeatures;
 
+        if($ArPropertyValues == []) return;
 
         echo '<pre id="inspect" class="ins_1" style="margin: 40px 0px;">';
         var_dump($ArPropertyValues);
         echo '</pre>';
 
     //    CIBlockElement::SetPropertyValuesEx($item['ID'], self::ibid, $ArPropertyValues);
-        return [$item['ID']=>$item['NAME']];
+        echo '<pre id="inspect" class="ins_1" style="margin: 40px 0px;">';
+        var_dump([$item['ID']=>$item['NAME']]);
+        echo '</pre>';
     }
 
 }

@@ -20,15 +20,12 @@ $arHtmlProperty = $properties['arHtmlProperty'];
 $arStringProperty = $properties['arStringProperty'];
 $arProperty = $properties['arProperty'];
 
-$items = \OLM\AnkornCatalogPropApdater::GetIBlockItemsList($properties, 5000, false);
+$items = \OLM\AnkornCatalogPropApdater::GetIBlockItemsList($properties, 5000, true);
 
 
 foreach ($items as $item){
     set_time_limit(30);
-    $ArPropertyValues = \OLM\AnkornCatalogPropApdater::addPropertyValue($item, \OLM\dataArrays::associated_properties);
-    echo '<pre id="inspect" class="ins_1" style="margin: 40px 0px;">';
-    var_dump($ArPropertyValues);
-    echo '</pre>';
+    \OLM\AnkornCatalogPropApdater::addPropertyValue($item);
 }
 
 

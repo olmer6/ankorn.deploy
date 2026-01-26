@@ -480,4 +480,294 @@ class dataArrays{
             'Ультразвуковые уровнемеры' => 'Ультразвуковой'
         ]
     ];
+
+    const modelNames = [
+        'MicroTREK',
+        'NIVOCAP',
+        'NIVOCAP CK',
+        'EasyTREK',
+        'EchoTREK',
+        'NIVOFLIP',
+        'NIVOPRESS D',
+        'NIVOPRESS N',
+        'NIVOTRACK',
+        'NIVOSWITCH',
+        'NIVOFLOAT',
+        'NIVOPOINT',
+        'NIVOMAG',
+        'NIVOCONT K',
+        'NIVOCONT R',
+        'NIVOROTA',
+        'PiloTREK',
+    ];
+
+    const associated_principle_typeAndModel = 	[
+        'Радарный' => [
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'PiloTREK',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'MicroTREK',
+            ],
+        ],
+        'Ультразвуковой' => [
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'EasyTREK',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'EchoTREK',
+            ],
+        ],
+        'Микроволновый' => [
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'PiloTREK',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'MicroTREK',
+            ],
+        ],
+        'Поплавковый' => [
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOTRACK',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOMAG',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOPOINT',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOFLOAT',
+            ],
+        ],
+        'Вибрационный' => [
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOSWITCH',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOSWITCH',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOCONT R',
+            ],
+        ],
+        'Ротационный' => [
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOROTA',
+            ],
+        ],
+        'Магнитострикционный' => [
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOTRACK',
+            ],
+        ],
+        'Гидростатический' => [
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOPRESS N',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOPRESS D',
+            ],
+        ],
+        'Емкостный' => [
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOCAP',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOCAP CK',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOCAP',
+            ],
+        ],
+        'Скважинный' => [
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOPRESS N',
+            ],
+        ],
+        'Байпасный' => [
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOFLIP',
+            ],
+        ],
+        'Кондуктометрический' => [
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOCONT K',
+            ],
+        ],
+    ];
+
+    const associated_controlled_environment = [
+        'Жидкости' => [
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'MicroTREK',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOCAP CK',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOCAP',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'EasyTREK',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'EchoTREK',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOFLIP',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOPRESS D',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOPRESS N',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOTRACK',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOSWITCH',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOFLOAT',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOPOINT',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOMAG',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOCONT K',
+            ],
+        ],
+        'Сыпучие материалы' => [
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'MicroTREK',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOCAP CK',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOCAP',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'EasyTREK',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'EchoTREK',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOSWITCH',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOCONT R',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOROTA',
+            ],
+
+        ],
+    ];
+
+    const associated_Installation = [
+        'Горизонтально' => [
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOMAG',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOSWITCH',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOCONT R',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOROTA',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOCAP CK',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOPRESS D',
+            ],
+        ],
+        'Вертикально' => [
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOMAG',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOSWITCH',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOCONT R',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOROTA',
+            ],
+            [
+                'productType' => 'Сигнализатор уровня',
+                'productModel' => 'NIVOCAP CK',
+            ],
+            [
+                'productType' => 'Уровнемер',
+                'productModel' => 'NIVOPRESS D',
+            ],
+        ],
+    ];
 }
