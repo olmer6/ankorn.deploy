@@ -3,19 +3,19 @@ namespace OLM;
 use CIBlock;
 use CIBlockElement;
 use CIBlockSection;
-use logArray;
-use mysql_xdevapi\DatabaseObject;
+use LogArray;
+use dataArrays;
 
 class AnkornCatalogPropApdater
 {
     const ibid = 2;// инфоблок продукты
-    const testItemNum = [1120];
+    const testItemNum = [/*5266*/];
 
     public static function GetIBlockProperties ():array
     {
         $obRes = CIBlock::GetProperties(self::ibid, Array(), Array());
         while ($res = $obRes->Fetch()) {
-            if($res["PROPERTY_TYPE"] == 'S'){
+            if(($res["PROPERTY_TYPE"] == 'S') || ($res["PROPERTY_TYPE"] == 'L')){
                 $tmpRes = array();
                 $tmpRes['PROPERTY_TYPE'] = $res['PROPERTY_TYPE'];
                 $tmpRes['USER_TYPE'] = $res['USER_TYPE'];
@@ -58,7 +58,7 @@ class AnkornCatalogPropApdater
     {
         $obRes = CIBlockElement::GetList(
             Array(),
-            array('IBLOCK_ID' => self::ibid,"ACTIVE"=>"Y", 'ID'=>self::testItemNum,  '!PROPERTY_IS_MAIN'=>22),
+            array('IBLOCK_ID' => self::ibid,"ACTIVE"=>"Y", 'ID'=>self::testItemNum,  /*'!PROPERTY_IS_MAIN'=>22*/),
             false,
             Array ("nTopCount" => $topCount),
             ['IBLOCK_ID','ID','NAME','PREVIEW_TEXT',"DETAIL_TEXT", "IBLOCK_SECTION_ID"]
@@ -363,8 +363,8 @@ class AnkornCatalogPropApdater
         return $result;
     }
 
-        /**
-     *  Добавление значений в элемент массива
+     /**
+     *  Добавление свойств элементу
      *
      * @param array $item
      * @return array
@@ -373,12 +373,40 @@ class AnkornCatalogPropApdater
     public static function addPropertyValue(array $item)
     {
         $ArPropertyValues = [];
+        $settings = [];
         $mainFeatures = [];
         $additionalFeatures = [];
 
+        if(false)  // временно отключаем этот функционал
+        {
+            if ($item["PROPERTIES"]['PARAM_MAT4']['VALUE']) {
+                echo '<pre id="inspect" class="ins_1" style="margin: 40px 0px;">';
+                var_dump(
+                    [$item['ID'] => $item['NAME']],
+                    [$item["PROPERTIES"]['PARAM_MAT4']['NAME'] => $item["PROPERTIES"]['PARAM_MAT4']['VALUE']]
+                );
+                echo '</pre>';
+            }
+        }
 
-        if($item["IBLOCK_SECTION_ID"] == 62){
-            $ArPropertyValues['PARAM_ENV'] = ['Жидкости', 'Сыпучие материалы'];
+        if(false)  // временно отключаем этот функционал
+        {
+            if ($item["PROPERTIES"]['IS_MAIN']['VALUE'] == 22) {
+                $settings['SORT'] = 100;
+                if ($item["PROPERTIES"]['PARAM_TYPE1']['VALUE']) {
+                    $productType = $item["PROPERTIES"]['PARAM_TYPE1']['VALUE'];
+
+                    if ($productType == 'Уровнемер') $settings['SORT'] = 50;
+                    if ($productType == 'Сигнализатор уровня') $settings['SORT'] = 70;
+                }
+            }
+        }
+
+        if(false)  // временно отключаем этот функционал
+        {
+            if ($item["PROPERTIES"]['PARAM_TYPE1']['VALUE'] && $item["PROPERTIES"]['MODEL']['VALUE']) {
+                $ArPropertyValues['PARAM_BRAND'] = 'Nivelco';
+            }
         }
 
         if(false)  // временно отключаем этот функционал
@@ -386,6 +414,7 @@ class AnkornCatalogPropApdater
             if ($item["PROPERTIES"]['PARAM_TYPE1']['VALUE'] && $item["PROPERTIES"]['MODEL']['VALUE']) {
                 $productType = $item["PROPERTIES"]['PARAM_TYPE1']['VALUE'];
                 $productModel = $item["PROPERTIES"]['MODEL']['VALUE'];
+
                 // Устнавливаем принцип действия в зависимости от типа оборудования и модели
                 foreach (dataArrays::associated_principle_typeAndModel as $principleName => $principle) {
                     foreach ($principle as $model) {
@@ -496,19 +525,38 @@ class AnkornCatalogPropApdater
         }
 
 
+        if(($ArPropertyValues == []) && ($settings  == [])) return;
+
         if($mainFeatures != []) $ArPropertyValues['MAIN_FEATURES'] = $mainFeatures;
         if($additionalFeatures != []) $ArPropertyValues['ADDITIONAL_FEATURES'] = $additionalFeatures;
 
-        if($ArPropertyValues == []) return;
+        if($ArPropertyValues != []) CIBlockElement::SetPropertyValuesEx($item['ID'], self::ibid, $ArPropertyValues);
+        if($settings != []) self::updateItemSetting($item['ID'], $settings);
 
-        echo '<pre id="inspect" class="ins_1" style="margin: 40px 0px;">';
-        var_dump($ArPropertyValues);
-        echo '</pre>';
-
-    //    CIBlockElement::SetPropertyValuesEx($item['ID'], self::ibid, $ArPropertyValues);
         echo '<pre id="inspect" class="ins_1" style="margin: 40px 0px;">';
         var_dump([$item['ID']=>$item['NAME']]);
         echo '</pre>';
+    }
+
+    /**
+     * Обновление основных свойств элемента
+     *
+     * @param array $item
+     * @param array $settings
+     * @return bool|mixed
+     */
+    public static function updateItemSetting (int $id, array $settings=[]){
+        global $USER;
+        $el = new CIBlockElement;
+        $settings["MODIFIED_BY"] = $USER->GetID();
+        if(isset($settings['PROPERTY_VALUES'])) unset($settings['PROPERTY_VALUES']);
+
+        echo '<pre id="inspect" class="ins_1" style="margin: 40px 0px;">';
+        var_dump($id, $settings);
+        echo '</pre>';
+
+        $res = $el->Update($id, $settings);
+        return $res;
     }
 
 }
