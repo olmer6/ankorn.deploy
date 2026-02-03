@@ -362,21 +362,8 @@ print "</div>";
 		}
 		//endregion
 
-			// Временный отладочный код в section.php
-			// echo '<pre>';
-			// $testRes = CIBlockElement::GetList(
-			//     array("PROPERTY_S_PRIORITY" => "DESC"),
-			//     array("IBLOCK_ID" => $arParams["IBLOCK_ID"], "SECTION_ID" => $arParams["SECTION_ID"]),
-			//     false,
-			//     array("nTopCount" => 5),
-			//     array("ID", "NAME", "PROPERTY_S_PRIORITY")
-			// );
-			// while ($ar = $testRes->Fetch()) {
-			//     print_r($ar);
-			// }
-			// echo '</pre>';
-
 			
+/*			 закомментировано 29,03,2026 тут предыдущий пытался какой то ерунды с сортировкой понаделать
 
 		// 1. Определяем сортировку пользователя
 		$userSortField = $_REQUEST['sort'] ?: $arParams['ELEMENT_SORT_FIELD'];
@@ -408,6 +395,7 @@ print "</div>";
 		    //"ELEMENT_SORT_FIELD_CUSTOM" => "SORT_PRIORITY", // Важно для кастомных полей
 		    //"ELEMENT_SORT_FIELD_CUSTOM" => $prioritySortField, // Важно для кастомных полей
 		);
+*/
 
 		// 4. Объединяем новые параметры сортировки с существующими
 		$componentParams = array(
@@ -440,6 +428,12 @@ print "</div>";
 				"DISPLAY_COMPARE" => $arParams["USE_COMPARE"],
 				"PAGE_ELEMENT_COUNT" => $arParams["PAGE_ELEMENT_COUNT"],
 				"LINE_ELEMENT_COUNT" => $arParams["LINE_ELEMENT_COUNT"],
+
+            "ELEMENT_SORT_FIELD" => $arParams['ELEMENT_SORT_FIELD'],
+            "ELEMENT_SORT_ORDER" => $arParams['ELEMENT_SORT_ORDER'],
+            "ELEMENT_SORT_FIELD2" => $arParams['ELEMENT_SORT_FIELD2'],
+            "ELEMENT_SORT_ORDER2" => $arParams['ELEMENT_SORT_ORDER2'],
+
 				"PRICE_CODE" => $arParams["~PRICE_CODE"],
 				"USE_PRICE_COUNT" => $arParams["USE_PRICE_COUNT"],
 				"SHOW_PRICE_COUNT" => $arParams["SHOW_PRICE_COUNT"],
@@ -532,8 +526,10 @@ print "</div>";
 				'DISABLE_INIT_JS_IN_COMPONENT' => (isset($arParams['DISABLE_INIT_JS_IN_COMPONENT']) ? $arParams['DISABLE_INIT_JS_IN_COMPONENT'] : '')
 			);
 
+/*			 закомментировано 29,03,2026 тут предыдущий пытался какой-то ерунды с сортировкой понаделать
 			// Заменяем старые параметры сортировки на новые
 			$componentParams = array_merge($componentParams, $newSortParams);
+*/
 
 			// 5. Вызываем компонент с обновленными параметрами
 			$intSectionID = $APPLICATION->IncludeComponent(

@@ -10,6 +10,10 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 			<h1>Каталог продукции</h1>
 	<?php
 	}
+
+
+    $userSortField = $_REQUEST['sort'] ?: $arParams['ELEMENT_SORT_FIELD'];
+    $userSortOrder = $_REQUEST['order'] ?: $arParams['ELEMENT_SORT_ORDER'];
 	?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog", 
@@ -68,10 +72,10 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 		"SECTIONS_SHOW_PARENT_NAME" => "N",
 		"PAGE_ELEMENT_COUNT" => "15",
 		"LINE_ELEMENT_COUNT" => "3",
-		"ELEMENT_SORT_FIELD" => "S_PRIORITY",
-		"ELEMENT_SORT_ORDER" => "desc",
-		"ELEMENT_SORT_FIELD2" => "id",
-		"ELEMENT_SORT_ORDER2" => "desc",
+		"ELEMENT_SORT_FIELD" => "sort",
+		"ELEMENT_SORT_ORDER" => "asc",
+		"ELEMENT_SORT_FIELD2" => ($userSortField)?:" PROPERTY_PARAM_AVAILABLE",
+		"ELEMENT_SORT_ORDER2" => ($userSortOrder)?:"asc,nulls",
 		"LIST_PROPERTY_CODE" => [
 			0 => "NEWPRODUCT",
 			1 => "SALELEADER",

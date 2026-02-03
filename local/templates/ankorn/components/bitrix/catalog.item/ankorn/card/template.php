@@ -59,7 +59,7 @@ print "</pre>";
 	}
 	else {
 		echo "<div class='plate-container'>";
-			if ($item['PROPERTIES']['PLATE_STOCK']['VALUE'])
+			if ($item['PROPERTIES']['PARAM_AVAILABLE']['VALUE'])
 				print "<div class='plate-red plate-item'>В наличии</div>";
 			if ($item['PROPERTIES']['PLATE_LEADER']['VALUE'])
 				print "<div class='plate-red plate-item'>Лидер продаж</div>";
