@@ -6,6 +6,8 @@ ErrorDocument 404 /404.php
   php_flag session.use_trans_sid off
 </IfModule>
 
+php_value max_input_vars 10000
+
 <IfModule mod_rewrite.c>
   Options +FollowSymLinks
   RewriteEngine On
