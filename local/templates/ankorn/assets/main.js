@@ -371,5 +371,17 @@ $(function () {
         $('body').toggleClass('show-mobile-nav')
     })
 
+    $(".section-list-wrap").find(".arrow").click(function (){
+        var height = $(this).parent().find('.catalog-section-list-tile-list').height();
+        $(".section-list-wrap").toggleClass('active');
+
+        if($(".section-list-wrap").hasClass( "active" )){
+            $(".section-list-wrap").css('height', '80').animate({height: height}, 250);
+        }else{
+            $(".section-list-wrap").css('height', height).animate({height: 80}, 250);
+        }
+
+    })
+
 
 })
