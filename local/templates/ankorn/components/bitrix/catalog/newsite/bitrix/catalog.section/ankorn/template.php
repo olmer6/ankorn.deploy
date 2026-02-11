@@ -150,16 +150,6 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 
 
 	?>
-
-	<?php
-		// print "<pre>";
-		// print_r($arParams);
-		// print "</pre>";
-	?>
-
-
-
-
 <!-- 	<?= $arParams["CACHE_TYPE"] ?>
 	<br />
 	<?= $arParams["CACHE_TIME"] ?>
