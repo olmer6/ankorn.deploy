@@ -305,6 +305,7 @@ print "</div>";
 			//endregion
 		}
 
+/*
 		//region Catalog Section
 		$sectionListParams = array(
 			"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
@@ -339,6 +340,10 @@ print "</div>";
 		);
 		unset($sectionListParams);
 		//endregion
+*/
+
+        // выводим список подкатегорий
+        \local\util\catalog\lib\DescendantSections::printDescendantSections($arResult["VARIABLES"]["SECTION_ID"]);
 
 		//region Compare List
 		if ($arParams["USE_COMPARE"]=="Y")
