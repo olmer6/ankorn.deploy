@@ -29,7 +29,7 @@ foreach ($items as $item){
 */
 
 $sateliteHandler  = new SateliteHandler();
-$sateliteHandler->testRun();
+// $sateliteHandler->testRun();
 
 ?>
     <div class="wrapper" style="margin: 40px 115px;">
