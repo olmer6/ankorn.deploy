@@ -5,9 +5,11 @@ if (!empty($_POST['checkFormAuth'])) {
     }
 }
 
+// подключаем классы утилит
+require_once($_SERVER["DOCUMENT_ROOT"] . "/local/util/utilClassAutoloader.php");
+
 if (!function_exists('custom_mail') && COption::GetOptionString("webprostor.smtp", "USE_MODULE") == "Y")
-{
-    function custom_mail($to, $subject, $message, $additional_headers='', $additional_parameters='')
+{    function custom_mail($to, $subject, $message, $additional_headers='', $additional_parameters='')
     {
         if(CModule::IncludeModule("webprostor.smtp"))
         {
