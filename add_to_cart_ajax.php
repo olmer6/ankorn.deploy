@@ -1,7 +1,6 @@
 <?php
 // Файл: /add_to_cart_ajax.php
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_before.php');
-
 header('Content-Type: application/json; charset=utf-8');
 
 // Проверяем сессию

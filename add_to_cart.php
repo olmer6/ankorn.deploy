@@ -10,6 +10,7 @@ if ($productId > 0) {
     Add2BasketByProductID($productId, 1);
 }
 
+
 // Редирект в корзину
 LocalRedirect('/personal/cart/');
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_after.php');
