@@ -71,13 +71,22 @@ Class DescendantSections
                 }
             }
         }
-        else if ($sectionUrlTemplate == "catalog/#FIRST_LEVEL_SECTION_CODE#/#SECTION_CODE#/"){
+        else if ($sectionUrlTemplate == "catalog/#FIRST_LEVEL_SECTION_CODE#/#SECTION_CODE#/" ){
             foreach($sections as $key=>&$section) {
                 if($section["DEPTH_LEVEL"] == 1)
                     $sections[$key]['SECTION_CODE_PATH'] = '/catalog/'.$section['CODE'].'/';
                 else {
                     $sections[$key]['SECTION_CODE_PATH'] = '/catalog/'.array_shift($section['PARENT_CODE']).'/'.$section['CODE'].'/';
 
+                }
+            }
+        }
+        else if ($sectionUrlTemplate == "catalog/#SECTION_CODE#/"){
+            foreach($sections as $key=>&$section) {
+                if($section["DEPTH_LEVEL"] == 1)
+                    $sections[$key]['SECTION_CODE_PATH'] = '/catalog/'.$section['CODE'].'/';
+                else {
+                    $sections[$key]['SECTION_CODE_PATH'] = '/catalog/'.array_shift($section['PARENT_CODE']).'/'.$section['CODE'].'/';
                 }
             }
         }
