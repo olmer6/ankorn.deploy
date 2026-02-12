@@ -10,11 +10,32 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 			<h1>Каталог продукции</h1>
 	<?php
 	}
-
-
     $userSortField = $_REQUEST['sort'] ?: $arParams['ELEMENT_SORT_FIELD'];
     $userSortOrder = $_REQUEST['order'] ?: $arParams['ELEMENT_SORT_ORDER'];
+
+    if($_GET['FIRST_LEVEL_SECTION_CODE']){
+        $sectionUrl = "catalog/#FIRST_LEVEL_SECTION_CODE#/#SECTION_CODE#/";
+    }else if($_GET['SECTION_CODE']){
+        $sectionUrl = "catalog/#SECTION_CODE#/";
+    }else{
+        $sectionUrl = "catalog/#SECTION_CODE_PATH#/";
+    }
 	?>
+<?
+/**
+ * если вдруг в результате исправления настроек каталога через админку
+ * изменится адресация и отвалятся категории каталога то они настраиваются таким образом
+ *
+ * "SEF_URL_TEMPLATES" => [
+ * "sections" => "",
+ * "section" => $sectionUrl, // первая и последняя по вложенности категория
+ * "element" => "product/#ELEMENT_CODE#/",
+ * "compare" => "catalog/compare/",
+ * "smart_filter" => "catalog/#SECTION_CODE_PATH#/filter/#SMART_FILTER_PATH#/apply/",
+ * ]
+ */
+?>
+
 <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog", 
 	"newsite", 
@@ -313,7 +334,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 		"COMPARE_POSITION" => "top left",
 		"SEF_URL_TEMPLATES" => [
 			"sections" => "",
-			"section" => "catalog/#SECTION_CODE_PATH#/",
+			//"section" => "catalog/#SECTION_CODE_PATH#/",
+            "section" => $sectionUrl, // первая и последняя по вложенности категория
 			"element" => "product/#ELEMENT_CODE#/",
 			"compare" => "catalog/compare/",
 			"smart_filter" => "catalog/#SECTION_CODE_PATH#/filter/#SMART_FILTER_PATH#/apply/",
