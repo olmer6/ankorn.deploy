@@ -270,40 +270,6 @@ if ($currentUri === '/') {
                                 </div>
                             </div>
                             <div class="catalog-nav-item">
-								<a href="/catalog/datchiki-izmereniya-davleniya/" class="catalog-nav-picture">
-                                    <img src="/upload/medialibrary/0ca/3e2stv578rzri5yo1ar8vowpghlq57bj/catalog_image_3.png.jpg" alt="">
-                                </a>
-                                <div class="catalog-nav-list">
-                                    <ul class="list">
-                                        <li class="list-item list-item--first">
-											<a href="/catalog/datchiki-izmereniya-davleniya/" class="list-link">
-                                                Датчики измерения давления
-                                            </a>
-                                        </li>
-                                        <li class="list-item">
-											<a href="/catalog/datchiki-izmereniya-davleniya/absolyutnogo-davleniya/" class="list-link">
-                                                Датчики абсолютного давления
-                                            </a>
-                                        </li>
-                                        <li class="list-item">
-											<a href="/catalog/datchiki-izmereniya-davleniya/differencielnye/" class="list-link">
-                                                Дифференциальные датчики давления
-                                            </a>
-                                        </li>
-                                        <li class="list-item">
-											<a href="/catalog/datchiki-izmereniya-davleniya/rele/" class="list-link">
-                                                Реле давления
-                                            </a>
-                                        </li>
-                                        <li class="list-item">
-											<a href="/catalog/datchiki-izmereniya-davleniya/cifrovye-manometry/" class="list-link">
-                                                Цифровые манометры
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="catalog-nav-item">
 								<a href="/catalog/datchiki-analiza-zhidkosti/" class="catalog-nav-picture">
                                     <img src="/upload/medialibrary/93e/xn34u2rwar6s20df2hrmfeimwh71n1zu/catalog_image_4.png.jpg" alt="">
                                 </a>
@@ -341,6 +307,40 @@ if ($currentUri === '/') {
                                         <li class="list-item list-item--first">
 											<a href="/catalog/datchiki-izmereniya-temperatury/" class="list-link">
                                                 Датчики температуры
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="catalog-nav-item">
+                                <a href="/catalog/datchiki-izmereniya-davleniya/" class="catalog-nav-picture">
+                                    <img src="/upload/medialibrary/0ca/3e2stv578rzri5yo1ar8vowpghlq57bj/catalog_image_3.png.jpg" alt="">
+                                </a>
+                                <div class="catalog-nav-list">
+                                    <ul class="list">
+                                        <li class="list-item list-item--first">
+                                            <a href="/catalog/datchiki-izmereniya-davleniya/" class="list-link">
+                                                Датчики измерения давления
+                                            </a>
+                                        </li>
+                                        <li class="list-item">
+                                            <a href="/catalog/datchiki-izmereniya-davleniya/absolyutnogo-davleniya/" class="list-link">
+                                                Датчики абсолютного давления
+                                            </a>
+                                        </li>
+                                        <li class="list-item">
+                                            <a href="/catalog/datchiki-izmereniya-davleniya/differencielnye/" class="list-link">
+                                                Дифференциальные датчики давления
+                                            </a>
+                                        </li>
+                                        <li class="list-item">
+                                            <a href="/catalog/datchiki-izmereniya-davleniya/rele/" class="list-link">
+                                                Реле давления
+                                            </a>
+                                        </li>
+                                        <li class="list-item">
+                                            <a href="/catalog/datchiki-izmereniya-davleniya/cifrovye-manometry/" class="list-link">
+                                                Цифровые манометры
                                             </a>
                                         </li>
                                     </ul>
