@@ -6,6 +6,7 @@
 !/bitrix/.settings.php
 /upload
 /products_files
+/comf5
 /local/log
 /.well-known
 /.idea
