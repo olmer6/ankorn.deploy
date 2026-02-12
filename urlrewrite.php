@@ -72,14 +72,51 @@ $arUrlRewrite=array (
             'PATH' => '/store/index.php',
             'SORT' => 100,
         ),
+/*
     16 =>
-        array (
-            'CONDITION' => '#^/catalog/#',
-            'RULE' => '',
-            'ID' => 'bitrix:catalog',
-            'PATH' => '/catalog/index.php',
-            'SORT' => 100,
-        ),
+    array(
+        'CONDITION' => '#^/catalog/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/?.*#',
+        'RULE' => 'FIRST_LEVEL_SECTION_CODE=$1&SECTION_CODE=$5',
+        'ID' => 'bitrix:catalog',
+        'PATH' => '/catalog/index.php',
+    ),
+    17 =>
+    array(
+        'CONDITION' => '#^/catalog/([^/]+)/([^/]+)/([^/]+)/([^/]+)/?.*#',
+        'RULE' => 'FIRST_LEVEL_SECTION_CODE=$1&SECTION_CODE=$4',
+        'ID' => 'bitrix:catalog',
+        'PATH' => '/catalog/index.php',
+    ),
+    18 =>
+    array(
+        'CONDITION' => '#^/catalog/([^/]+)/([^/]+)/([^/]+)/?.*#',
+        'RULE' => 'FIRST_LEVEL_SECTION_CODE=$1&SECTION_CODE=$3',
+        'ID' => 'bitrix:catalog',
+        'PATH' => '/catalog/index.php',
+    ),
+*/
+    19 =>
+    array(
+        'CONDITION' => '#^/catalog/([^/]+)/([^/]+)/.*#',
+        'RULE' => 'FIRST_LEVEL_SECTION_CODE=$1',
+        'ID' => 'bitrix:catalog',
+        'PATH' => '/catalog/index.php',
+    ),
+    20 =>
+    array(
+        'CONDITION' => '#^/catalog/([^/]+)/.*#',
+        'RULE' => 'SECTION_CODE=$1',
+        'ID' => 'bitrix:catalog',
+        'PATH' => '/catalog/index.php',
+    ),
+    50 =>
+    array (
+        'CONDITION' => '#^/catalog/#',
+        'RULE' => '',
+        'ID' => 'bitrix:catalog',
+        'PATH' => '/catalog/index.php',
+        'SORT' => 100,
+    ),
 
 
   1000 => // такое только в конец
@@ -87,7 +124,8 @@ $arUrlRewrite=array (
     'CONDITION' => '#^/#',
     'RULE' => '',
     'ID' => 'bitrix:catalog',
-    'PATH' => '/catalog/index.php',
+    'PATH' => '/catalog/index.php?error=404',
     'SORT' => 100,
   ),
+
 );

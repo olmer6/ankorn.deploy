@@ -10,19 +10,20 @@ Class DescendantSections
 
     const sefUrl = "catalog/#SECTION_CODE_PATH#/";
 
-    public static function printDescendantSections(int $id = null)
+    public static function printDescendantSections(int $id = null, $sectionUrlTemplate)
     {
-        $sections = self::getList($id);
+        $sections = self::getList($id, $sectionUrlTemplate);
+        if(count($sections)==0) return false;
         usort($sections, "self::sortBySort");
         $html = self::htmlCreate($sections);
         echo $html;
     }
-    public static function getList($id = null):array
+    public static function getList($id = null, $sectionUrlTemplate):array
     {
         $sections = self::getAllSectionList();
         $sections = self::definingAncestors($sections);
-        $sections = self::addSectionCodePath($sections);
         $sections = self::filterByCurrentSectionId($sections, $id);
+        $sections = self::addSectionCodePath($sections, $sectionUrlTemplate);
         return $sections;
     }
 
@@ -59,14 +60,25 @@ Class DescendantSections
         }
         return $sections;
     }
-    private static function addSectionCodePath(array $sections):array
+    private static function addSectionCodePath(array $sections, $sectionUrlTemplate):array
     {
+        if($sectionUrlTemplate == self::sefUrl){
+            foreach($sections as $key=>&$section) {
+                if($section["DEPTH_LEVEL"] == 1)
+                    $sections[$key]['SECTION_CODE_PATH'] = '/' . str_replace('#SECTION_CODE_PATH#', $section['CODE'], $sectionUrlTemplate).'/';
+                else {
+                    $sections[$key]['SECTION_CODE_PATH'] =  '/' . str_replace('#SECTION_CODE_PATH#', implode("/", $section['PARENT_CODE']), $sectionUrlTemplate) . $section['CODE'] . '/';
+                }
+            }
+        }
+        else if ($sectionUrlTemplate == "catalog/#FIRST_LEVEL_SECTION_CODE#/#SECTION_CODE#/"){
+            foreach($sections as $key=>&$section) {
+                if($section["DEPTH_LEVEL"] == 1)
+                    $sections[$key]['SECTION_CODE_PATH'] = '/catalog/'.$section['CODE'].'/';
+                else {
+                    $sections[$key]['SECTION_CODE_PATH'] = '/catalog/'.array_shift($section['PARENT_CODE']).'/'.$section['CODE'].'/';
 
-        foreach($sections as $key=>&$section) {
-            if($section["DEPTH_LEVEL"] == 1)
-                $sections[$key]['SECTION_CODE_PATH'] = '/' . str_replace('#SECTION_CODE_PATH#', $section['CODE'], self::sefUrl).'/';
-            else {
-                $sections[$key]['SECTION_CODE_PATH'] =  '/' . str_replace('#SECTION_CODE_PATH#', implode("/", $section['PARENT_CODE']), self::sefUrl) . $section['CODE'] . '/';
+                }
             }
         }
         return $sections;

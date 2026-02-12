@@ -43,13 +43,12 @@ if ($sectionListParams["COUNT_ELEMENTS"] === "Y")
 }
 $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list",
-	"bootstrap_v4",
+	"ankorn",
 	$sectionListParams,
 	$component,
 	($arParams["SHOW_TOP_ELEMENTS"] !== "N" ? array("HIDE_ICONS" => "Y") : array())
 );
 unset($sectionListParams);
-
 if ($arParams["USE_COMPARE"] === "Y")
 {
 	$APPLICATION->IncludeComponent("bitrix:catalog.compare.list", "", array(

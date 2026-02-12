@@ -343,7 +343,7 @@ print "</div>";
 */
 
         // выводим список подкатегорий
-        \local\util\catalog\lib\DescendantSections::printDescendantSections($arResult["VARIABLES"]["SECTION_ID"]);
+        \local\util\catalog\lib\DescendantSections::printDescendantSections($arCurSection['ID'], $arResult["URL_TEMPLATES"]["section"]);
 
 		//region Compare List
 		if ($arParams["USE_COMPARE"]=="Y")
