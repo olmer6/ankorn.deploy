@@ -1,3 +1,11 @@
+.page-container-compare {
+	font-family: Inter;
+	padding: 0 30px;
+}
+.compare-wrap{background: #fff;}
+.compare-wrap .compare-menu-wrap {
+	padding: 0;
+}
 .catalog-compare { }
 
 .catalog-compare-filter { font-size: 14px; }
@@ -9,49 +17,12 @@
 
 .catalog-compare-item-title { font-size: 13px; }
 
-.catalog-compare-table th,
-.catalog-compare-table td {
-	min-width: 180px;
-	font-size: 13px;
-}
 
 .catalog-compare-item-image {
 	max-width: 100%;
 	max-height: 150px;
 	width: auto;
 	height: auto;
-}
-
-/*region themes*/
-.bx-theme-yellow .catalog-compare-filter,
-.bx-yellow.catalog-compare .catalog-compare-filter {
-	border: 7px solid #fbf7db;
-	background: #f3ebb6;
-}
-
-.bx-theme-red .catalog-compare-filter,
-.bx-red.catalog-compare .catalog-compare-filter {
-	border: 7px solid #fdf1ef;
-	background: #f3dcd9;
-}
-
-.bx-theme-green .catalog-compare-filter,
-.bx-green.catalog-compare .catalog-compare-filter {
-	border: 7px solid #e9f3e1;
-	background: #d2e7be;
-}
-
-.bx-theme-blue .catalog-compare-filter,
-.bx-blue.catalog-compare .catalog-compare-filter {
-	border: 7px solid #e1f5fb;
-	background: #c3e9f4;
-}
-
-/*endregion*/
-
-
-.page-container-compare {
-	font-family: Inter;
 }
 
 .catalog-compare-table .btn-sm {
@@ -64,18 +35,6 @@
 	border-color: #7f1221;;
 }
 
-.catalog-compare-table tr {
-
-}
-
-.catalog-compare-table th {
-	border-right-width: 1px;
-	background: white;
-}
-
-.catalog-compare-table td {
-	border-right-width: 1px;
-}
 
 ul#compare-menu {
 	list-style: none;
@@ -107,11 +66,28 @@ ul#compare-menu li a {
 
 /* ТАБЛИЦА СРАВНЕНИЯ */
 
-.catalog-compare-table {
-	--columns-count: 4; /* Ожидаемое количество колонок */
-	--first-col-width: 25%; /* Ширина первой колонки */
-	--other-col-width: 25%; /* Ширина остальных колонок */
+.del_icon {
+	display: block;
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	right: 18px;
+	cursor: pointer;
+}
+.del_icon::before, .del_icon::after {
+	display: block;
+	width: 1px;
+	height: 24px;
+	background: black;
+	content: '';
+	position: absolute;
+	right: 10px;
+	bottom: -2px;
+}
+.del_icon::before{rotate: 45deg;}
+.del_icon::after {rotate: -45deg;}
 
+.catalog-compare-table {
 	width: 100%;
 	overflow-x: auto;
 }
@@ -123,32 +99,81 @@ ul#compare-menu li a {
 	table-layout: fixed;
 }
 
+.catalog-compare-table tr {
+
+}
+
+.catalog-compare-table th {
+	border-right-width: 1px;
+	background: white;
+}
+
+.catalog-compare-table td {
+	border-right-width: 1px;
+}
+.catalog-compare-table th,
+.catalog-compare-table td {
+	min-width: 180px;
+	font-size: 13px;
+}
 /* Первая колонка */
 .catalog-compare-table .table th:first-child,
 .catalog-compare-table .table td:first-child {
+	/*
 	width: var(--first-col-width);
 	min-width: 250px;
 	position: sticky;
 	left: 0;
+	*/
 }
 
 /* Остальные колонки */
 .catalog-compare-table .table th:not(:first-child),
 .catalog-compare-table .table td:not(:first-child) {
+	/*
 	width: var(--other-col-width);
+	*/
 	min-width: 200px;
+	max-width: 300px;
 }
-
+/*первая строка*/
+.catalog-compare-table tr:first-child th,
+.catalog-compare-table tr:first-child td {
+	border-right-width: 0px;
+	position: relative;
+}
 
 /* ----------------- */
 
 @media (max-width: 800px) {
-	.catalog-compare-table {
-		--columns-count: 2; /* Ожидаемое количество колонок */
-		--first-col-width: 50%; /* Ширина первой колонки */
-		--other-col-width: 50%; /* Ширина остальных колонок */
-	}
-	.catalog-compare-table .table {
-		min-width: calc(100vw * var(--columns-count) / 2);
-	}
+
 }
+
+
+
+/*region themes*/
+.bx-theme-yellow .catalog-compare-filter,
+.bx-yellow.catalog-compare .catalog-compare-filter {
+	border: 7px solid #fbf7db;
+	background: #f3ebb6;
+}
+
+.bx-theme-red .catalog-compare-filter,
+.bx-red.catalog-compare .catalog-compare-filter {
+	border: 7px solid #fdf1ef;
+	background: #f3dcd9;
+}
+
+.bx-theme-green .catalog-compare-filter,
+.bx-green.catalog-compare .catalog-compare-filter {
+	border: 7px solid #e9f3e1;
+	background: #d2e7be;
+}
+
+.bx-theme-blue .catalog-compare-filter,
+.bx-blue.catalog-compare .catalog-compare-filter {
+	border: 7px solid #e1f5fb;
+	background: #c3e9f4;
+}
+
+/*endregion*/

@@ -1029,109 +1029,6 @@ h1#basket-h1:after {
     background: #0056b3;
 }
 
-.page-container-compare {
-	font-family: Inter;
-}
-
-.catalog-compare-table .btn-sm {
-	background-color: rgb(172, 24, 45);
-	border-color: rgb(172, 24, 45);
-}
-
-.catalog-compare-table .btn-sm:hover {
-	background-color: #7f1221;
-	border-color: #7f1221;;
-}
-
-.catalog-compare-table tr {
-
-}
-
-.catalog-compare-table th {
-  border-right-width: 1px;
-  background: white;
-}
-
-.catalog-compare-table td {
-  border-right-width: 1px;
-}
-
-ul#compare-menu {
-	list-style: none;
-	padding: 0;
-}
-
-ul#compare-menu li {
-	border-top: 1px solid black;
-  background: #D9D9D9;
-}
-
-ul#compare-menu li:last-child {
-	border-bottom: 1px solid black;
-}
-
-ul#compare-menu li a {
-	font-family: Inter;
-	font-weight: 400;
-	font-style: Regular;
-	font-size: 16px;
-	leading-trim: NONE;
-	line-height: 100%;
-	letter-spacing: 0%;
-  display: block;
-  height: 100%;
-  width: 100%;
-  padding: 15px 15px 15px 5px;
-}
-
-/* ТАБЛИЦА СРАВНЕНИЯ */
-
-.catalog-compare-table {
-    --columns-count: 4; /* Ожидаемое количество колонок */
-    --first-col-width: 25%; /* Ширина первой колонки */
-    --other-col-width: 25%; /* Ширина остальных колонок */
-    
-    width: 100%;
-    overflow-x: auto;
-}
-
-.catalog-compare-table .table {
-    /* Общая ширина = 100% * количество колонок */
-    width: calc(100% * var(--columns-count));
-    min-width: calc(100vw * var(--columns-count) / 4);
-    table-layout: fixed;
-}
-
-/* Первая колонка */
-.catalog-compare-table .table th:first-child,
-.catalog-compare-table .table td:first-child {
-    width: var(--first-col-width);
-    min-width: 250px;
-    position: sticky;
-    left: 0;
-}
-
-/* Остальные колонки */
-.catalog-compare-table .table th:not(:first-child),
-.catalog-compare-table .table td:not(:first-child) {
-    width: var(--other-col-width);
-    min-width: 200px;
-}
-
-
-/* ----------------- */
-
-@media (max-width: 800px) {
-	.catalog-compare-table {
-    --columns-count: 2; /* Ожидаемое количество колонок */
-    --first-col-width: 50%; /* Ширина первой колонки */
-    --other-col-width: 50%; /* Ширина остальных колонок */	
-   }
-   .catalog-compare-table .table {
-    min-width: calc(100vw * var(--columns-count) / 2);
-   }
-}
-
 /* --- Избранное/Отложенное --- */
 
 .favorites-page {
@@ -1469,16 +1366,33 @@ ul#compare-menu li a {
 }
 
 .section-list-wrap {
-	height: 80px;
+	height: 110px;
 	overflow: hidden;
 	margin-bottom: 22px;
 	position: relative;
 	transition: height ease-out 1s;
-}
 
-.section-list-wrap.active {
-/*	height: auto;*/
 }
+.section-list-wrap .show-more {
+	position: absolute;
+	z-index: 1;
+	background: #fff;
+	width: 100%;
+	padding: 5px 10px 5px 30px;
+	bottom: 0;
+	color: #888;
+}
+.section-list-wrap .show-more .show,
+.section-list-wrap .show-more .hide{
+	display: inline-block;
+	padding: 0px 5px 0px;
+	border-bottom: 1px dashed #888;
+	cursor: pointer;
+}
+.section-list-wrap .show-more .hide, .section-list-wrap.active .show-more .show{display:none}
+.section-list-wrap.active .show-more .hide{display: inline-block;}
+
+/*
 .section-list-wrap .arrow {
 	position: absolute;
 	display: block;
@@ -1505,7 +1419,7 @@ ul#compare-menu li a {
 }
 .section-list-wrap .arrow::after{}
 .section-list-wrap .arrow::before{}
-
+*/
 
 
 @media (max-width:520px){
