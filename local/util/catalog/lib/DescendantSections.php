@@ -128,7 +128,10 @@ Class DescendantSections
         ob_start();
         ?>
         <div class="col section-list-wrap">
-            <div class="arrow"></div>
+            <div class="show-more">
+                <div class="show">Показать еще</div>
+                <div class="hide">Скрыть</div>
+            </div>
             <ul class="catalog-section-list-tile-list row mb-4">
                 <?foreach($sections as $section){?>
                 <li class="col-lg-2 col-md-3 col-sm-4 col-6 catalog-section-list-item">
