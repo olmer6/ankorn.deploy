@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -109,7 +109,13 @@ $fileProps = [
     ['file' => 'FILE_1', 'name' => 'FILE_NAME1'],
     ['file' => 'FILE_2', 'name' => 'FILE_NAME2'],
     ['file' => 'FILE_3', 'name' => 'FILE_NAME3'],
-    ['file' => 'FILE_4', 'name' => 'FILE_NAME4']
+    ['file' => 'FILE_4', 'name' => 'FILE_NAME4'],
+    ['file' => 'FILE_5', 'name' => 'FILE_NAME5'],
+    ['file' => 'FILE_6', 'name' => 'FILE_NAME6'],
+    ['file' => 'FILE_7', 'name' => 'FILE_NAME7'],
+    ['file' => 'FILE_8', 'name' => 'FILE_NAME8'],
+    ['file' => 'FILE_9', 'name' => 'FILE_NAME9'],
+    ['file' => 'FILE_10', 'name' => 'FILE_NAME10']
 ];
 $files = 0;
 foreach ($fileProps as $fileProp) {
@@ -155,6 +161,12 @@ $eurRate = \CCurrencyRates::GetConvertFactor('EUR', $baseCurrency);
                               echo "Новинка";
                             echo '</div>';
                             } 
+                          ?>
+                          <?php if($arResult['PROPERTIES']['PARAM_AVAILABLE']["VALUE"]) {
+                            echo "<div class='product-plate plate-available'>";
+                              echo "В наличии";
+                            echo '</div>';
+                            }
                           ?>
                         </div>
                         <div id="char-plates">
@@ -298,12 +310,14 @@ $eurRate = \CCurrencyRates::GetConvertFactor('EUR', $baseCurrency);
                     <div class="price-descr">
                         Цена товаров зависит от модификации прибора и формируется исходя из текущего курса евро к рублю
                     </div>
+
+                    <?php if($arResult['PROPERTIES']['IS_MAIN']['VALUE']==''){?>
                     <div class="compare-fav">
                       <div class="compare-item">
                         <a href="javascript:void(0)" onclick="addToCompare(<?= $productId ?>, '<?= $productName ?>')" class="" rel="noindex nofollow" title="Добавить в сравнение">Сравнить</a>
                       </div>
                       <div class="fav-item">
-                        <a class=""
+                        <a class="favorite-link"
                         data-id="<?= $productId ?>"
                         data-name="<?= $productName ?>"
                         data-price="<?= $productPrice ?>"
@@ -315,6 +329,7 @@ $eurRate = \CCurrencyRates::GetConvertFactor('EUR', $baseCurrency);
                         ♡ В избранное</a>
                       </div>
                     </div>
+                    <?php }?>
                     <?php
                       // print "<pre>";
                       // print_r($arResult);
@@ -356,54 +371,56 @@ $eurRate = \CCurrencyRates::GetConvertFactor('EUR', $baseCurrency);
                           }
                           ?>
                         </div> -->
-    <?php
-      if($arResult['ITEM_PRICES'][0]['PRICE']) {
-    ?>
-    <a class="btn-red" href="/add_to_cart.php?id=<?= $arResult['ID'] ?>&sessid=<?= bitrix_sessid() ?>">Купить</a>
+                        <?php if($arResult['PROPERTIES']['IS_MAIN']['VALUE']==''){?>
+                        <?php
+                          if($arResult['ITEM_PRICES'][0]['PRICE']) {
+                        ?>
+                        <a class="btn-red" href="/add_to_cart.php?id=<?= $arResult['ID'] ?>&sessid=<?= bitrix_sessid() ?>">Купить</a>
 
-    <script>
-    function addToCart(productId) {
-        // Создаем скрытую форму
-        var form = document.createElement('form');
-        form.method = 'POST';
-        form.action = '<?= POST_FORM_ACTION_URI ?>';
-        form.style.display = 'none';
-        
-        // Добавляем CSRF-токен
-        var sessid = document.createElement('input');
-        sessid.type = 'hidden';
-        sessid.name = 'sessid';
-        sessid.value = '<?= bitrix_sessid() ?>';
-        form.appendChild(sessid);
-        
-        // Добавляем ID товара
-        var input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = 'action';
-        input.value = 'ADD2BASKET';
-        form.appendChild(input);
-        
-        var input2 = document.createElement('input');
-        input2.type = 'hidden';
-        input2.name = 'id';
-        input2.value = productId;
-        form.appendChild(input2);
-        
-        // Добавляем форму на страницу и отправляем
-        document.body.appendChild(form);
-        form.submit();
-        
-        // Предотвращаем переход по ссылке
-        return false;
-    }
-    </script>
-    <?php 
-      }
-      else {
-        print "<button class='btn-red modal-price'>Заказать</button>";
-      }
-     ?>
+                        <script>
+                        function addToCart(productId) {
+                            // Создаем скрытую форму
+                            var form = document.createElement('form');
+                            form.method = 'POST';
+                            form.action = '<?= POST_FORM_ACTION_URI ?>';
+                            form.style.display = 'none';
 
+                            // Добавляем CSRF-токен
+                            var sessid = document.createElement('input');
+                            sessid.type = 'hidden';
+                            sessid.name = 'sessid';
+                            sessid.value = '<?= bitrix_sessid() ?>';
+                            form.appendChild(sessid);
+
+                            // Добавляем ID товара
+                            var input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = 'action';
+                            input.value = 'ADD2BASKET';
+                            form.appendChild(input);
+
+                            var input2 = document.createElement('input');
+                            input2.type = 'hidden';
+                            input2.name = 'id';
+                            input2.value = productId;
+                            form.appendChild(input2);
+
+                            // Добавляем форму на страницу и отправляем
+                            document.body.appendChild(form);
+                            form.submit();
+
+                            // Предотвращаем переход по ссылке
+                            return false;
+                        }
+                        </script>
+                        <?php
+                          }
+                          else {
+                            print "<button class='btn-red modal-price'>Заказать</button>";
+                          }
+                         ?>
+
+                        <?php }?>
 
                         
                         <button class="btn-red modal-engineer">Задать вопрос</button>
@@ -593,7 +610,7 @@ $eurRate = \CCurrencyRates::GetConvertFactor('EUR', $baseCurrency);
     </div>
 </section>
 
-<?
+<?php
 global $arNewsFilterLast;
 
 
@@ -629,7 +646,7 @@ $arNewsFilterLast = [
     'ID' => $viewedNews, // Массив ID просмотренных новостей
 ];
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
     "bitrix:news.list",
     "recent",
     array(
@@ -712,7 +729,7 @@ $arNewsFilter = [
             <h2>Товары в этой категории</h2>
         </div>
     </div>
-    <?$APPLICATION->IncludeComponent(
+    <?php $APPLICATION->IncludeComponent(
         "bitrix:news.list",
         "product-slider",
         Array(
@@ -814,154 +831,13 @@ $arNewsFilter = [
   // Выводим разметку
   echo $schemaMarkup;
 ?>
+
 <script>
-// Функция добавления в сравнение
-function addToCompare(productId, productName) {
-    // Показываем загрузку
-    var link = event.target;
-    var originalHtml = link.innerHTML;
-    link.innerHTML = '⏳ Добавляем...';
-    
-    // AJAX запрос к компоненту сравнения
-    BX.ajax({
-        url: window.location.href, // Текущая страница
-        method: 'POST',
-        data: {
-            sessid: BX.bitrix_sessid(),
-            action: 'ADD_TO_COMPARE_LIST',
-            id: productId,
-            ajax_action: 'Y'
-        },
-        onsuccess: function(response) {
-            // Восстанавливаем кнопку
-            link.innerHTML = originalHtml;
-            
-            // Проверяем успех (в Битрикс обычно возвращает JSON)
-            var success = false;
-            try {
-                var data = JSON.parse(response);
-                success = data.STATUS === 'OK';
-            } catch(e) {
-                // Если не JSON, ищем текст успеха
-                success = response.indexOf('success') > -1 || 
-                         response.indexOf('добавлен') > -1;
-            }
-            
-            if (success) {
-                // Показываем всплывающее окно
-                showComparePopup(productName);
-            } else {
-                alert('Не удалось добавить товар в сравнение');
-            }
-        },
-        onfailure: function() {
-            link.innerHTML = originalHtml;
-            alert('Ошибка соединения');
-        }
-    });
-}
-
-// Показ всплывающего окна
-function showComparePopup(productName) {
-    // Создаем модальное окно
-    var popup = document.createElement('div');
-    popup.className = 'compare-popup';
-    popup.innerHTML = `
-        <div class="compare-popup-content">
-            <div class="compare-popup-header">
-                <h3>Товар добавлен в сравнение</h3>
-                <button class="compare-popup-close" onclick="closeComparePopup()">×</button>
-            </div>
-            <div class="compare-popup-body">
-                <p>«${productName}» добавлен в список сравнения.</p>
-                <p>Вы можете сравнить его с другими товарами.</p>
-            </div>
-            <div class="compare-popup-footer">
-                <button class="btn-continue" onclick="closeComparePopup()">Продолжить покупки</button>
-                <button class="btn-go-compare" onclick="window.location.href='/catalog/compare/'">Перейти к сравнению</button>
-            </div>
-        </div>
-        <div class="compare-popup-overlay" onclick="closeComparePopup()"></div>
-    `;
-    
-    // Добавляем на страницу
-    document.body.appendChild(popup);
-    
-    // Закрытие по ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeComparePopup();
-    });
-}
-
-// Закрытие окна
-function closeComparePopup() {
-    var popup = document.querySelector('.compare-popup');
-    if (popup) {
-        popup.remove();
-    }
-}
 
 // Инициализация при загрузке
 document.addEventListener('DOMContentLoaded', function() {
     // Можно добавить обработчики для других элементов
 });
-
-// Функция переключения избранного
-function toggleFavorite(button) {
-    const productId = button.getAttribute('data-id');
-    const productName = button.getAttribute('data-name');
-    const productPrice = button.getAttribute('data-price');
-    const productImage = button.getAttribute('data-image');
-    const productUrl = button.getAttribute('data-url'); // Получаем URL
-    
-    let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-    const existingIndex = favorites.findIndex(item => item.id == productId);
-    
-    if (existingIndex >= 0) {
-        // Удаляем
-        favorites.splice(existingIndex, 1);
-        button.innerHTML = '♡ В избранное';
-        button.classList.remove('active');
-    } else {
-        // Добавляем с URL
-        favorites.push({
-            id: productId,
-            name: productName,
-            price: parseFloat(productPrice),
-            image: productImage,
-            detailUrl: productUrl, // Сохраняем URL
-            quantity: 1
-        });
-        button.innerHTML = '♥ В избранном';
-        button.classList.add('active');
-    }
-    
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-    updateFavoritesCounter();
-}
-
-// Счетчик избранного в шапке
-function updateFavoritesCounter() {
-    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-    const counter = document.getElementById('favorites-counter');
-    if (counter) {
-        counter.textContent = favorites.length;
-        counter.style.display = favorites.length ? 'inline' : 'none';
-    }
-}
-
-// Показ уведомлений
-function showNotification(message) {
-    // Можно использовать BX.UI.Notification или простой alert
-    if (typeof BX !== 'undefined' && BX.UI && BX.UI.Notification) {
-        BX.UI.Notification.Center.notify({
-            content: message,
-            autoHideDelay: 3000
-        });
-    } else {
-        alert(message);
-    }
-}
 
 // При загрузке страницы проверяем, добавлен ли товар в избранное
 document.addEventListener('DOMContentLoaded', function() {
@@ -969,7 +845,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
     const isFavorite = favorites.some(item => item.id == productId);
     
-    const button = document.querySelector('.favorite-btn[data-id="<?= $productId ?>"]');
+    const button = document.querySelector('.favorite-link[data-id="<?= $productId ?>"]');
     if (button && isFavorite) {
         button.innerHTML = '♥ В избранном';
         button.classList.add('active');

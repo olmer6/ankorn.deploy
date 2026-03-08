@@ -6,7 +6,6 @@ CJSCore::Init(array('ajax', 'ui.notification'));
 <div class="page-container">
     <div class="favorites-page">
         <h1 id="catalog-h1">Отложенные товары товары</h1>
-        
         <div id="favorites-container">
             <!-- Товары будут подгружены через JavaScript -->
             <div class="favorites-loading">Загрузка...</div>
@@ -66,41 +65,31 @@ function loadFavorites() {
         totalPrice += itemTotal;
         
       html += `
-      <div class="favorite-item" data-id="${item.id}">
-          <div class="favorite-item-image">
-              <a href="${item.detailUrl || '/catalog/'}" target="_blank">
-                  <img src="${item.image}" alt="${item.name}" width="120" height="120">
-              </a>
-          </div>
-          <div class="favorite-item-info">
-              <h3 class="favorite-item-title">
-                  <a href="${item.detailUrl || '/catalog/'}" target="_blank">
-                      ${item.name}
-                  </a>
-              </h3>
-              <div class="favorite-item-price">${formatPrice(item.price)} ₽</div>
-              
-              <div class="favorite-item-quantity">
-                  <label>Количество:</label>
-                  <div class="quantity-controls">
-                      <button class="qty-minus" onclick="changeQuantity(${index}, -1)">-</button>
-                      <input type="number" value="${item.quantity}" min="1" 
-                             class="qty-input" onchange="updateQuantity(${index}, this.value)">
-                      <button class="qty-plus" onclick="changeQuantity(${index}, 1)">+</button>
-                  </div>
-                  <div class="item-total">Сумма: ${formatPrice(itemTotal)} ₽</div>
-              </div>
-
-              <div class="favorite-item-actions">
-                  <button class="btn btn-sm btn-cart" onclick="addToCartAjax(${item.id}, ${item.quantity})">
-                      В корзину
-                  </button>
-                  <button class="btn btn-sm btn-remove" onclick="removeFromFavorites(${index})">
-                      Удалить
-                  </button>
-              </div>
-          </div>
-      </div>
+              <div class="favorite_v2-item">
+            <div class="favorite_v2-item-image"><a href="${item.detailUrl || '/catalog/'}"><img src="${item.image}" alt="${item.name}"></a></div>
+            <div class="favorite_v2-item-title">
+                <h3><a href="${item.detailUrl || '/catalog/'}">${item.name}</a></h3>
+                <span>Срок отгрузки до 98 дней</span>
+            </div>
+            <div class="favorite_v2-item-cart">
+                <div class="btn-cart" onclick="addToCartAjax(${item.id}, ${item.quantity})">в корзину</div>
+            </div>
+            <div class="favorite_v2-item-price-wrap">
+                <div class="favorite_v2-item-price">${formatPrice(item.price)} ₽</div>
+                <div class="favorite_v2-item-price-per">цена за 1 шт</div>
+            </div>
+            <div class="favorite_v2-item-quantity">
+                <div class="quantity-controls">
+                    <button class="qty-minus" onclick="changeQuantity(${index}, -1)">-</button>
+                    <input type="text" value="${item.quantity}" min="1" class="qty-input" onchange="updateQuantity(${index}, this.value)">
+                    <button class="qty-plus" onclick="changeQuantity(${index}, 1)">+</button>
+                </div>
+            </div>
+            <div class="item-total">
+                Сумма: <span>${formatPrice(itemTotal)} ₽</span>
+                <div class="btn-remove" onclick="removeFromFavorites(${index})"></div>
+            </div>
+        </div>
       `;
     });
     

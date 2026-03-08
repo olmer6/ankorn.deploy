@@ -15,20 +15,6 @@ php_value max_input_vars 10000
   #Добавил
   RewriteBase /
 
-  RewriteRule ^(.*)catalog/datchiki-izmereniya-urovnya/ultrazvukovye-urovnemery-dlya-zhidkosti/?$ /catalog/datchiki-izmereniya-urovnya/urovnemery-ultrazvukovye/ultrazvukovye-urovnemery-dlya-zhidkosti/ [R=301,L]
-  RewriteRule ^(.*)catalog/datchiki-izmereniya-urovnya/ultrazvukovye-urovnemery-dlya-sypuchikh-materialov/?$ /catalog/datchiki-izmereniya-urovnya/urovnemery-ultrazvukovye/ultrazvukovye-urovnemery-dlya-sypuchikh-materialov/ [R=301,L]
-  RewriteRule ^(.*)catalog/signalizatory-urovnya/emkostnye/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-emkostnye/ [R=301,L]
-  RewriteRule ^(.*)catalog/signalizatory-urovnya/konduktivnye/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-conductive/ [R=301,L]
-  RewriteRule ^(.*)catalog/signalizatory-urovnya/magnitnye/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-magnitnye/ [R=301,L]
-  RewriteRule ^(.*)catalog/signalizatory-urovnya/nivocont/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-nivocont/ [R=301,L]
-  RewriteRule ^(.*)catalog/signalizatory-urovnya/nivoswitch/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-nivoswitch/ [R=301,L]
-  RewriteRule ^(.*)catalog/signalizatory-urovnya/rotacionnye/?$ /catalog/datchiki-izmereniya-urovnya/rotacionnye-signalizatory-urovnya/ [R=301,L]
-  RewriteRule ^(.*)catalog/signalizatory-urovnya/sypuchih/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-urovnya-sypuchih-materialov/ [R=301,L]
-  RewriteRule ^(.*)catalog/signalizatory-urovnya/vibracionnye/?$ /catalog/datchiki-izmereniya-urovnya/urovnemery-vibracionnye/ [R=301,L]
-  RewriteRule ^(.*)catalog/signalizatory-urovnya/zhidkosti/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-urovnya-zhidkosti/ [R=301,L]
-  RewriteRule ^(.*)catalog/signalizatory-urovnya/?$ /catalog/datchiki-izmereniya-urovnya/signalizatory-urovnya/ [R=301,L]
-
-
   RewriteCond %{HTTPS} off
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

@@ -210,11 +210,46 @@ if ( $item['PROPERTIES']['IS_MAIN']['VALUE_ENUM'] ) {
 		</a>
 	<? endif; ?>
 	</h3>
-	<div class="instock">
-	<? if ($actualItem['CAN_BUY']): ?>
-		В наличии <img src="/local/templates/ankorn/img/check_1.png" />
-	<? endif; ?>
-	</div>
+
+    <div class="catalog-section-item-buttons">
+        <div class="compare-button">
+            <a href="javascript:void(0)" onclick="addToCompare(<?=$item["ID"]?>, '<?=$item["NAME"]?>')" class="" rel="noindex nofollow" title="Добавить в сравнение">Сравнить</a>
+        </div>
+        <div class="favorite-button">
+            <a
+                    class="favorite-link"
+                    data-id="<?=$item["ID"]?>"
+                    data-name="<?=$item["NAME"]?>"
+                    data-price="<?=$item['ITEM_PRICES'][0]['PRICE'] ?? 0?>"
+                    data-image="<?=$item["PREVIEW_PICTURE"]["SRC"]?>"
+                    data-url="<?=$item["DETAIL_PAGE_URL"]?>"
+                    onclick="toggleFavorite(this)"
+                    rel="noindex nofollow"
+                    title="Добавить в избранное"
+            >
+                ♡ В избранное</a>
+
+            <script>
+                // При загрузке страницы проверяем, добавлен ли товар в избранное
+                document.addEventListener('DOMContentLoaded', function() {
+                    const productId = <?=$item["ID"]?>;
+                    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+                    const isFavorite = favorites.some(item => item.id == productId);
+
+                    const button = document.querySelector('.favorite-link[data-id="<?= $item["ID"] ?>"]');
+                    if (button && isFavorite) {
+                        button.innerHTML = '♥ В избранном';
+                        button.classList.add('active');
+                    }
+                    // Инициализируем счетчик
+                    updateFavoritesCounter();
+                });
+            </script>
+        </div>
+    </div>
+
+
+
 	<div class="buy-container">
 	<?
 	if (!empty($arParams['PRODUCT_BLOCKS_ORDER']))

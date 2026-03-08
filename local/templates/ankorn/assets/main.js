@@ -385,3 +385,149 @@ $(function () {
 
 
 })
+// ** Избранное и сравнение **
+
+// Функция добавления в сравнение
+function addToCompare(productId, productName) {
+    // Показываем загрузку
+    var link = event.target;
+    var originalHtml = link.innerHTML;
+    link.innerHTML = '⏳ Добавляем...';
+
+    // AJAX запрос к компоненту сравнения
+    BX.ajax({
+        url: window.location.href, // Текущая страница
+        method: 'POST',
+        data: {
+            sessid: BX.bitrix_sessid(),
+            action: 'ADD_TO_COMPARE_LIST',
+            id: productId,
+            ajax_action: 'Y'
+        },
+        onsuccess: function(response) {
+            // Восстанавливаем кнопку
+            link.innerHTML = originalHtml;
+
+            // Проверяем успех (в Битрикс обычно возвращает JSON)
+            var success = false;
+            try {
+                var data = JSON.parse(response);
+                success = data.STATUS === 'OK';
+            } catch(e) {
+                // Если не JSON, ищем текст успеха
+                success = response.indexOf('success') > -1 ||
+                    response.indexOf('добавлен') > -1;
+            }
+
+            if (success) {
+                // Показываем всплывающее окно
+                showComparePopup(productName);
+            } else {
+                alert('Не удалось добавить товар в сравнение');
+            }
+        },
+        onfailure: function() {
+            link.innerHTML = originalHtml;
+            alert('Ошибка соединения');
+        }
+    });
+}
+
+// Показ всплывающего окна
+function showComparePopup(productName) {
+    // Создаем модальное окно
+    var popup = document.createElement('div');
+    popup.className = 'compare-popup';
+    popup.innerHTML = `
+        <div class="compare-popup-content">
+            <div class="compare-popup-header">
+                <h3>Товар добавлен в сравнение</h3>
+                <button class="compare-popup-close" onclick="closeComparePopup()">×</button>
+            </div>
+            <div class="compare-popup-body">
+                <p>«${productName}» добавлен в список сравнения.</p>
+                <p>Вы можете сравнить его с другими товарами.</p>
+            </div>
+            <div class="compare-popup-footer">
+                <button class="btn-continue" onclick="closeComparePopup()">Продолжить покупки</button>
+                <button class="btn-go-compare" onclick="window.location.href='/catalog/compare/'">Перейти к сравнению</button>
+            </div>
+        </div>
+        <div class="compare-popup-overlay" onclick="closeComparePopup()"></div>
+    `;
+
+    // Добавляем на страницу
+    document.body.appendChild(popup);
+
+    // Закрытие по ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeComparePopup();
+    });
+}
+
+// Закрытие окна
+function closeComparePopup() {
+    var popup = document.querySelector('.compare-popup');
+    if (popup) {
+        popup.remove();
+    }
+}
+
+// Функция переключения избранного
+function toggleFavorite(button) {
+    const productId = button.getAttribute('data-id');
+    const productName = button.getAttribute('data-name');
+    const productPrice = button.getAttribute('data-price');
+    const productImage = button.getAttribute('data-image');
+    const productUrl = button.getAttribute('data-url'); // Получаем URL
+
+    let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    const existingIndex = favorites.findIndex(item => item.id == productId);
+
+    if (existingIndex >= 0) {
+        // Удаляем
+        favorites.splice(existingIndex, 1);
+        button.innerHTML = '♡ В избранное';
+        button.classList.remove('active');
+    } else {
+        // Добавляем с URL
+        favorites.push({
+            id: productId,
+            name: productName,
+            price: parseFloat(productPrice),
+            image: productImage,
+            detailUrl: productUrl, // Сохраняем URL
+            quantity: 1
+        });
+        button.innerHTML = '♥ В избранном';
+        button.classList.add('active');
+    }
+
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    updateFavoritesCounter();
+}
+
+// Счетчик избранного в шапке
+function updateFavoritesCounter() {
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    const counter = document.getElementById('favorites-counter');
+    if (counter) {
+        counter.textContent = favorites.length;
+        counter.style.display = favorites.length ? 'inline' : 'none';
+    }
+}
+
+// Показ уведомлений
+function showNotification(message) {
+    // Можно использовать BX.UI.Notification или простой alert
+    if (typeof BX !== 'undefined' && BX.UI && BX.UI.Notification) {
+        BX.UI.Notification.Center.notify({
+            content: message,
+            autoHideDelay: 3000
+        });
+    } else {
+        alert(message);
+    }
+}
+
+// ** Конец избранного и сравнения **

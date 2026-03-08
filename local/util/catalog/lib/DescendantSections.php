@@ -104,10 +104,11 @@ Class DescendantSections
         $obSections = CIBlockSection::GetList(
             array('LEFT_MARGIN' => 'ASC'),
             array('IBLOCK_ID' => self::prodIBid,'ACTIVE' => 'Y','GLOBAL_ACTIVE' => 'Y',),
-            false,
-            array('ID', 'NAME', 'SECTION_PAGE_URL', 'DEPTH_LEVEL', 'IBLOCK_SECTION_ID', 'SORT', 'LEFT_MARGIN')
+            true,
+            array('ID', 'NAME', 'ELEMENT_CNT', 'SECTION_PAGE_URL', 'DEPTH_LEVEL', 'IBLOCK_SECTION_ID', 'SORT', 'LEFT_MARGIN')
         );
         while ($section = $obSections->fetch()){
+            if($section["ELEMENT_CNT"] == 0) continue;
             $sections[$section['ID']] = $section;
         }
         return $sections;
