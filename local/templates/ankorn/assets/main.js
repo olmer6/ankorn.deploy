@@ -383,6 +383,62 @@ $(function () {
 
     })
 
+    $('.bx-sidebar-block').each(function() {
+        var $block = $(this);
+        var $parent = $block.parent(); // родительский контейнер
+
+        var parentTop, parentHeight, blockHeight, windowHeight;
+
+        // Обновление размеров и позиций
+        function updateDimensions() {
+            parentTop = $parent.offset().top;
+            parentHeight = $parent.outerHeight();
+            blockHeight = $block.outerHeight();
+            windowHeight = $(window).height();
+        }
+
+        // Основная функция перемещения
+        function moveBlock() {
+            var scrollTop = $(window).scrollTop();
+
+            // Блок не должен двигаться, если он выше родителя
+            if (blockHeight >= parentHeight) {
+                $block.css('transform', 'translateY(0)');
+                return;
+            }
+            // Если родитель полностью помещается в окне, движение не нужно
+            if (parentHeight <= windowHeight) {
+                $block.css('transform', 'translateY(0)');
+                return;
+            }
+            // Диапазон скролла, в котором родитель пересекает окно
+            var minScroll = parentTop;    // верх родителя касается верха окна
+            var maxScroll = parentTop + parentHeight - windowHeight; // низ родителя касается низа окна
+
+            // Прогресс от 0 до 1
+            var progress = (scrollTop - minScroll) / (maxScroll - minScroll);
+            progress = Math.max(0, Math.min(1, progress));
+
+            // Итоговое смещение
+            var translateY = progress * (parentHeight - blockHeight);
+
+            $block.css('transform', 'translateY(' + translateY + 'px)');
+        }
+
+        // Обработчики событий
+        $(window).on('scroll', function() {
+            moveBlock();
+        });
+
+        $(window).on('resize', function() {
+            updateDimensions();
+            moveBlock();
+        });
+
+        // Инициализация
+        updateDimensions();
+        moveBlock();
+    });
 
 })
 // ** Избранное и сравнение **

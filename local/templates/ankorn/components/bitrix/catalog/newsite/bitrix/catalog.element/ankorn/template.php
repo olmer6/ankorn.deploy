@@ -302,7 +302,7 @@ $eurRate = \CCurrencyRates::GetConvertFactor('EUR', $baseCurrency);
                     
                       if($arResult['ITEM_PRICES'][0]['PRICE']) {
                       ?>
-                        <div class="price">Цена: <?= number_format(intval(ceil($arResult['ITEM_PRICES'][0]['PRICE'])), 0, '.', '.'); ?> руб./шт</div>
+                        <div class="price">Цена:<?php if($arResult['PROPERTIES']['IS_MAIN']['VALUE']!=''){?> от<?php }?> <?= number_format(intval(ceil($arResult['ITEM_PRICES'][0]['PRICE'])), 0, '.', '.'); ?> руб./шт</div>
                       <?php
                       }
                       

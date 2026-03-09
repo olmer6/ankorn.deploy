@@ -155,17 +155,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 	<?= $arParams["CACHE_TIME"] ?>
 	<?= $arParams["CACHE_FILTER"] ?>
 	<?= $arParams["CACHE_GROUPS"] ?> -->
-	<div class="catalog-sort">
-    <a href="?sort=SHOW_COUNTER&order=desc">По популярности</a>
-    <a href="?sort=NAME&order=asc">По алфавиту</a>
-    <div class="sort-holder">
-    	<span>По цене</span>
-	    <div class="sort-box">
-	    	<a href="?sort=CATALOG_PRICE_1&order=asc">Сначала дешевые</a>
-	  		<a href="?sort=CATALOG_PRICE_1&order=desc">Сначала дорогие</a>
-	  	</div>
-	  </div>
-	</div>
+
 		<div class="mb-4 catalog-section" data-entity="<?=$containerName?>">
 			<!-- items-container -->
 			<?

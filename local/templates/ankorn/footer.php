@@ -134,8 +134,7 @@
 					<a class="footer-links-item footer-link" href="/politika-konfidencialnosti/" target="_blank">Политика конфиденциальности</a>
                 </div>
                 <div class="footer-bottom-col">
-                    ˇ
-                    <a style="font-size: 0.8em; display: block; text-align: right; font-size: 0.6em; color: #cccbcb" href="https://впереди.рф" target="_blank">Поддержка и продвижение сайта: Студия "Впереди"</a>
+                    <a class="footer-links-item footer-link" href="/cookie/" target="_blank">Политика Cookie</a>
                 </div>
             </div>
         </div>

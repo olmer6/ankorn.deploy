@@ -239,6 +239,9 @@ $arEventFields = [
     'PHONE' => $_POST['PHONE'],
     'COMMENT' => $_POST['COMMENT'],
     'BASKETCOMPOSITION' => $basketComposition,
+    //COMF5 BEGIN
+    'FORM_NAME' => "callPrice",
+    //COMF5 END
     'USERDATA' => $userData,
 ];
 $sendResult = CEvent::Send("FORM_ORDER_CREATE_ANCORN_SEND", 's1', $arEventFields);
