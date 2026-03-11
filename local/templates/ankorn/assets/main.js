@@ -387,14 +387,21 @@ $(function () {
         var $block = $(this);
         var $parent = $block.parent(); // родительский контейнер
 
-        var parentTop, parentHeight, blockHeight, windowHeight;
+        var parentTop, parentHeight, blockHeight, windowHeight, blockWidth, blockLeft;
 
         // Обновление размеров и позиций
         function updateDimensions() {
             parentTop = $parent.offset().top;
+            blockLeft = $parent.offset().left;
             parentHeight = $parent.outerHeight();
             blockHeight = $block.outerHeight();
+            blockWidth = $block.outerWidth();
             windowHeight = $(window).height();
+
+            console.log('blockLeft');
+            console.log(blockLeft);
+            console.log('blockWidth');
+            console.log(blockWidth);
         }
 
         // Основная функция перемещения
@@ -411,18 +418,43 @@ $(function () {
                 $block.css('transform', 'translateY(0)');
                 return;
             }
+
             // Диапазон скролла, в котором родитель пересекает окно
-            var minScroll = parentTop;    // верх родителя касается верха окна
-            var maxScroll = parentTop + parentHeight - windowHeight; // низ родителя касается низа окна
+            var minScroll = parentTop - 20;    // верх родителя касается верха окна
+            var maxScroll = parentTop + parentHeight - blockHeight - 20;
 
+
+            if((scrollTop < minScroll)){
+                $block.css('position','relative');
+                $block.css('left',0);
+                $block.css('top',0);
+            }
+            if((scrollTop >= minScroll) && (scrollTop <= maxScroll)){
+                $block.css('position','fixed');
+                $block.css('top',20);
+                $block.css('left','calc('+blockLeft+'px + 0.75rem)');
+                $block.css('width',blockWidth);
+            }
+            if((scrollTop > maxScroll)){
+                $parent.css('position','relative');
+                $block.css('position','absolute');
+                $block.css('bottom',0);
+                $block.css('left','0.75rem');
+                $block.css('top','auto');
+                $block.css('width',blockWidth);
+            }
+
+
+/*
             // Прогресс от 0 до 1
-            var progress = (scrollTop - minScroll) / (maxScroll - minScroll);
+            var progress = (scrollTop - minScroll) / (maxScroll  - minScroll);
             progress = Math.max(0, Math.min(1, progress));
-
             // Итоговое смещение
             var translateY = progress * (parentHeight - blockHeight);
 
             $block.css('transform', 'translateY(' + translateY + 'px)');
+
+ */
         }
 
         // Обработчики событий
@@ -535,6 +567,7 @@ function toggleFavorite(button) {
     const productName = button.getAttribute('data-name');
     const productPrice = button.getAttribute('data-price');
     const productImage = button.getAttribute('data-image');
+    const productAvailable = button.getAttribute('data-available');
     const productUrl = button.getAttribute('data-url'); // Получаем URL
 
     let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
@@ -552,6 +585,7 @@ function toggleFavorite(button) {
             name: productName,
             price: parseFloat(productPrice),
             image: productImage,
+            available: productAvailable,
             detailUrl: productUrl, // Сохраняем URL
             quantity: 1
         });

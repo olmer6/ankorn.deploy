@@ -323,6 +323,7 @@ $eurRate = \CCurrencyRates::GetConvertFactor('EUR', $baseCurrency);
                         data-price="<?= $productPrice ?>"
                         data-image="<?= $productImage ?>"
                         data-url="<?= $arResult['DETAIL_PAGE_URL'] ?>"
+                        <?=($item['PROPERTIES']['PARAM_AVAILABLE']['VALUE'])?'data-available="от 1 дня"':'data-available="до 79 дней"'?>
                         onclick="toggleFavorite(this)"
                         rel="noindex nofollow" 
                         title="Добавить в избранное">

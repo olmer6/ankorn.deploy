@@ -27,6 +27,14 @@ use Bitrix\Main\Localization\Loc;
         </h1>
         <div class="cart-container">
             <?foreach($arResult["ITEMS"]["AnDelCanBuy"] as $arItem):?>
+
+                <? $res = CIBlockElement::GetList(
+                    [],['IBLOCK_ID' => 2, 'ID' => $arItem['PRODUCT_ID']],false,false,['ID','IBLOCK_ID', 'PROPERTY_PARAM_AVAILABLE']
+                );
+                if ($arFields = $res->GetNext()) {
+                    $available = $arFields['PROPERTY_PARAM_AVAILABLE_VALUE_ID']; // 'Y' или 'N'
+                }?>
+
             <div class="cart_v2-item"  id="basket-item-<?=$arItem['ID']?>" data-item-id="<?=$arItem['ID']?>">
 
                 <div class="cart_v2-item-title">
@@ -42,7 +50,11 @@ use Bitrix\Main\Localization\Loc;
                 <div class="cart_v2-item-delivery-time">
                     <div class="title">Срок отгрузки</div>
                     <div class="value-wrapper">
-                        <span> до 98 дней</span>
+                        <?if($available):?>
+                            <span> от 1 дня</span>
+                        <?else:?>
+                            <span> до 79 дней</span>
+                        <?endif?>
                     </div>
 
                 </div>

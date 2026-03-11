@@ -409,7 +409,7 @@
 
 .catalog-body {
 	padding: 20px;
-	overflow-x: auto;
+/*	overflow-x: auto;*/
 }
 
 .section-links {
@@ -1176,7 +1176,7 @@ h1#basket-h1:after {
 
 #total-price {
     font-weight: bold;
-    color: #d60000;
+    color: #20B300;
     font-size: 24px;
 }
 
@@ -1202,7 +1202,7 @@ h1#basket-h1:after {
 	max-width: 230px;
 	max-height: 230px;
 	flex-basis: 20%;
-}
+}.favorite_v2-item .favorite_v2-item-image img{max-height: 235px;}
 .favorite_v2-item .favorite_v2-item-title {
 	flex-basis: 20%;
 }
@@ -1313,24 +1313,24 @@ h1#basket-h1:after {
 }
 
 .favorite-item-actions .btn-cart {
-	background-color: #AC182D;
-	border-color: #AC182D;
+	background-color: #20B300;
+	border-color: #20B300;
 }
 
 .favorite-item-actions .btn-cart:hover {
-	background-color: #7f1221;
-	border-color: #7f1221;
+	background-color: #20B300;
+	border-color: #20B300;
 	color: 	white;
 }
 
 .favorites-summary #add-all-to-cart {
-	background-color: #AC182D;
-	border-color: #AC182D;
+	background-color: #20B300;
+	border-color: #20B300;
 }
 
 .favorites-summary #add-all-to-cart:hover {
-	background-color: #7f1221;
-	border-color: #7f1221;	
+	background-color: #20B300;
+	border-color: #20B300;
 }
 
 .favorite-item-title a {
@@ -1434,7 +1434,11 @@ h1#basket-h1:after {
 	line-height: 20px;
 }
 
-.catalog-section-description{}
+.catalog-section-description{
+	overflow-x: auto;
+	font-size: 14px;
+	line-height: 130%;
+}
 .catalog-section-description a{color: #0056b3;}
 
 /*новые стили широких карточек 06,02,2026*/
@@ -1444,7 +1448,7 @@ h1#basket-h1:after {
 	height: 410px;
 	flex-direction: column;
 	justify-content: space-between;
-	border-radius: 0 0 12px 12px;
+	border: none;
 }
 .wide .product-item-container.CARD .product-item.wide .product-item-title{
 	margin-bottom: 14px;

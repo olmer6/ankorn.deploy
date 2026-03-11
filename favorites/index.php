@@ -27,6 +27,8 @@ CJSCore::Init(array('ajax', 'ui.notification'));
         </div>
     </div>
 </div>
+
+
 <script>
 // Загружаем избранное при открытии страницы
 document.addEventListener('DOMContentLoaded', function() {
@@ -63,13 +65,13 @@ function loadFavorites() {
     favorites.forEach((item, index) => {
         const itemTotal = item.price * item.quantity;
         totalPrice += itemTotal;
-        
+        console.log(item);
       html += `
               <div class="favorite_v2-item">
             <div class="favorite_v2-item-image"><a href="${item.detailUrl || '/catalog/'}"><img src="${item.image}" alt="${item.name}"></a></div>
             <div class="favorite_v2-item-title">
                 <h3><a href="${item.detailUrl || '/catalog/'}">${item.name}</a></h3>
-                <span>Срок отгрузки до 98 дней</span>
+                <span>${item.available}</span>
             </div>
             <div class="favorite_v2-item-cart">
                 <div class="btn-cart" onclick="addToCartAjax(${item.id}, ${item.quantity})">в корзину</div>

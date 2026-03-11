@@ -223,6 +223,7 @@ if ( $item['PROPERTIES']['IS_MAIN']['VALUE_ENUM'] ) {
                     data-price="<?=$item['ITEM_PRICES'][0]['PRICE'] ?? 0?>"
                     data-image="<?=$item["PREVIEW_PICTURE"]["SRC"]?>"
                     data-url="<?=$item["DETAIL_PAGE_URL"]?>"
+                    <?=($item['PROPERTIES']['PARAM_AVAILABLE']['VALUE'])?'data-available="от 1 дня"':'data-available="до 79 дней"'?>
                     onclick="toggleFavorite(this)"
                     rel="noindex nofollow"
                     title="Добавить в избранное"

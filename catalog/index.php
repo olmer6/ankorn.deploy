@@ -10,8 +10,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 			<h1>Каталог продукции</h1>
 	<?php
 	}
-    $userSortField = $_REQUEST['sort'] ?: $arParams['ELEMENT_SORT_FIELD'];
-    $userSortOrder = $_REQUEST['order'] ?: $arParams['ELEMENT_SORT_ORDER'];
+//    $userSortField = $_REQUEST['sort'] ?: $arParams['ELEMENT_SORT_FIELD'];
+//    $userSortOrder = $_REQUEST['order'] ?: $arParams['ELEMENT_SORT_ORDER'];
 
     if($_GET['FIRST_LEVEL_SECTION_CODE']){
         $sectionUrl = "catalog/#FIRST_LEVEL_SECTION_CODE#/#SECTION_CODE#/";
@@ -95,8 +95,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 		"LINE_ELEMENT_COUNT" => "3",
 		"ELEMENT_SORT_FIELD" => "sort",
 		"ELEMENT_SORT_ORDER" => "asc",
-		"ELEMENT_SORT_FIELD2" => ($userSortField)?:" PROPERTY_PARAM_AVAILABLE",
-		"ELEMENT_SORT_ORDER2" => ($userSortOrder)?:"asc,nulls",
+		"ELEMENT_SORT_FIELD2" => "property_PARAM_AVAILABLE",
+		"ELEMENT_SORT_ORDER2" => "asc,nulls",
 		"LIST_PROPERTY_CODE" => [
 			0 => "NEWPRODUCT",
 			1 => "SALELEADER",
