@@ -180,6 +180,7 @@ BX.ready(function() {
 });
 
 $(document).ready(function(){
+
     $.mask.definitions['h'] = "[0|1|3|4|5|6|7|9]"
     $("input[type='tel']").mask('+7 (999) 999-99-99');
 
@@ -188,30 +189,33 @@ $(document).ready(function(){
         e.preventDefault();
         // Собираем данные формы
         var formData = $(this).serialize();
-
-        console.log(formData);
         // Отправляем AJAX запрос
         $.post({
             url: $(this).attr('action'),
             data: formData,
             success: function(data) {
-                console.log(data);
                 var response = JSON.parse(data);
                 console.log(response);
+                console.log(response.ERROR);
 
-                if(response.errors) {
-                    if (response.errors.email) {
-                        alert(response.errors.email);
-                        return;
-                    }
-                    if (response.errors.phone) {
-                        alert(response.errors.phone);
-                        return;
-                    }
+                if(response.ERROR) {
+                    var order_error = $("#place_order_error");
+                    order_error.empty();
+                    order_error.addClass('active');
+                    if (response.ERROR.name)
+                        order_error.append(response.ERROR.name);
+                    if (response.ERROR.email)
+                        order_error.append("</br>"+response.ERROR.email);
+                    if (response.ERROR.phone)
+                        order_error.append("</br>"+response.ERROR.phone);
+                    return;
+                } else {
+                    $("#place_order_error").empty();
+                    $("#place_order_error").removeClass('active');
+                  window.location = '/personal/cart/order-success/';
                 }
-                // Обработка успешного ответа
-                window.location = '/personal/cart/order-success/';
 
+                // Обработка успешного ответа
                 //alert('Заказ успешно создан!');
             },
             error: function(xhr, status, error) {

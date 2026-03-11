@@ -301,6 +301,22 @@
                 false
             );?>
         </div>
+
+    </div>
+</div>
+
+
+<?
+echo '<pre id="inspect" class="ins_" style="display:none">';
+var_dump($_COOKIE['']);
+echo '</pre>';
+?>
+<div id="cookie-agree" class="invisible">
+    <div class="cookie-part">
+        Мы используем <a href="/cookie" target="_blank">Cookie-файлы</a> и <a href="/politika-konfidencialnosti" target="_blank">обрабатываем персональные данные</a> с использованием Яндекс Метрики. Это улучшает работу и взаимодействие с сайтом. Подтвердите ваше согласие, нажав кнопку Принимаю.
+    </div>
+    <div class="cookie-part">
+        <button class="btn-red accept-cookie">Принимаю</button>
     </div>
 </div>
 

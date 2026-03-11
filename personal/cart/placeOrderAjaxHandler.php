@@ -23,7 +23,11 @@ $phone = trim($request->getPost('PHONE'));
 $comment = trim($request->getPost('COMMENT'));
 
 // валидация
-
+// валидация почты
+if (empty($userName)) {
+    $errors['name'] = 'Имя обязательно для заполнения';
+}
+// валидация почты
 if (empty($email)) {
     $errors['email'] = 'Email обязателен для заполнения';
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -35,7 +39,10 @@ if (empty($phone)) {
 } elseif (!preg_match('/^[0-9+\-\s\(\)]+$/', $phone)) {
     $errors['phone'] = 'Телефон содержит недопустимые символы';
 }
-if($errors) echo json_encode(['ERROR' => $errors]);
+if($errors) {
+    echo json_encode(['ERROR' => $errors]);
+    die();
+}
 
 Loc::loadMessages(__FILE__);
 $returned_result = [];
@@ -360,5 +367,17 @@ $Comf5arEventFields = [
     'TEXT' => $_POST['COMMENT'].$Comf5BasketComposition,
     'FORM_NAME' => "callPrice",
 ];
+
+ob_start();
+var_dump(
+    array(
+        'name'=>'SendUserInfo',
+        'dump num'=>0,
+    )
+);
+$dump = ob_get_clean();
+file_put_contents($_SERVER['DOCUMENT_ROOT'].'/local/logs/log.txt', $dump."\r\n", FILE_APPEND);
+
+
 $sendResult = CEvent::Send("COMF5_SEND", 's1', $Comf5arEventFields);
 //COMF5 END

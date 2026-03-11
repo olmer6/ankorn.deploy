@@ -93,6 +93,7 @@ use Bitrix\Main\Localization\Loc;
         <div class="form-container">
             <form action="/personal/cart/placeOrderAjaxHandler.php" id="place_order">
                 <div class="inputs">
+                    <div id="place_order_error"></div>
                     <input name="USER_NAME" type="text" placeholder="Контактное лицо*">
                     <input name="EMAIL" type="email" placeholder="e-mail *">
                     <input name="PHONE" type="tel" placeholder="номер телефона*">
@@ -102,7 +103,7 @@ use Bitrix\Main\Localization\Loc;
                     <h3>Ваш заказ</h3>
                     <div class="order-data">
                         <h3 class="full-summ">Итого: <span data-entity="basket-total-price"><?=$arResult['allSum_FORMATED']?></span></h3>
-                        <p><strong>НДС (20%, включен в цену):</strong> <span data-entity="basket-total-vat"></span> </p>
+                        <p><strong>НДС (22%, включен в цену):</strong> <span data-entity="basket-total-vat"></span> </p>
                         <p><strong>Доставка:</strong> Транспортной компанией</p>
                     </div>
 

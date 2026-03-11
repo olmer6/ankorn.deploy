@@ -87,6 +87,7 @@
 .catalog-section-list-tile-list {
 	padding: 0;
 	list-style: none;
+	justify-content: center;
 }
 
 .catalog-section-list-tile-img-container { width: 100%; }

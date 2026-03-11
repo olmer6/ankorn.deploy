@@ -168,3 +168,10 @@
     justify-content: space-between;
 }
 .form-container .full-summ{}
+
+#place_order_error.active{
+    border: 2px solid #AC182D;
+    margin-bottom: 14px;
+    padding: 8px 11px 6px;
+    color: #AC182D;
+}

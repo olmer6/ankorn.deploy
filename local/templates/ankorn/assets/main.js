@@ -470,7 +470,11 @@ $(function () {
         // Инициализация
         updateDimensions();
         moveBlock();
+        $block.find('.smart-filter-parameters-box-title').click(function() {
+            updateDimensions();
+        })
     });
+
 
 })
 // ** Избранное и сравнение **
@@ -621,3 +625,29 @@ function showNotification(message) {
 }
 
 // ** Конец избранного и сравнения **
+
+// Функция для установки куки
+
+$(document).ready(function () {
+    function setCookie() {
+        const date = new Date();
+        date.setFullYear(date.getFullYear() + 10); // +10 лет
+        document.cookie = `cookieAgreed=true; expires=${date.toUTCString()}; path=/`;
+    }
+
+// Функция для проверки куки
+    function checkCookie() {
+        return document.cookie.indexOf('cookieAgreed=') !== -1;
+    }
+
+// Проверяем при загрузке страницы
+    if (!checkCookie()) {
+        $('#cookie-agree').removeClass('invisible');
+    }
+
+// Обработчик клика
+    $('.btn-red.accept-cookie').on('click', function () {
+        setCookie();
+        $('#cookie-agree').addClass('invisible');
+    });
+})

@@ -515,7 +515,7 @@
 }
 
 .wide-container {
-  background: #1111114D;
+  background: #F5F6F8;
   border-radius: 10px;
   padding: 11px 7px;
   position: absolute;
@@ -911,7 +911,7 @@ h1#basket-h1:after {
 
 .compare-item a, 
 .fav-item a {
-	color: #ADADAD;
+	color: #d9d9d9;
 	text-transform: uppercase;
 	font-size: 18px;
 	cursor: pointer;
@@ -1581,4 +1581,68 @@ h1#basket-h1:after {
 }
 .order-success .content-area {
 	color: #000;
+}
+
+/* COOKIE */
+#cookie-agree {
+	width: 800px;
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 15px;
+	padding: 24px 18px 24px;
+	font-size: 12px;
+	position: fixed;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 9999;
+}
+
+.cookie-part {
+
+}
+
+.cookie-part a {
+	text-decoration: underline !important;
+}
+
+.btn-red.accept-cookie {
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 100%;
+	text-transform: none;
+}
+
+#cookie-agree.invisible {
+	display: none !important;
+}
+
+@media (max-width: 799px) {
+	#cookie-agree {
+		font-size: 10px;
+		width: 380px;
+		padding: 11px 17px 11px;
+		flex-direction: column;
+		height: 130px;
+		bottom: 10px;
+	}
+	.btn-red.accept-cookie {
+		margin: 7px auto 0;
+		display: block;
+		padding: 13px 20px;
+	}
+}
+
+@media (max-width: 420px) {
+	#cookie-agree {
+		width: 300px;
+		height: 160px;
+	}
+}
+
+.ct_lr_infoankornru{
+	color: #0056b3;
 }
