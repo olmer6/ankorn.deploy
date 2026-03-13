@@ -70,7 +70,7 @@ if ( $item['PROPERTIES']['IS_MAIN']['VALUE_ENUM'] ) {
         </div>
     </div>
     <div class="product-buttons-container">
-        <a href="<?=$item['DETAIL_PAGE_URL']?>" class="product-deeper">Посмотреть модели</a>
+        <a href="<?=$item['DETAIL_PAGE_URL']?>" class="product-deeper">Подробнее</a>
         <button class="btn-red modal-engineer">Получить консультацию</button>
     </div>
     <?php
@@ -815,7 +815,7 @@ if ( $item['PROPERTIES']['IS_MAIN']['VALUE_ENUM'] ) {
 	if ( $item['PROPERTIES']['IS_MAIN']['VALUE_ENUM'] ) {
 ?>
 	<div class="product-buttons-container">
-		<a href="<?=$item['DETAIL_PAGE_URL']?>" class="product-deeper">Посмотреть модели</a>
+		<a href="<?=$item['DETAIL_PAGE_URL']?>" class="product-deeper">Подробнее</a>
 		<button class="btn-red modal-engineer">Получить консультацию</button>
 	</div>
 <?php

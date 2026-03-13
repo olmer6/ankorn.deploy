@@ -42,14 +42,14 @@ $(function () {
       })
 
       /* --- */
-
+/*
       $(document).on('click', 'a[target="_blank"]', function(e) {
         const url = $(this).attr('href');
         alert('Открыто новое окно с URL:', url);
         // Здесь можно отправить данные на сервер или сохранить в переменную
 
       });
-
+*/
     });
 
 
