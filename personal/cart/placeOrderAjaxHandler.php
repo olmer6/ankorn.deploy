@@ -23,7 +23,7 @@ $phone = trim($request->getPost('PHONE'));
 $comment = trim($request->getPost('COMMENT'));
 
 // валидация
-// валидация почты
+// валидация Имени
 if (empty($userName)) {
     $errors['name'] = 'Имя обязательно для заполнения';
 }
@@ -315,7 +315,21 @@ $orderId = $order->getId();
 //
 
 $basketItems = $basket->getBasketItems();
+//COMF5 BEGIN
+$f5Basket = [
+    "price" => $basket->getPrice(),
+    "products" => []
+];
+//COMF5 END
 foreach ($basketItems as $item) {
+    //COMF5 BEGIN
+    $f5Basket['products'][$item->getProductId()] = [
+        'NAME' => $item->getField('NAME'),
+        'PRICE' => $item->getPrice(),
+        'QUANTITY' => $item->getQuantity(),
+        'PRODUCT_ID' => $item->getProductId(),
+    ];
+    //COMF5 END
     $item->delete(); // помечаем на удаление
 }
 $basket->save();
@@ -361,23 +375,17 @@ echo json_encode($returned_result);
 
 //COMF5 BEGIN
 $Comf5arEventFields = [
-    'AUTHOR' => $_POST['USER_NAME'],
-    'AUTHOR_EMAIL' => $_POST['EMAIL'],
-    'PHONE' => $_POST['PHONE'],
-    'TEXT' => $_POST['COMMENT'].$Comf5BasketComposition,
-    'FORM_NAME' => "callPrice",
+    "order" => [
+        "id" => $orderId,
+        "price" => $f5Basket['price'],
+        'CONTACT_PERSON' => $_POST['USER_NAME'],
+        'EMAIL' => $_POST['EMAIL'],
+        'PHONE' => $_POST['PHONE'],
+        'comment' => $_POST['COMMENT'],
+    ],
+    'products' => $f5Basket['products'],
+    "cookie" => $_COOKIE,
 ];
-
-ob_start();
-var_dump(
-    array(
-        'name'=>'SendUserInfo',
-        'dump num'=>0,
-    )
-);
-$dump = ob_get_clean();
-file_put_contents($_SERVER['DOCUMENT_ROOT'].'/local/logs/log.txt', $dump."\r\n", FILE_APPEND);
-
 
 $sendResult = CEvent::Send("COMF5_SEND", 's1', $Comf5arEventFields);
 //COMF5 END
