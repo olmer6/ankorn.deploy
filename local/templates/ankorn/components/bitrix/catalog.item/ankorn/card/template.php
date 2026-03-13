@@ -423,7 +423,7 @@ if ( $item['PROPERTIES']['IS_MAIN']['VALUE_ENUM'] ) {
 								?>
 								<div class="product-item-button-container" id="<?=$itemIds['BASKET_ACTIONS']?>">
 									<button class="btn btn-primary <?=$buttonSizeClass?>" id="<?=$itemIds['BUY_LINK']?>"
-											href="javascript:void(0)" rel="nofollow">
+											href="javascript:void(0)" onclick="ym(45467883,'reachGoal','add-to-cart');" rel="nofollow">
 										<?=($arParams['ADD_TO_BASKET_ACTION'] === 'BUY' ? $arParams['MESS_BTN_BUY'] : $arParams['MESS_BTN_ADD_TO_BASKET'])?>
 									</button>
 								</div>
@@ -491,7 +491,7 @@ if ( $item['PROPERTIES']['IS_MAIN']['VALUE_ENUM'] ) {
 									</button>
 									<div id="<?=$itemIds['BASKET_ACTIONS']?>" <?=($actualItem['CAN_BUY'] ? '' : 'style="display: none;"')?>>
 										<button class="btn btn-primary <?=$buttonSizeClass?>" id="<?=$itemIds['BUY_LINK']?>"
-												href="javascript:void(0)" rel="nofollow">
+												href="javascript:void(0)" rel="nofollow" onclick="ym(45467883,'reachGoal','add-to-cart');">
 											<?=($arParams['ADD_TO_BASKET_ACTION'] === 'BUY' ? $arParams['MESS_BTN_BUY'] : $arParams['MESS_BTN_ADD_TO_BASKET'])?>
 										</button>
 									</div>

@@ -210,6 +210,7 @@ $(document).ready(function(){
                         order_error.append("</br>"+response.ERROR.phone);
                     return;
                 } else {
+                    ym(45467883,'reachGoal','card');
                     $("#place_order_error").empty();
                     $("#place_order_error").removeClass('active');
                   window.location = '/personal/cart/order-success/';

@@ -1219,6 +1219,7 @@ h1#basket-h1:after {
 	color:#000;
 	white-space: nowrap;
 	display: inline-block;
+	cursor: pointer;
 }
 .favorite_v2-item .favorite_v2-item-price-wrap {
 	flex-basis: 15%;
