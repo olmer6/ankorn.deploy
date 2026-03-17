@@ -269,10 +269,10 @@ $APPLICATION->SetTitle("О компании");
             <div class="field field--name-field-about-certificates field--type-entity-reference-revisions field--label-hidden about-certificates-list">
                 <div class="about-certificates-item">
                     <div class="paragraph certificate paragraph--type--certificate paragraph--view-mode--default">
-                        <a href="" target="_blank" class="certificate-image">
+                        <a href="/local/templates/ankorn/img/ankorn_eksklyuzivnyy_distribyutor_1.jpg" target="_blank" class="certificate-image">
 
                             <div class="field field--name-field-certificate-image field--type-image field--label-hidden field__item">
-                                <img src="/local/templates/ankorn/img/1120875031_w640_h640_sertifikat-sootvetvetstviya-metallokonstruktsii%5B1%5D.jpg"
+                                <img src="/local/templates/ankorn/img/ankorn_eksklyuzivnyy_distribyutor_1.jpg"
                                      width="176" height="243" alt="" class="image-style-paragraph-certificate">
 
 
@@ -295,61 +295,8 @@ $APPLICATION->SetTitle("О компании");
                     </div>
 
                 </div>
-                <div class="about-certificates-item">
-                    <div class="paragraph certificate paragraph--type--certificate paragraph--view-mode--default">
-                        <a href="/local/templates/ankorn/img/svidetelstvo_dilera_ankorn_103.pdf" target="_blank"
-                           class="certificate-image">
-
-                            <div class="field field--name-field-certificate-image field--type-image field--label-hidden field__item">
-                                <img src="/local/templates/ankorn/img/svidetelstvo_bd_sensors_rus.jpg"
-                                     width="176" height="243" alt="" class="image-style-paragraph-certificate">
-
-
-                            </div>
-
-                        </a>
-
-                        <div class="field field--name-field-certificate-logo field--type-image field--label-hidden field__item">
-                            <img src="/local/templates/ankorn/img/bd_sensors_logo3.png"
-                                 width="375" height="53" alt="" class="image-style-paragraph-certificate-logo">
-
-
-                        </div>
-
-
-                        <div class="field field--name-field-certificate-title field--type-string field--label-hidden field__item">
-                            Российской производственной компании BD Sensors RUS.
-                        </div>
-
-                    </div>
-
-                </div>
             </div>
 
-            <div class="about-certificates-video">
-                <div class="video" data-id="drb1jbO6zHE">
-                    <div class="video-image">
-
-                        <div class="field field--name-field-image field--type-image field--label-hidden field__item">
-                            <img src="/local/templates/ankorn/img/nivelco_0.jpg?itok=XG3cbfdv"
-                                class="image-style-about-video-cover">
-
-
-                        </div>
-
-                    </div>
-                    <div class="video-play">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                <div class="about-video-label">
-
-                    <div class="field field--name-field-about-video-label field--type-string field--label-hidden field__item">
-                        Видео о заводе «NIVELCO»
-                    </div>
-
-                </div>
-            </div>
         </div>
         <div class="page-lines">
             <div class="page-line page-line--1"></div>
