@@ -3,7 +3,7 @@ define("HIDE_SIDEBAR", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 ?>
 <?php
-	if ( ($APPLICATION->GetCurPage() == '/catalog/') ||  ($APPLICATION->GetCurPage(false) == '/catalog/index.php') )  {
+	if ( ($APPLICATION->GetCurPage() == '/catalog/') ||  ($APPLICATION->GetCurPage(false) == '/catalog/index.php') || ($_GET['error']==404))  {
 	?>
 	<div id="parentCatalog">
 		<div class="page-container">
@@ -333,7 +333,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 		"COMPARE_POSITION_FIXED" => "Y",
 		"COMPARE_POSITION" => "top left",
 		"SEF_URL_TEMPLATES" => [
-			"sections" => "",
+			"sections" => "catalog/",
 			//"section" => "catalog/#SECTION_CODE_PATH#/",
             "section" => $sectionUrl, // первая и последняя по вложенности категория
 			"element" => "product/#ELEMENT_CODE#/",
@@ -344,7 +344,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 	false
 );?>
 <?php
-if ( ($APPLICATION->GetCurPage() == '/catalog/') ||  ($APPLICATION->GetCurPage(false) == '/catalog/index.php') )  {
+if ( ($APPLICATION->GetCurPage() == '/catalog/') ||  ($APPLICATION->GetCurPage(false) == '/catalog/index.php')  || ($_GET['error']==404))  {
 	echo "</div></div>";
 }
 ?>
