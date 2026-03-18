@@ -16,6 +16,7 @@ $APPLICATION->SetTitle("Поиск");
 			1 => "iblock_news",
 			2 => "iblock_services",
 			3 => "iblock_catalog",
+			4 => "iblock_products",
 		],
 		"arrFILTER_main" => [
 		],
@@ -26,6 +27,9 @@ $APPLICATION->SetTitle("Поиск");
 			0 => "all",
 		],
 		"arrFILTER_iblock_catalog" => [
+			0 => "all",
+		],
+		"arrFILTER_iblock_products" => [
 			0 => "all",
 		],
 		"SHOW_WHERE" => "N",
