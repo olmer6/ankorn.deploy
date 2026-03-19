@@ -674,6 +674,11 @@ text-formatted table td:first-child {
     position: relative;
     border: solid #E4E4E4;
     border-width: 0 0 0 1px;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-header:hover{
+    width: 430px;
 }
 
 .search-header input {
