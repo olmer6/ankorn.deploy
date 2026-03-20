@@ -46,7 +46,7 @@ $APPLICATION->SetTitle("Поиск");
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"PAGER_TITLE" => "Результаты поиска",
 		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_TEMPLATE" => "arrows",
+		"PAGER_TEMPLATE" => "round",
 		"USE_SUGGEST" => "N",
 		"SHOW_ITEM_TAGS" => "N",
 		"SHOW_ITEM_DATE_CHANGE" => "N",
