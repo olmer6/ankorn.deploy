@@ -103,13 +103,12 @@ use Bitrix\Main\Localization\Loc;
                     <h3>Ваш заказ</h3>
                     <div class="order-data">
                         <h3 class="full-summ">Итого: <span data-entity="basket-total-price"><?=$arResult['allSum_FORMATED']?></span></h3>
-                        <p><strong>НДС (22%, включен в цену):</strong> <span data-entity="basket-total-vat"></span> </p>
                         <p><strong>Доставка:</strong> Транспортной компанией</p>
                     </div>
 
 
-                    <div class="approval">Заполняя поля и нажимая кнопку «Отправить», вы подтверждаете, что ознакомлены и согласны с Политикой в отношении обработки персональных данных.</div>
-
+                    <div class="approval">Заполняя поля и нажимая кнопку «Отправить», вы подтверждаете, что ознакомлены и согласны с
+                        <a href="/politika-konfidencialnosti/">Политикой в отношении обработки персональных данных</a>.</div>
                     <button type="submit" class="btn-red" >Оформить заказ</button>
 
                 </div>
