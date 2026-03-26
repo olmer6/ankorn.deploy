@@ -187,16 +187,40 @@ $(document).ready(function(){
     $('#place_order').on('submit', function(e) {
         // Отменяем стандартную отправку формы
         e.preventDefault();
-        // Собираем данные формы
-        var formData = $(this).serialize();
+
+        // Создаем объект FormData
+        var formData = new FormData();
+
+        var COMPANY_DETAILS = $("[name ='COMPANY_DETAILS']")[0].files[0];
+        formData.append('COMPANY_DETAILS', COMPANY_DETAILS);
+
+        var ARCHIVE_FILE = $("[name ='ARCHIVE_FILE']")[0].files[0];
+        formData.append('ARCHIVE_FILE', ARCHIVE_FILE);
+
+        var COMPANY_NAME = $("[name ='COMPANY_NAME']").val();
+        formData.append('COMPANY_NAME', COMPANY_NAME);
+        var USER_NAME = $("[name ='USER_NAME']").val();
+        formData.append('USER_NAME', USER_NAME);
+        var EMAIL = $("[name ='EMAIL']").val();
+        formData.append('EMAIL', EMAIL);
+        var PHONE = $("[name ='PHONE']").val();
+        formData.append('PHONE', PHONE);
+        var COMMENT = $("[name ='COMMENT']").val();
+        formData.append('COMMENT', COMMENT);
+
         // Отправляем AJAX запрос
-        $.post({
+        $.ajax({
             url: $(this).attr('action'),
+            type: 'POST',
             data: formData,
+            processData: false,  // ДОЛЖНО быть false
+            contentType: false,   // ДОЛЖНО быть false
             success: function(data) {
+                console.log(data);
                 var response = JSON.parse(data);
                 console.log(response);
-                console.log(response.ERROR);
+
+                if(response.DEBUGGING) return;
 
                 if(response.ERROR) {
                     var order_error = $("#place_order_error");
@@ -209,20 +233,30 @@ $(document).ready(function(){
                     if (response.ERROR.phone)
                         order_error.append("</br>"+response.ERROR.phone);
                     return;
-                } else {
+                } else if(response.SUCCESS){
                     ym(45467883,'reachGoal','card');
                     $("#place_order_error").empty();
                     $("#place_order_error").removeClass('active');
                   window.location = '/personal/cart/order-success/';
                 }
-
-                // Обработка успешного ответа
-                //alert('Заказ успешно создан!');
             },
             error: function(xhr, status, error) {
-                console.error('Ошибка:', error);
+                console.log('Ошибка:', error);
+                console.log('Статус:', xhr.status);
+                console.log('Ответ сервера:', xhr.responseText);
                 // Обработка ошибки
                 alert('Произошла ошибка при отправке');
+            },
+            xhr: function() {
+                var xhr = new window.XMLHttpRequest();
+                // Отслеживаем прогресс загрузки (опционально)
+                xhr.upload.addEventListener("progress", function(evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = (evt.loaded / evt.total) * 100;
+                        console.log('Загружено: ' + percentComplete + '%');
+                    }
+                }, false);
+                return xhr;
             }
         });
     });

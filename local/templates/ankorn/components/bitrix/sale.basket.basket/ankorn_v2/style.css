@@ -154,7 +154,10 @@
     flex-direction: column;
     justify-content: space-between;
 }
-.form-container input, .form-container textarea {
+.form-container input[type=text],
+.form-container input[type=tel],
+.form-container input[type=email],
+.form-container textarea {
     border: none;
     background: #d9d9d9;
     padding: 6px 11px;
@@ -167,6 +170,7 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
 .form-container .full-summ{}
 
 #place_order_error.active{

@@ -94,9 +94,14 @@ use Bitrix\Main\Localization\Loc;
             <form action="/personal/cart/placeOrderAjaxHandler.php" id="place_order">
                 <div class="inputs">
                     <div id="place_order_error"></div>
+                    <input name="COMPANY_NAME" type="text" placeholder="Название компании">
                     <input name="USER_NAME" type="text" placeholder="Контактное лицо*">
                     <input name="EMAIL" type="email" placeholder="e-mail *">
                     <input name="PHONE" type="tel" placeholder="номер телефона*">
+                    <p>Реквизиты компании (pdf, jpg, png, doc, docx, xls, xlsx, rtf, odt)</p>
+                    <input name="COMPANY_DETAILS" type="file" title="pdf, jpg, png, doc, docx, xls, xlsx, rtf, odt"  accept=".pdf, .jpg, .png, .doc, .docx, .xls, .xlsx, .rtf, .odt">
+                    <p>дополнительные файлы (архив zip, rar)</p>
+                    <input name="ARCHIVE_FILE" type="file"  title="архив zip, rar" accept=".zip, .rar">
                     <textarea name="COMMENT" id="" cols="30"rows="10" placeholder="комметарий к заказу"></textarea>
                 </div>
                 <div class="cart-data">
