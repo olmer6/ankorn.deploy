@@ -102,6 +102,14 @@ if ( $item['PROPERTIES']['IS_MAIN']['VALUE_ENUM'] ) {
 				print "<div class='plate-yellow plate-item'>Новинка</div>";
 			if ($item['PROPERTIES']['PLATE_CANCELED']['VALUE'])
 				print "<div class='plate-yellow plate-item'>Снят с производства</div>";
+			if ($item['PROPERTIES']['TR_CU_CERTIFICATE']['VALUE'])
+				echo "<div class='plate-green plate-item'>Сертификат тр тс</div>";
+			if ($item['PROPERTIES']['WARRANTY_3_YEAR']['VALUE'])
+                echo "<div class='plate-yellow plate-item'>Гарантия 3 года</div>";
+			if ($item['PROPERTIES']['WARRANTY_5_YEAR']['VALUE'])
+                echo "<div class='plate-yellow plate-item'>Гарантия 5 лет</div>";
+			if ($item['PROPERTIES']['IN_THE_SI_REGISTRY']['VALUE'])
+                echo "<div class='plate-green plate-item'>В реестре си</div>";
 		echo "</div>";
 	}
 	?>
