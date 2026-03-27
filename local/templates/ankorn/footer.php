@@ -4,6 +4,7 @@
         <div class="footer-top">
             <div class="container">
                 <div class="footer-top-row">
+
                     <div class="footer-top-col footer-top-col--1">
                         <a href="/" class="footer-logo">
                             <img src="/local/templates/ankorn/img/logo.png" alt="" width="190" height="45">
@@ -11,14 +12,13 @@
                         <div class="footer-top-text">
                             Подбор и поставка контрольно-измерительных приборов для автоматизации технологических процессов.
                         </div>
+
+
                     </div>
+
                     <div class="footer-top-col footer-top-col--2">
                         <nav role="navigation" id="block-footer-catalog-menu" class="block block-menu navigation menu--catalog">
-
                             <div class="menu-title" id="block-footer-catalog-menu-menu">Каталог</div>
-
-
-
                             <ul class="menu">
                                 <li class="menu-item">
 									<a href="/catalog/datchiki-izmereniya-urovnya/">Датчики измерения уровня</a>
@@ -36,12 +36,9 @@
 									<a href="/catalog/vtorichnye-pribory-dlya-avtomatizacii/">Вторичные приборы для автоматизации</a>
                                 </li>
                             </ul>
-
-
-
                         </nav>
-
                     </div>
+
                     <div class="footer-top-col footer-top-col--3">
                         <nav role="navigation" id="block-about-menu" class="block block-menu navigation menu--about">
                             <div class="menu-title" id="block-about-menu-menu">О нас</div>
@@ -57,10 +54,37 @@
 									<a href="/kontakty/">Контакты</a>
                                 </li>
                             </ul>
-
-
-
                         </nav>
+
+                        <div class="socicons_wrap">
+                            <div class="menu-title">Полезный контент в соц.сетях</div>
+                            <div class="socicons">
+
+                                <div class="branch-1">
+                                    <div class="branch-2">
+                                        <a href="" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/max2_Ok.png');"></a>
+                                        <a href="https://t.me/ANKORNbot" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/tg2_Ok.png');"></a>
+                                    </div>
+                                    <div class="branch-2">
+                                        <a href="https://dzen.ru/ankorn" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/dzen2_Ok.png');"></a>
+                                        <a href="https://rutube.ru/channel/61370949/" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/rutube2_Ok.png');"></a>
+                                    </div>
+                                </div>
+                                <div class="branch-1">
+                                    <div class="branch-2">
+                                        <a href="https://vk.com/ankornru" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/vkontakte2_Ok.png');"></a>
+                                        <a href="https://www.youtube.com/@АНКОРН-э1ц" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/youtube2_Ok.png');"></a>
+                                    </div>
+                                    <div class="branch-2">
+                                        <a href="https://vkvideo.ru/@ankornru/all" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/vk_video2_Ok.png');"></a>
+                                        <a href="https://vc.ru/id5250487" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/vc2_Ok.png');"></a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
 
                     </div>
                     <div class="footer-top-col footer-top-col--4">

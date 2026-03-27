@@ -2263,6 +2263,32 @@ ul.menu {
     color: #e33850;
 }
 
+.footer .socicons_wrap{margin-top: 50px;}
+.footer .socicons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 15px;
+}
+.footer .socicons .branch-1{
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer .socicons .branch-2{
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer .socicon {
+    display: block;
+    width: 37px;
+    height: 37px;
+    background-size: contain;
+    position: relative;
+    margin-right: 7px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 7px;
+}
+
 /*О КОМПАНИИ*/
 
 .text-formatted a {
@@ -5362,6 +5388,17 @@ iframe {
       display: none;
   }
 
+
+.header_icon {
+    display: block;
+    width: 37px;
+    height: 37px;
+    background-size: contain;
+    position: relative;
+    margin-right: 7px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 @media (max-width: 1600px) {
   .mobile_only.header-telegram-mobile,
   .mobile_only.header-whatsapp-mobile {
