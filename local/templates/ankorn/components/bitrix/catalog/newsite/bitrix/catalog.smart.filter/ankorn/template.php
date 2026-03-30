@@ -37,6 +37,10 @@ if (isset($templateData['TEMPLATE_THEME']))
 			<div class="row">
 				<?foreach($arResult["ITEMS"] as $key=>$arItem)//prices
 				{
+                    // округляем до 50
+                    $arItem["VALUES"]["MIN"]["VALUE"] = floor($arItem["VALUES"]["MIN"]["VALUE"]/50)*50;
+                    $arItem["VALUES"]["MAX"]["VALUE"] = ceil($arItem["VALUES"]["MAX"]["VALUE"]/50)*50;
+
 					$key = $arItem["ENCODED_ID"];
 					if(isset($arItem["PRICE"])):
 						if ($arItem["VALUES"]["MAX"]["VALUE"] - $arItem["VALUES"]["MIN"]["VALUE"] <= 0)
@@ -45,6 +49,8 @@ if (isset($templateData['TEMPLATE_THEME']))
 						$precision = 0;
 						$step_num = 4;
 						$step = ($arItem["VALUES"]["MAX"]["VALUE"] - $arItem["VALUES"]["MIN"]["VALUE"]) / $step_num;
+                        // округляем до 50
+                        $step = round($step/50)*50;
 						$prices = array();
 						if (Bitrix\Main\Loader::includeModule("currency"))
 						{
@@ -63,7 +69,17 @@ if (isset($templateData['TEMPLATE_THEME']))
 							}
 							$prices[$step_num] = number_format($arItem["VALUES"]["MAX"]["VALUE"], $precision, ".", "");
 						}
+
+
 						?>
+                        <?
+                        echo '<pre id="inspect" class="ins_" style="display:none">';
+                        var_dump(
+                            $prices,
+
+                        );
+                        echo '</pre>';
+                        ?>
 
 						<div class="<?if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL"):?>col-sm-6 col-md-4<?else:?>col-12<?endif?> mb-2 smart-filter-parameters-box <?=$arItem['CODE']?> bx-active">
 							<div class="smart-filter-parameters-box-title" onclick="smartFilter.hideFilterProps(this)">
