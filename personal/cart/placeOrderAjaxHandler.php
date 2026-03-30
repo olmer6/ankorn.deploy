@@ -24,6 +24,7 @@ $request = Context::getCurrent()->getRequest();
 
 // Получаем данные из POST
 $userName = trim($request->getPost('USER_NAME'));
+$companyName = trim($request->getPost('COMPANY_NAME'));
 $email = trim($request->getPost('EMAIL'));
 $phone = trim($request->getPost('PHONE'));
 $comment = trim($request->getPost('COMMENT'));
@@ -38,19 +39,6 @@ if($companyDetails){
     $ArchiveFileFileID = FormDataHandler::fileSave(fileDetails:$ArchiveFile,directory: 'archiveFile');
     $ArchiveFileURL = $_SERVER["DOCUMENT_ROOT"].CFile::GetPath($ArchiveFileFileID);
 }
-
-echo json_encode(
-    [
-        'DEBUGGING' => true,
-        '$companyDetails' => $companyDetails,
-        '$companyDetailsFileID' => $companyDetailsFileID,
-        '$companyDetailsFileURL' => CFile::GetPath($companyDetailsFileID),
-        '$ArchiveFile' => $ArchiveFile,
-        '$ArchiveFileFileID' => $ArchiveFileFileID,
-        '$ArchiveFileURL' => CFile::GetPath($ArchiveFileURL),
-    ]
-);
-die();
 
 // валидация
 $dataValidator = new DataValidator();
@@ -168,6 +156,7 @@ $userData = ob_get_clean();
 
 $arEventFields = [
     'USER_NAME' => $_POST['USER_NAME'],
+    'COMPANY_NAME' => $_POST['COMPANY_NAME'],
     'EMAIL' => $_POST['EMAIL'],
     'PHONE' => $_POST['PHONE'],
     'COMMENT' => $_POST['COMMENT'],
@@ -187,6 +176,7 @@ echo json_encode($returned_result);
 //COMF5 BEGIN
 $Comf5arEventFields = [
     'AUTHOR' => $_POST['USER_NAME'],
+    'COMPANY_NAME' => $_POST['COMPANY_NAME'],
     'AUTHOR_EMAIL' => $_POST['EMAIL'],
     'PHONE' => $_POST['PHONE'],
     'TEXT' => $_POST['COMMENT'].$Comf5BasketComposition,

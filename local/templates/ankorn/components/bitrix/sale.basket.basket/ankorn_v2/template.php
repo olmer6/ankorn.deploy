@@ -97,14 +97,23 @@ use Bitrix\Main\Localization\Loc;
                     <input name="COMPANY_NAME" type="text" placeholder="Название компании">
                     <input name="USER_NAME" type="text" placeholder="Контактное лицо*">
                     <input name="EMAIL" type="email" placeholder="e-mail *">
-                    <input name="PHONE" type="tel" placeholder="номер телефона*">
-                    <p>Реквизиты компании (pdf, jpg, png, doc, docx, xls, xlsx, rtf, odt)</p>
-                    <input name="COMPANY_DETAILS" type="file" title="pdf, jpg, png, doc, docx, xls, xlsx, rtf, odt"  accept=".pdf, .jpg, .png, .doc, .docx, .xls, .xlsx, .rtf, .odt">
-                    <p>дополнительные файлы (архив zip, rar)</p>
-                    <input name="ARCHIVE_FILE" type="file"  title="архив zip, rar" accept=".zip, .rar">
-                    <textarea name="COMMENT" id="" cols="30"rows="10" placeholder="комметарий к заказу"></textarea>
+                    <input name="PHONE" type="tel" placeholder="Номер телефона*">
+                    <textarea name="COMMENT" id="" cols="30"rows="3" placeholder="Комметарий к заказу"></textarea>
+                    <div class="file-inputs">
+                        <div class="file-input">
+                            <p>Реквизиты компании <br>(pdf, jpg, png, doc, docx, xls, xlsx)</p>
+                            <input name="COMPANY_DETAILS" type="file" title="pdf, jpg, png, doc, docx, xls, xlsx, rtf, odt"  accept=".pdf, .jpg, .png, .doc, .docx, .xls, .xlsx, .rtf, .odt">
+                        </div>
+                        <div class="file-input">
+                            <p>Дополнительные файлы <br>(архив zip, rar)</p>
+                            <input name="ARCHIVE_FILE" type="file"  title="архив zip, rar" accept=".zip, .rar">
+                        </div>
+
+                    </div>
                 </div>
                 <div class="cart-data">
+
+                    <div class="placeholder"></div>
                     <h3>Ваш заказ</h3>
                     <div class="order-data">
                         <h3 class="full-summ">Итого: <span data-entity="basket-total-price"><?=$arResult['allSum_FORMATED']?></span></h3>
@@ -114,6 +123,8 @@ use Bitrix\Main\Localization\Loc;
 
                     <div class="approval">Заполняя поля и нажимая кнопку «Отправить», вы подтверждаете, что ознакомлены и согласны с
                         <a href="/politika-konfidencialnosti/">Политикой в отношении обработки персональных данных</a>.</div>
+                    <div class="placeholder"></div>
+                    <div class="placeholder"></div>
                     <button type="submit" class="btn-red" >Оформить заказ</button>
 
                 </div>
