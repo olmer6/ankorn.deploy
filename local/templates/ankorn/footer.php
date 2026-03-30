@@ -62,7 +62,7 @@
 
                                 <div class="branch-1">
                                     <div class="branch-2">
-                                        <a href="" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/max2_Ok.png');"></a>
+                                        <a href="https://max.ru/id2631036482_bot" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/max2_Ok.png');"></a>
                                         <a href="https://t.me/ANKORNbot" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/tg2_Ok.png');"></a>
                                     </div>
                                     <div class="branch-2">
