@@ -1,7 +1,19 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_before.php');
 
-if (!check_bitrix_sessid()) die('Invalid session');
+global $USER;
+// Для неавторизованных не проверяем sessid
+if (!$USER->IsAuthorized()) {
+    CModule::IncludeModule("sale");
+    CModule::IncludeModule("catalog");
+    Add2BasketByProductID($productId, 1);
+} else {
+    if (!check_bitrix_sessid()) die('Invalid session');
+    CModule::IncludeModule("sale");
+    CModule::IncludeModule("catalog");
+    Add2BasketByProductID($productId, 1);
+}
+
 
 $productId = (int)$_REQUEST['id'];
 if ($productId > 0) {
