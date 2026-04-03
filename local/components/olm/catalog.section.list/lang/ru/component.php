@@ -1,0 +1,20 @@
+<?php
+$MESS['OLM_CATALOG_SECTION_LIST_IBLOCK_TYPE'] = 'Тип инфоблока';
+$MESS['OLM_CATALOG_SECTION_LIST_IBLOCK_ID'] = 'Инфоблок';
+$MESS['OLM_CATALOG_SECTION_LIST_SECTION_ID'] = 'ID раздела';
+$MESS['OLM_CATALOG_SECTION_LIST_SECTION_CODE'] = 'Код раздела';
+$MESS['OLM_CATALOG_SECTION_LIST_MAX_DEPTH'] = 'Максимальная глубина';
+$MESS['OLM_CATALOG_SECTION_LIST_TOP_DEPTH'] = 'Максимальная отображаемая глубина';
+$MESS['OLM_CATALOG_SECTION_LIST_COUNT_ELEMENTS'] = 'Показывать количество элементов';
+$MESS['OLM_CATALOG_SECTION_LIST_SHOW_PARENT_NAME'] = 'Показывать название раздела';
+$MESS['OLM_CATALOG_SECTION_LIST_HIDE_SECTION_NAME'] = 'Не показывать название подразделов';
+$MESS['OLM_CATALOG_SECTION_LIST_VIEW_MODE'] = 'Вид списка подразделов';
+$MESS['OLM_CATALOG_SECTION_LIST_VIEW_MODE_LIST'] = 'Многоуровневый список';
+$MESS['OLM_CATALOG_SECTION_LIST_VIEW_MODE_LINE'] = 'В одну линию';
+$MESS['OLM_CATALOG_SECTION_LIST_VIEW_MODE_TEXT'] = 'Текст';
+$MESS['OLM_CATALOG_SECTION_LIST_SECTION_URL'] = 'URL раздела';
+$MESS['OLM_CATALOG_SECTION_LIST_DISPLAY_EMPTY'] = 'Отображать пустые разделы';
+$MESS['OLM_CATALOG_SECTION_LIST_SHOW_SECTIONS_WITH_ELEMENTS_ONLY'] = 'Показывать только разделы с элементами';
+$MESS['OLM_CATALOG_SECTION_LIST_CACHE_FILTER'] = 'Кешировать при установленном фильтре';
+$MESS['OLM_CATALOG_SECTION_LIST_CACHE_TIME'] = 'Время кеширования (сек.)';
+$MESS['OLM_CATALOG_SECTION_LIST_CACHE_GROUPS'] = 'Учитывать права доступа';
