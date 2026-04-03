@@ -237,7 +237,7 @@ $(document).ready(function(){
                     ym(45467883,'reachGoal','card');
                     $("#place_order_error").empty();
                     $("#place_order_error").removeClass('active');
-                  window.location = '/personal/cart/order-success/';
+                    window.location = '/personal/cart/order-success/';
                 }
             },
             error: function(xhr, status, error) {

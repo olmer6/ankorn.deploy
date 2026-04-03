@@ -34,10 +34,10 @@ class dataValidator
     {
         if (empty($phone)) {
 
-            $this->errorMessages[] = 'Телефон обязателен для заполнения';
+            $this->errorMessages['phone'] = 'Телефон обязателен для заполнения';
             $this->errorExist = true;
         } elseif (!preg_match('/^[0-9+\-\s\(\)]+$/', $phone)) {
-            $this->errorMessages[] =  'Телефон содержит недопустимые символы';
+            $this->errorMessages['phone'] =  'Телефон содержит недопустимые символы';
             $this->errorExist = true;
         }
         return false;
@@ -46,10 +46,10 @@ class dataValidator
     function validateEmail(string $email)
     {
         if (empty($email)) {
-            $this->errorMessages[] =  'Email обязателен для заполнения';
+            $this->errorMessages['email'] =  'Email обязателен для заполнения';
             $this->errorExist = true;
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $this->errorMessages[] =  'Введите корректный email адрес';
+            $this->errorMessages['email'] =  'Введите корректный email адрес';
             $this->errorExist = true;
         }
         return false;
@@ -58,7 +58,7 @@ class dataValidator
     function validateName(string $userName)
     {
         if (empty($userName)) {
-            $this->errorMessages[] =  'Имя обязательно для заполнения';
+            $this->errorMessages['name'] =  'Имя обязательно для заполнения';
             $this->errorExist = true;
         }
         return false;

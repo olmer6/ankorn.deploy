@@ -105,7 +105,7 @@ $fuserId = Sale\Fuser::getId(); // ID корзины текущей сессии
 $basket = Sale\Basket::loadItemsForFUser($fuserId, $siteId);
 
 if ($basket->count() == 0) {
-    die(json_encode(['SUCCESS' => false, 'ERROR' => 'Корзина пуста']));
+    die(json_encode(['SUCCESS' => false, 'ERROR' => ["basket_empty" => 'Корзина пуста']]));
 }
 
 // ------------------------------------------------------------
@@ -157,12 +157,12 @@ $returned_result['message'] = 'Заказ успешно создан';
 
 ob_start();
 ?>
-<h2>создан новый заказ</h2>
-<p>Контактное лицо: <strong><?=$_POST['USER_NAME']?></strong></p>
-<p>E-mail: <strong><?=$_POST['EMAIL']?></strong></p>
-<p> Tелефон: <strong><?=$_POST['PHONE']?></strong></p>
-<p>Комментарий:</p>
-<p><strong><?=$_POST['COMMENT']?></strong></p>
+    <h2>создан новый заказ</h2>
+    <p>Контактное лицо: <strong><?=$_POST['USER_NAME']?></strong></p>
+    <p>E-mail: <strong><?=$_POST['EMAIL']?></strong></p>
+    <p> Tелефон: <strong><?=$_POST['PHONE']?></strong></p>
+    <p>Комментарий:</p>
+    <p><strong><?=$_POST['COMMENT']?></strong></p>
 <?php if($companyDetailsFileURL){?>Файл реквизитов компании: <a href="<?=$companyDetailsFileURL?>"><?=$companyDetailsFileURL?></a><?php };?>
 <?php if($ArchiveFileURL){?>Архив с дополнительными материалами: <a href="<?=$ArchiveFileURL?>"><?=$ArchiveFileURL?></a><?php };?>
 <?php
@@ -207,6 +207,7 @@ $Comf5arEventFields = [
         'EMAIL' => $_POST['EMAIL'],
         'PHONE' => $_POST['PHONE'],
         'comment' => $_POST['COMMENT'],
+        'COMPANY_NAME' => $_POST['COMPANY_NAME'],
     ],
     'products' => $f5Basket['products'],
     'cookie' => $_COOKIE,
