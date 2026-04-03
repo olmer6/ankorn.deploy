@@ -56,6 +56,6 @@ use Bitrix\Main\Localization\Loc;
             $('.agree input').prop('checked', true)
 
             $(".input-phone").mask("+7 (999) 999-9999");
-            ym(45467883,'reachGoal','vh-callback')
+            ym(45467883,'reachGoal','vh-callback');
         </script>
     <?php endif; ?>
