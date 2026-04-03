@@ -168,9 +168,9 @@ $arEventFields = [
 $sendResult = CEvent::Send("FORM_ORDER_CREATE_ANCORN_SEND", 's1', $arEventFields);
 
 $returned_result['sendResult'] = $sendResult;
-$returned_result['testMailResult'] = $mailResult;
+//$returned_result['testMailResult'] = $mailResult;
 $returned_result['SUCCESS'] = TRUE;
-$returned_result['ERROR'] = 'Неизвестная ошибка';
+//$returned_result['ERROR'] = 'Неизвестная ошибка';
 echo json_encode($returned_result);
 
 //COMF5 BEGIN
