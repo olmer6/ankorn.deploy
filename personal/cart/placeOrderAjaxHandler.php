@@ -128,7 +128,21 @@ $orderId = $order->getId();
 // Удаляем все позиции из корзины текущего пользователя (сессии)
 //
 $basketItems = $basket->getBasketItems();
+//COMF5 BEGIN
+$f5Basket = [
+    "price" => $basket->getPrice(),
+    "products" => []
+];
+//COMF5 END
 foreach ($basketItems as $item) {
+    //COMF5 BEGIN
+    $f5Basket['products'][$item->getProductId()] = [
+        'NAME' => $item->getField('NAME'),
+        'PRICE' => $item->getPrice(),
+        'QUANTITY' => $item->getQuantity(),
+        'PRODUCT_ID' => $item->getProductId(),
+    ];
+    //COMF5 END
     $item->delete(); // помечаем на удаление
 }
 $basket->save();
@@ -174,13 +188,28 @@ $returned_result['SUCCESS'] = TRUE;
 echo json_encode($returned_result);
 
 //COMF5 BEGIN
+//$Comf5arEventFields = [
+//    'AUTHOR' => $_POST['USER_NAME'],
+//    'COMPANY_NAME' => $_POST['COMPANY_NAME'],
+//    'AUTHOR_EMAIL' => $_POST['EMAIL'],
+//    'PHONE' => $_POST['PHONE'],
+//    'TEXT' => $_POST['COMMENT'].$Comf5BasketComposition,
+//    'FORM_NAME' => "callPrice",
+//    'COMPANY_DETAILS_FILE_URL' => $companyDetailsFileURL,
+//    'ARCHIVE_FILE_URL' => $ArchiveFileURL,
+//];
+
 $Comf5arEventFields = [
-    'AUTHOR' => $_POST['USER_NAME'],
-    'COMPANY_NAME' => $_POST['COMPANY_NAME'],
-    'AUTHOR_EMAIL' => $_POST['EMAIL'],
-    'PHONE' => $_POST['PHONE'],
-    'TEXT' => $_POST['COMMENT'].$Comf5BasketComposition,
-    'FORM_NAME' => "callPrice",
+    "order" => [
+        "id" => $orderId,
+        "price" => $f5Basket['price'],
+        'CONTACT_PERSON' => $_POST['USER_NAME'],
+        'EMAIL' => $_POST['EMAIL'],
+        'PHONE' => $_POST['PHONE'],
+        'comment' => $_POST['COMMENT'],
+    ],
+    'products' => $f5Basket['products'],
+    'cookie' => $_COOKIE,
     'COMPANY_DETAILS_FILE_URL' => $companyDetailsFileURL,
     'ARCHIVE_FILE_URL' => $ArchiveFileURL,
 ];

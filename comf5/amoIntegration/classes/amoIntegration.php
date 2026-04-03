@@ -66,6 +66,9 @@ class amoIntegration
         if (isset($data["form"]["TEXT"])) {
             $lead->cf()->byId(Amo::LEAD_CF["comm"])->setValue($data["form"]["TEXT"]);
         }
+        if (isset($data["order"]["comment"])) {
+            $lead->cf()->byId(Amo::LEAD_CF["comm"])->setValue($data["order"]["comment"]);
+        }
         if (isset($data["form"]["FORM_NAME"])) {
             $lead->cf()->byId(Amo::LEAD_CF["form"])->setValue(Amo::FORM_NAMES[$data["form"]["FORM_NAME"]]['form']);
         }
@@ -137,6 +140,10 @@ class amoIntegration
         if (isset($data["cookie"]["fbclid"])) {
             $lead->cf()->byId(Amo::LEAD_CF["fbclid"])->setValue($data["cookie"]["fbclid"]);
         }
+        if (isset($data['COMPANY_DETAILS_FILE_URL'])) {
+            $relativePath = strstr($data['COMPANY_DETAILS_FILE_URL'], 'upload/');
+            $lead->cf()->byId(Amo::LEAD_CF["file_link"])->setValue('https://' . $_SERVER['HTTP_HOST'] .$relativePath);
+        }
 
         $lead->save();
         logger("new lead  " . $lead->id);
@@ -150,6 +157,8 @@ class amoIntegration
             ];
             $note->save();
             logger("new note  " . $note->id);
+
+            $lead->cf()->byId(Amo::LEAD_CF["model"])->setValue($data["form"]["PRODUCT_NAME"]);
         }
 
         if (isset($data["products"])) {
@@ -157,7 +166,7 @@ class amoIntegration
             $i = 1;
 
             foreach ($data["products"] as $product) {
-                $noteText .= $i . ". " . $product["NAME"] . ", цена: " . (int)$product["PRICE"] . ", кол-во: " . $product["QUANTITY"] ."\n";
+                $noteText .= $i . ". " . trim($product["NAME"]) . ", цена: " . (int)$product["PRICE"] . ", кол-во: " . $product["QUANTITY"] ."\n";
                 $i += 1;
             }
             $note = $lead->createNote();
@@ -166,6 +175,7 @@ class amoIntegration
             ];
             $note->save();
             logger("new note  " . $note->id);
+            $lead->cf()->byId(Amo::LEAD_CF["model"])->setValue($noteText);
         }
 
         if (isset($data["form"]["COMPANY"]) || $isOrder) {
@@ -173,21 +183,11 @@ class amoIntegration
                 logger("new company");
                 $company = $amo->companies()->create();
             }
-            if (isset($data["order"]["COMPANY"])) {
-                $company->name = $data["order"]["COMPANY"];
+            if (isset($data["order"]["CONTACT_PERSON"])) {
+                $company->name = $data["order"]["CONTACT_PERSON"];
             }
             if (isset($data["form"]["COMPANY"])) {
                 $company->name = $data["form"]["COMPANY"];
-            }
-
-            if (isset($data["order"]["COMPANY_ADR"])) {
-                $company->cf()->byId(Amo::COMPANY_CF["address"])->setValue($data["order"]["COMPANY_ADR"]);
-            }
-            if (isset($data["order"]["INN"])) {
-                $company->cf()->byId(Amo::COMPANY_CF["inn"])->setValue($data["order"]["INN"]);
-            }
-            if (isset($data["order"]["KPP"])) {
-                $company->cf()->byId(Amo::COMPANY_CF["kpp"])->setValue($data["order"]["KPP"]);
             }
 
             if (isset($data["form"]["AUTHOR_EMAIL"])) {

@@ -33,7 +33,9 @@ class Amo
         "form" => 910259,
         "address" => 910289,
         "orderNum" => 910281,
-        "deliveryType" => 910285
+        "deliveryType" => 910285,
+        "model" => 899691,
+        "file_link" => 914115
     ];
 
     const COMPANY_CF = [
@@ -58,6 +60,10 @@ class Amo
         "podborpriibor" => [
             "lead" => "Заявка с сайта (подбор прибора)",
             "form" => "Подбор прибора"
-        ]
+        ],
+        "form" => [
+            "lead" => "Контакты",
+            "form" => "Контакты"
+        ],
     ];
 }
