@@ -27,7 +27,7 @@ use Bitrix\Main\Localization\Loc;
                 </div>
 
                 <input id="checkFormAuth" class="inputbox hidden" name="checkFormAuth" type="text" value="">
-
+                <?/*?>
                 <div class="agree">
                     <input type="checkbox" required>
                     <p>
@@ -35,7 +35,7 @@ use Bitrix\Main\Localization\Loc;
                         <a href="/politika-konfidencialnosti/">Политикой конфиденциальности</a>
                     </p>
                 </div>
-
+                <?*/?>
                 <div class="input-submit">
                     <input class="btn-red" type="submit" name="submit" value="Отправить">
                 </div>

@@ -158,7 +158,7 @@ $APPLICATION->SetTitle("О компании");
                         </div>
                         <div class="selection-column selection-column--right">
                             <div class="selection-button">
-                                <button type="button" class="btn-red">
+                                <button type="button" class="btn-red modal-selection">
                                     Подобрать прибор
                                 </button>
                             </div>

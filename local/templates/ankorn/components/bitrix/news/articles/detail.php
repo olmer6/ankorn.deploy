@@ -15,11 +15,13 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+$obRes= CIBlockElement::GetList(['SORT'=>'ASC'],['IBLOCK_ID'=>$arParams["IBLOCK_ID"], 'ACTIVE'=>'Y','CODE'=>$arResult["VARIABLES"]["ELEMENT_CODE"]],false, false,['IBLOCK_ID','ID','NAME']);
+//$res = $obRes->Fetch();
 ?>
     <section class="p-50">
     <div class="container">
     <div class="page-title">
-        <h1><?$APPLICATION->ShowTitle()?> </h1>
+        <h1><?$APPLICATION->ShowTitle(false)?></h1>
     </div>
 <?php
 

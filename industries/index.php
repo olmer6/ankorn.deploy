@@ -70,7 +70,7 @@ $APPLICATION->SetTitle("Применение приборов по отрасл�
 		),
 		"DETAIL_META_KEYWORDS" => "-",
 		"DETAIL_META_DESCRIPTION" => "-",
-		"DETAIL_BROWSER_TITLE" => "NAME",
+		"DETAIL_BROWSER_TITLE" => "-",
 		"DETAIL_SHOW_PICTURE" => "N",
 		"LINK_IBLOCK_TYPE" => "",
 		"LINK_IBLOCK_ID" => "",

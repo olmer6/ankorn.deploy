@@ -2,6 +2,8 @@
 
 namespace local\util\ankornOrder;
 
+use Bitrix\Main\Context;
+
 class dataValidator
 {
     function __construct($errorExist = false, $errorMessages = [])
@@ -18,6 +20,7 @@ class dataValidator
         $this->validatePhone($phone);
         $this->validateCompanyDetails($companyDetails);
         $this->validateArchiveFile($ArchiveFile);
+        $this->validateApprov();
 
         if($this->errorExist){
             echo json_encode(
@@ -28,6 +31,13 @@ class dataValidator
             );
             die();
         }
+    }
+
+    function validateApprov()
+    {
+        $approv = Context::getCurrent()->getRequest()->getPost('APPROV');
+        if($approv != 'true')
+            $this->errorMessages['approv'] = 'Подтвердите согласие на обработку данных';
     }
 
     function validatePhone(string $phone)

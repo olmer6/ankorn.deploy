@@ -62,22 +62,22 @@
 
                                 <div class="branch-1">
                                     <div class="branch-2">
-                                        <a href="https://max.ru/id2631036482_bot" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/max2_Ok.png');"></a>
-                                        <a href="https://t.me/ANKORNbot" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/tg2_Ok.png');"></a>
+                                        <a href="https://max.ru/id2631036482_bot" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/max2_Ok.png');" target="_blank"></a>
+                                        <a href="https://t.me/ANKORNbot" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/tg2_Ok.png');" target="_blank"></a>
                                     </div>
                                     <div class="branch-2">
-                                        <a href="https://dzen.ru/ankorn" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/dzen2_Ok.png');"></a>
-                                        <a href="https://rutube.ru/channel/61370949/" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/rutube2_Ok.png');"></a>
+                                        <a href="https://dzen.ru/ankorn" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/dzen2_Ok.png');" target="_blank"></a>
+                                        <a href="https://rutube.ru/channel/61370949/" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/rutube2_Ok.png');" target="_blank"></a>
                                     </div>
                                 </div>
                                 <div class="branch-1">
                                     <div class="branch-2">
-                                        <a href="https://vk.com/ankornru" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/vkontakte2_Ok.png');"></a>
-                                        <a href="https://www.youtube.com/@АНКОРН-э1ц" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/youtube2_Ok.png');"></a>
+                                        <a href="https://vk.com/ankornru" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/vkontakte2_Ok.png');" target="_blank"></a>
+                                        <a href="https://www.youtube.com/@АНКОРН-э1ц" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/youtube2_Ok.png');" target="_blank"></a>
                                     </div>
                                     <div class="branch-2">
-                                        <a href="https://vkvideo.ru/@ankornru/all" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/vk_video2_Ok.png');"></a>
-                                        <a href="https://vc.ru/id5250487" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/vc2_Ok.png');"></a>
+                                        <a href="https://vkvideo.ru/@ankornru/all" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/vk_video2_Ok.png');" target="_blank"></a>
+                                        <a href="https://vc.ru/id5250487" class="socicon" style="background-image: url('/local/templates/ankorn/img/socicons/vc2_Ok.png');" target="_blank"></a>
                                     </div>
                                 </div>
 

@@ -69,18 +69,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 							}
 							$prices[$step_num] = number_format($arItem["VALUES"]["MAX"]["VALUE"], $precision, ".", "");
 						}
-
-
 						?>
-                        <?
-                        echo '<pre id="inspect" class="ins_" style="display:none">';
-                        var_dump(
-                            $prices,
-
-                        );
-                        echo '</pre>';
-                        ?>
-
 						<div class="<?if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL"):?>col-sm-6 col-md-4<?else:?>col-12<?endif?> mb-2 smart-filter-parameters-box <?=$arItem['CODE']?> bx-active">
 							<div class="smart-filter-parameters-box-title" onclick="smartFilter.hideFilterProps(this)">
 								<span class="smart-filter-container-modef"></span>

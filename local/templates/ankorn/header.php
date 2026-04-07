@@ -137,8 +137,8 @@ if ($currentUri === '/') {
                 <div id="mail-explain">Для связи с отделом продаж</div>
             </div>
 
-            <a href="" class="header_icon" style="background-image: url('/local/templates/ankorn/img/socicons/max2_Ok.png');"></a>
-            <a href="https://t.me/ANKORNbot" class="header_icon" style="background-image: url('/local/templates/ankorn/img/socicons/tg2_Ok.png');"></a>
+            <a href="https://max.ru/id2631036482_bot" class="header_icon" style="background-image: url('/local/templates/ankorn/img/socicons/max2_Ok.png');" target="_blank"></a>
+            <a href="https://t.me/ANKORNbot" class="header_icon" style="background-image: url('/local/templates/ankorn/img/socicons/tg2_Ok.png');"  target="_blank"></a>
 
             <div class="header__contact header-whatsapp">
                 <!-- <a href="https://wa.me/79175138220" target="_blank"> -->

@@ -207,6 +207,10 @@ $(document).ready(function(){
         formData.append('PHONE', PHONE);
         var COMMENT = $("[name ='COMMENT']").val();
         formData.append('COMMENT', COMMENT);
+        var APPROV = $("[name ='APPROV']").is(":checked");
+        formData.append('APPROV', APPROV);
+        console.log('APPROV');
+        console.log(APPROV);
 
         // Отправляем AJAX запрос
         $.ajax({
@@ -232,6 +236,10 @@ $(document).ready(function(){
                         order_error.append("</br>"+response.ERROR.email);
                     if (response.ERROR.phone)
                         order_error.append("</br>"+response.ERROR.phone);
+                    if (response.ERROR.basket_empty)
+                        order_error.append("</br>"+response.ERROR.basket_empty);
+                    if (response.ERROR.approv)
+                        order_error.append("</br>"+response.ERROR.approv);
                     return;
                 } else if(response.SUCCESS){
                     ym(45467883,'reachGoal','card');

@@ -51,7 +51,7 @@ $APPLICATION->SetTitle("Статьи");
 		"CACHE_FILTER" => "N",
 		"CACHE_GROUPS" => "Y",
 		"DISPLAY_PANEL" => "N",
-		"SET_TITLE" => "N",
+		"SET_TITLE" => "Y",
 		"SET_STATUS_404" => "Y",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
@@ -73,7 +73,7 @@ $APPLICATION->SetTitle("Статьи");
 		"DISPLAY_NAME" => "Y",
 		"META_KEYWORDS" => "-",
 		"META_DESCRIPTION" => "-",
-		"BROWSER_TITLE" => "NAME",
+		"BROWSER_TITLE" => "-",
 		"DETAIL_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"DETAIL_FIELD_CODE" => array(
 			0 => "",

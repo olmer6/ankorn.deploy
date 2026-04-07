@@ -321,8 +321,8 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 		}
 		//endregion
 
-	//region Description
-	if (($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y') && !empty($arResult['DESCRIPTION']))
+        //region Description
+	if (($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y') && !empty($arResult['DESCRIPTION']) && $_GET["PAGEN_1"]<=1)
 	{
 		?>
 		<div class="row mb-4">
