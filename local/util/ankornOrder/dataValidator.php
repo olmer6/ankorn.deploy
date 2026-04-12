@@ -107,13 +107,22 @@ class dataValidator
         }
     }
     function validateArchiveFile($ArchiveFile){
-        $allowedExtensions = ['zip', 'rar'];
+        $allowedExtensions = [
+                'pdf', 'jpg', 'png', 'docx', 'xlsx', 'doc', 'xls', 'rar', 'zip', 'rtf', 'odt'];
         $allowedMimeTypes = [
             'application/zip',
             'application/x-zip-compressed',
             'application/x-rar',
             'application/x-rar-compressed',
             'application/vnd.rar',
+            'application/pdf',
+            'image/jpeg', 'image/png',
+            'application/msword',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'application/vnd.ms-excel',
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            'application/rtf',
+            'application/vnd.oasis.opendocument.text'
         ];
 
         if (isset($ArchiveFile)) {

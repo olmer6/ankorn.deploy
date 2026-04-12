@@ -105,8 +105,8 @@ use Bitrix\Main\Localization\Loc;
                             <input name="COMPANY_DETAILS" type="file" title="pdf, jpg, png, doc, docx, xls, xlsx, rtf, odt"  accept=".pdf, .jpg, .png, .doc, .docx, .xls, .xlsx, .rtf, .odt">
                         </div>
                         <div class="file-input">
-                            <p>Дополнительные файлы <br>(архив zip, rar)</p>
-                            <input name="ARCHIVE_FILE" type="file"  title="архив zip, rar" accept=".zip, .rar">
+                            <p>Дополнительные файлы <br>(pdf, jpg, png, docx, xlsx, rar, zip)</p>
+                            <input name="ARCHIVE_FILE" type="file"  title="pdf, jpg, png, docx, xlsx, rar, zip" accept=".pdf, .jpg, .png, .docx, .xlsx, .doc, .xls, .rar, .zip, .rtf, .odt">
                         </div>
 
                     </div>
