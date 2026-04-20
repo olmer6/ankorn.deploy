@@ -78,3 +78,13 @@ else
 {
 	include($_SERVER["DOCUMENT_ROOT"] . "/" . $this->GetFolder() . "/section_horizontal.php");
 }
+
+
+if($_GET["PAGEN_1"]) {
+    global $APPLICATION;
+    $pageTitle = $APPLICATION->GetPageProperty("title");
+    $APPLICATION->SetPageProperty("title", $pageTitle . " | стр. " . $_GET["PAGEN_1"]);
+    $pageDescription = $APPLICATION->GetPageProperty("description");
+    if($pageDescription)
+        $APPLICATION->SetPageProperty("description", $pageDescription . " | стр. " . $_GET["PAGEN_1"]);
+}

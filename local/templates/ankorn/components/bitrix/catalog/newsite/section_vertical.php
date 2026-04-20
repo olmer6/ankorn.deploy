@@ -52,6 +52,7 @@ $APPLICATION->IncludeComponent(
 print "</div>";
 $sectionID = $arCurSection['ID'];
 $sectionName = SectionTable::getById($arCurSection['ID'])->fetch();
+$sectionName['NAME'] = ($_GET["PAGEN_1"])?$sectionName['NAME']. " | стр. " . $_GET["PAGEN_1"]:$sectionName['NAME'];
 print "<h1 id='catalog-h1'>" . $sectionName['NAME'] . "</h1>"; 
 print "</div>";
 ?>
