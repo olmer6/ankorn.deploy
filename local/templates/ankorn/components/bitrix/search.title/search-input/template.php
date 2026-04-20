@@ -24,7 +24,7 @@ $CONTAINER_ID = CUtil::JSEscape($CONTAINER_ID);
 
 if($arParams["SHOW_INPUT"] !== "N"):?>
     <form action="<?echo $arResult["FORM_ACTION"]?>" class="search-header">
-        <input id="<?echo $INPUT_ID?>" type="text" name="q" value="" size="40" maxlength="50" autocomplete="off" placeholder="Найти товар" />
+        <input id="<?echo $INPUT_ID?>" type="text" name="q" value="" size="40" maxlength="50" placeholder="Найти товар" />
         <label>
             <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="15.5563" cy="15.5564" r="9.5" transform="rotate(-45 15.5563 15.5564)" stroke="#AC182D" stroke-width="3"/>

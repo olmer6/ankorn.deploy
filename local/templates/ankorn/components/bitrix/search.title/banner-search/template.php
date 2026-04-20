@@ -26,7 +26,7 @@ if($arParams["SHOW_INPUT"] !== "N"):?>
     <form action="<?echo $arResult["FORM_ACTION"]?>" class="promo-search form search-form">
         <div class="promo-search-inner">
             <div class="promo-search-label">Найти товар</div>
-            <input class="form-control" id="<?echo $INPUT_ID?>" type="text" name="q" value="" size="40" maxlength="50" autocomplete="off" placeholder="Например магнитный сигнализатор уровня" />
+            <input class="form-control" id="<?echo $INPUT_ID?>" type="text" name="q" value="" size="40" maxlength="50" placeholder="Например магнитный сигнализатор уровня" />
             <label class="btn-red">
                 Найти
                 <input name="s" class="hidden" type="submit" value="<?=GetMessage("CT_BST_SEARCH_BUTTON");?>" />

@@ -24,7 +24,7 @@ else
 <section class="applications p-50">
     <div class="container">
         <div class="page-title">
-            <h1><?$APPLICATION->ShowTitle()?> </h1>
+            <h1><?$APPLICATION->ShowTitle(false)?> </h1>
         </div>
         <div class="row">
             <div class="col-xs-12">

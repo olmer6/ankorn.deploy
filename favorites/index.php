@@ -252,13 +252,12 @@ function addToCartAjax(productId, quantity = 1) {
                     button.disabled = false;
                 }, 1000);
             }
-            
             // Показываем уведомление
             showCartNotification(data.message);
-            
             // Обновляем счетчик корзины
             updateCartCounter();
-            
+            // Регистрируем цель метрики
+            ym(45467883,'reachGoal','add-to-cart');
         } else {
             // Ошибка
             if (button) {

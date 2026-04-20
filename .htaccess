@@ -15,6 +15,9 @@ php_value max_input_vars 10000
   #Добавил
   RewriteBase /
 
+  #Добавил
+#  RewriteRule ^(.*)index\.php$ $1 [R=301,L]
+
   RewriteCond %{HTTPS} off
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
@@ -45,9 +48,7 @@ php_value max_input_vars 10000
 
   # Для авторизации
   RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
-  
-  #Добавил
-  RewriteRule ^(.*)index\.php$ $1 [R=301,L]
+
 
 
   # Убирает множественные слэши в конце

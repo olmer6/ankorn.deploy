@@ -102,6 +102,14 @@ if ( $item['PROPERTIES']['IS_MAIN']['VALUE_ENUM'] ) {
 				print "<div class='plate-yellow plate-item'>Новинка</div>";
 			if ($item['PROPERTIES']['PLATE_CANCELED']['VALUE'])
 				print "<div class='plate-yellow plate-item'>Снят с производства</div>";
+			if ($item['PROPERTIES']['TR_CU_CERTIFICATE']['VALUE'])
+				echo "<div class='plate-green plate-item'>Сертификат тр тс</div>";
+			if ($item['PROPERTIES']['WARRANTY_3_YEAR']['VALUE'])
+                echo "<div class='plate-yellow plate-item'>Гарантия 3 года</div>";
+			if ($item['PROPERTIES']['WARRANTY_5_YEAR']['VALUE'])
+                echo "<div class='plate-yellow plate-item'>Гарантия 5 лет</div>";
+			if ($item['PROPERTIES']['IN_THE_SI_REGISTRY']['VALUE'])
+                echo "<div class='plate-green plate-item'>В реестре си</div>";
 		echo "</div>";
 	}
 	?>
@@ -423,7 +431,7 @@ if ( $item['PROPERTIES']['IS_MAIN']['VALUE_ENUM'] ) {
 								?>
 								<div class="product-item-button-container" id="<?=$itemIds['BASKET_ACTIONS']?>">
 									<button class="btn btn-primary <?=$buttonSizeClass?>" id="<?=$itemIds['BUY_LINK']?>"
-											href="javascript:void(0)" rel="nofollow">
+											href="javascript:void(0)" onclick="ym(45467883,'reachGoal','add-to-cart');" rel="nofollow">
 										<?=($arParams['ADD_TO_BASKET_ACTION'] === 'BUY' ? $arParams['MESS_BTN_BUY'] : $arParams['MESS_BTN_ADD_TO_BASKET'])?>
 									</button>
 								</div>
@@ -491,7 +499,7 @@ if ( $item['PROPERTIES']['IS_MAIN']['VALUE_ENUM'] ) {
 									</button>
 									<div id="<?=$itemIds['BASKET_ACTIONS']?>" <?=($actualItem['CAN_BUY'] ? '' : 'style="display: none;"')?>>
 										<button class="btn btn-primary <?=$buttonSizeClass?>" id="<?=$itemIds['BUY_LINK']?>"
-												href="javascript:void(0)" rel="nofollow">
+												href="javascript:void(0)" rel="nofollow" onclick="ym(45467883,'reachGoal','add-to-cart');">
 											<?=($arParams['ADD_TO_BASKET_ACTION'] === 'BUY' ? $arParams['MESS_BTN_BUY'] : $arParams['MESS_BTN_ADD_TO_BASKET'])?>
 										</button>
 									</div>

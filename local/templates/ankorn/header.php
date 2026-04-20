@@ -136,12 +136,10 @@ if ($currentUri === '/') {
                 </a>
                 <div id="mail-explain">Для связи с отделом продаж</div>
             </div>
-            <div class="header-telegram-mobile mobile_only">
-              <a href="https://t.me/ANKORNbot" class="amo-button__link" data-social="telegram" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">  <path fill="#E1E1E1" d="M18.186 37.327c-.965 0-.8-.37-1.134-1.303l-2.838-9.488 21.85-13.165"></path> <path fill="#CDCDCD" d="M18.186 37.328c.745 0 1.074-.346 1.49-.757l3.973-3.923-4.956-3.035"></path> <path fill="#fff" d="m18.693 29.614 12.007 9.01c1.37.768 2.36.37 2.7-1.292l4.888-23.392c.5-2.038-.765-2.962-2.075-2.357l-28.7 11.239c-1.96.798-1.948 1.908-.357 2.403l7.365 2.334 17.05-10.925c.805-.496 1.544-.23.938.317"></path> </svg></a>
-            </div>
-            <div class="header-whatsapp-mobile mobile_only">
-              <a href="https://wa.me/79604884112" class="amo-button__link" data-social="whatsapp" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">  <path fill="#fff" d="M40.8 23.567c0 9.04-7.384 16.367-16.495 16.367-2.892 0-5.609-.739-7.973-2.036L7.2 40.8l2.977-8.782a16.194 16.194 0 0 1-2.367-8.45c0-9.04 7.385-16.368 16.495-16.368 9.112 0 16.495 7.328 16.495 16.367ZM24.305 9.807c-7.647 0-13.867 6.173-13.867 13.76 0 3.011.981 5.8 2.641 8.068l-1.732 5.11 5.329-1.693a13.86 13.86 0 0 0 7.63 2.276c7.646 0 13.867-6.172 13.867-13.76S31.953 9.807 24.305 9.807Zm8.33 17.53c-.102-.167-.371-.268-.775-.468-.405-.2-2.393-1.172-2.763-1.305-.37-.134-.641-.201-.91.2-.27.402-1.044 1.305-1.28 1.573-.237.268-.472.302-.877.1-.404-.2-1.706-.624-3.25-1.99-1.203-1.063-2.014-2.376-2.25-2.778-.236-.401-.025-.618.177-.818.182-.18.405-.468.607-.703.203-.234.27-.4.404-.669.135-.268.068-.502-.034-.703-.1-.2-.91-2.175-1.247-2.978-.337-.803-.673-.67-.91-.67-.235 0-.505-.033-.774-.033-.27 0-.708.1-1.079.502-.37.402-1.414 1.372-1.414 3.346s1.448 3.882 1.65 4.15c.203.267 2.797 4.45 6.907 6.056 4.111 1.605 4.111 1.07 4.852 1.002.741-.066 2.392-.97 2.73-1.906.336-.938.336-1.74.236-1.908Z"></path> </svg></a>
-            </div>
+
+            <a href="https://max.ru/id2631036482_bot" class="header_icon" style="background-image: url('/local/templates/ankorn/img/socicons/max2_Ok.png');" target="_blank"></a>
+            <a href="https://t.me/ANKORNbot" class="header_icon" style="background-image: url('/local/templates/ankorn/img/socicons/tg2_Ok.png');"  target="_blank"></a>
+
             <div class="header__contact header-whatsapp">
                 <!-- <a href="https://wa.me/79175138220" target="_blank"> -->
                 <a href="https://wa.me/79604884112" target="_blank">

@@ -16,6 +16,7 @@ $APPLICATION->SetTitle("Поиск");
 			1 => "iblock_news",
 			2 => "iblock_services",
 			3 => "iblock_catalog",
+			4 => "iblock_products",
 		],
 		"arrFILTER_main" => [
 		],
@@ -26,6 +27,9 @@ $APPLICATION->SetTitle("Поиск");
 			0 => "all",
 		],
 		"arrFILTER_iblock_catalog" => [
+			0 => "all",
+		],
+		"arrFILTER_iblock_products" => [
 			0 => "all",
 		],
 		"SHOW_WHERE" => "N",
@@ -42,7 +46,7 @@ $APPLICATION->SetTitle("Поиск");
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"PAGER_TITLE" => "Результаты поиска",
 		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_TEMPLATE" => "arrows",
+		"PAGER_TEMPLATE" => "round",
 		"USE_SUGGEST" => "N",
 		"SHOW_ITEM_TAGS" => "N",
 		"SHOW_ITEM_DATE_CHANGE" => "N",

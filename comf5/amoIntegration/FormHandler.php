@@ -7,6 +7,14 @@ use comf5\amoIntegration\classes\amoIntegration;
 
 function comf5_OnBeforeEventAdd($event, $lid, $arFields)
 {
+    if ($event == "COMF5_SEND") {
+        try {
+            $integration = new amoIntegration();
+            $integration->start($arFields);
+        } catch (\Throwable $th) {
+            logger(['Throwable',$th->getMessage()]);
+        }
+    }
     if ($event == "FEEDBACK_FORM") {
         try {
             $data = [
@@ -25,19 +33,28 @@ function comf5_OnBeforeEventAdd($event, $lid, $arFields)
 
 function comf5_OnSaleOrderSaved($event)
 {
+    return;
     try {
         $basket = $event->getBasket();
         $orderId = $basket->getOrderId();
         $order = $basket->getOrder();
-        $deliveryServiceId = $order->getDeliveryIdList()[0];
-        $deliveryService = \Bitrix\Sale\Delivery\Services\Table::getRowById($deliveryServiceId);
+        logger($orderId);
+
+        $fuserId = $basket->getFUserId();
+        $resUser = Sale\Fuser::GetList(
+            ($by = 'ID'),
+            ($order = 'ASC'),
+            ['=ID' => $fuserId],
+            ['FIELDS' => ['ID']]
+        );
+        $arUser = $resUser->Fetch();
+        logger($arUser);
 
         $arOrderProps = CSaleOrderPropsValue::GetList(array("SORT" => "ASC"), array("ORDER_ID" => $orderId));
 
         $data = [
             "order" => [
                 "id" => $orderId,
-                "delivery" => $deliveryService["NAME"],
                 "price" => $order->getPrice(),
             ],
             "products" => [],
@@ -60,8 +77,10 @@ function comf5_OnSaleOrderSaved($event)
             $data["products"][$arBasketItem["PRODUCT_ID"]] = $arBasketItem;
         }
 
-        $integration = new amoIntegration();
-        $integration->start($data);
+        logger(['$data', $data]);
+
+//        $integration = new amoIntegration();
+//        $integration->start($data);
 
     } catch (\Throwable $th) {
         logger(['Throwable',$th->getMessage()]);

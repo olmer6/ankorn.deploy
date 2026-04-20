@@ -376,7 +376,7 @@ $eurRate = \CCurrencyRates::GetConvertFactor('EUR', $baseCurrency);
                         <?php
                           if($arResult['ITEM_PRICES'][0]['PRICE']) {
                         ?>
-                        <a class="btn-red" href="/add_to_cart.php?id=<?= $arResult['ID'] ?>&sessid=<?= bitrix_sessid() ?>">Купить</a>
+                        <a class="btn-red" href="/add_to_cart.php?id=<?= $arResult['ID'] ?>&sessid=<?= bitrix_sessid() ?>" onclick="ym(45467883,'reachGoal','add-to-cart');">Купить</a>
 
                         <script>
                         function addToCart(productId) {
