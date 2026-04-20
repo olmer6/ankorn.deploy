@@ -21,8 +21,8 @@ $APPLICATION->SetTitle("Статьи");
 
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news", 
-	"articles", 
-	array(
+	"articles_2", 
+	[
 		"IBLOCK_TYPE" => "news",
 		"IBLOCK_ID" => "1",
 		"NEWS_COUNT" => "50",
@@ -58,31 +58,31 @@ $APPLICATION->SetTitle("Статьи");
 		"USE_PERMISSIONS" => "N",
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"LIST_FIELD_CODE" => array(
+		"LIST_FIELD_CODE" => [
 			0 => "NAME",
 			1 => "PREVIEW_TEXT",
 			2 => "PREVIEW_PICTURE",
 			3 => "DETAIL_TEXT",
 			4 => "",
-		),
-		"LIST_PROPERTY_CODE" => array(
+		],
+		"LIST_PROPERTY_CODE" => [
 			0 => "",
 			1 => "",
-		),
+		],
 		"HIDE_LINK_WHEN_NO_DETAIL" => "Y",
 		"DISPLAY_NAME" => "Y",
 		"META_KEYWORDS" => "-",
 		"META_DESCRIPTION" => "-",
 		"BROWSER_TITLE" => "-",
 		"DETAIL_ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"DETAIL_FIELD_CODE" => array(
+		"DETAIL_FIELD_CODE" => [
 			0 => "",
 			1 => "",
-		),
-		"DETAIL_PROPERTY_CODE" => array(
+		],
+		"DETAIL_PROPERTY_CODE" => [
 			0 => "",
 			1 => "",
-		),
+		],
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 		"DETAIL_PAGER_TITLE" => "Страница",
@@ -109,12 +109,12 @@ $APPLICATION->SetTitle("Статьи");
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"SHOW_404" => "N",
 		"MESSAGE_404" => "",
-		"SEF_URL_TEMPLATES" => array(
+		"SEF_URL_TEMPLATES" => [
 			"news" => "",
 			"section" => "",
 			"detail" => "#ELEMENT_CODE#/",
-		)
-	),
+		]
+	],
 	false
 );?>
 
