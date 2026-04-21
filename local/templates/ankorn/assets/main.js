@@ -353,7 +353,7 @@ $(function () {
         $('.modal__window-desc, .modal__window-form').fadeIn();
     })
 
-    $('.agree input').prop('checked', true)
+    // $('.agree input').prop('checked', true)
 
     if (  $(window).width() > 1120 ) {
         $('.menu-item--catalog, .catalog-nav').mouseenter(function () {

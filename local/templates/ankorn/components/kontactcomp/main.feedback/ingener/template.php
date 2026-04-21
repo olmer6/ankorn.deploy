@@ -23,7 +23,7 @@ use Bitrix\Main\Localization\Loc;
                 <input class="input-phone" name="user_phone" type="tel" value="<?=$arResult["AUTHOR_PHONE"]?>" placeholder="Номер телефона" required/>
             </div>
             <input id="checkFormAuth" class="inputbox hidden" name="checkFormAuth" type="text" value="">
-            <?/*?>
+
             <div class="agree">
                 <input type="checkbox" required>
                 <p>
@@ -31,7 +31,7 @@ use Bitrix\Main\Localization\Loc;
                     <a href="/politika-konfidencialnosti/">Политикой конфиденциальности</a>
                 </p>
             </div>
-            <?*/?>
+
             <div class="input-submit">
                 <input class="btn-red" type="submit" name="submit" value="Запрос">
             </div>
@@ -53,7 +53,7 @@ use Bitrix\Main\Localization\Loc;
         $('.text-success').fadeIn();
         $('.modal__window-desc, .modal__window-form').fadeOut();
 
-        $('.agree input').prop('checked', true)
+        // $('.agree input').prop('checked', true)
 
         $(".input-phone").mask("+7 (999) 999-9999");
         ym(45467883,'reachGoal','vh-engineer-callback')

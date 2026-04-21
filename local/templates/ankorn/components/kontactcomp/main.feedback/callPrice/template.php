@@ -65,7 +65,7 @@ use Bitrix\Main\Localization\Loc;
             $('.text-success').fadeIn();
             $('.modal__window-desc, .modal__window-form').fadeOut();
             
-            $('.agree input').prop('checked', true)
+            // $('.agree input').prop('checked', true)
 
             $(".input-phone").mask("+7 (999) 999-9999");
             ym(45467883, 'reachGoal', 'vh-price-request');

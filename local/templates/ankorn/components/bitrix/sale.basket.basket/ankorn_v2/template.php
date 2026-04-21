@@ -121,7 +121,7 @@ use Bitrix\Main\Localization\Loc;
                     </div>
 
 
-                    <div class="approval"><input type="checkbox" name="APPROV" checked> Заполняя поля и нажимая кнопку «Отправить», вы подтверждаете, что ознакомлены и согласны с
+                    <div class="approval"><input type="checkbox" name="APPROV"> Заполняя поля и нажимая кнопку «Отправить», вы подтверждаете, что ознакомлены и согласны с
                         <a href="/politika-konfidencialnosti/">Политикой в отношении обработки персональных данных</a>.</div>
                     <div class="placeholder"></div>
                     <div class="placeholder"></div>
