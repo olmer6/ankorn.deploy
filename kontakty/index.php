@@ -76,8 +76,12 @@ $APPLICATION->SetTitle("Контакты");
             <div class="contact-message-contact-form contact-message-form contact-form block form block-contact-block" data-user-info-from-browser="" data-drupal-selector="contact-message-contact-form" id="block-adaptive-form-contact">
 
                 <h2>
-                    Напишите нам
+                    Срочно нужен датчик уровня? <br>
+                    Заполните форму
                 </h2>
+                <p>
+                    подберём решение под ваши условия эксплуатации с гарантией совместимости уже сегодня
+                </p>
 
                 <div id="contact_ajax_contact_message_contact_form">
                     <?$APPLICATION->IncludeComponent(

@@ -23,7 +23,11 @@ use Bitrix\Main\Localization\Loc;
                     <input  name="user_email" type="email" value="<?=$arResult["AUTHOR_EMAIL"]?>" placeholder="* Email" required/>
                 </div>
                 <div class="textarea-block">
-                    <textarea name="MESSAGE" id="" cols="30" rows="10" value="<?=$arResult["TEXT"]?>" placeholder="Комментарий"></textarea>
+                    <div class="placeh">
+                        Комментарий <br>
+                        <i>Коротко опишите какая задача перед вами стоит и какие условия эксплуатации: среда, температура, давление — подберём точнее</i>
+                    </div>
+                    <textarea name="MESSAGE" id="" cols="30" rows="10" value="<?=$arResult["TEXT"]?>" placeholder=" " title="Коротко опишите какая задача перед вами стоит и какие условия эксплуатации: среда, температура, давление — подберём точнее"></textarea>
                 </div>
 
                 <input id="checkFormAuth" class="inputbox hidden" name="checkFormAuth" type="text" value="">
@@ -63,3 +67,23 @@ use Bitrix\Main\Localization\Loc;
             ym(45467883,'reachGoal','form-contaсt')
         </script>
     <?php endif; ?>
+<style>
+    .textarea-block {
+        position: relative;
+    }
+    .textarea-block textarea:placeholder-shown{
+        background: transparent;
+    }
+    .apply-form .default-form .placeh {
+        position: absolute;
+        max-width: 100%;
+        max-height: 100%;
+        height: 120px;
+        top: 0;
+        left: 0;
+        padding: 15px 17px;
+        font-size: 14px;
+        z-index: -1;
+        background: #fff;
+    }
+</style>
