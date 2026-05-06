@@ -24,14 +24,6 @@ $arUrlRewrite=array (
             'PATH' => '/industries/index.php',
             'SORT' => 100,
         ),
-    9 =>
-        array (
-            'CONDITION' => '#^/articles/#',
-            'RULE' => '',
-            'ID' => 'bitrix:news',
-            'PATH' => '/articles/index.php',
-            'SORT' => 100,
-        ),
       10 =>
       array (
         'CONDITION' => '#^/bitrix/services/ymarket/#',
@@ -117,6 +109,30 @@ $arUrlRewrite=array (
         'PATH' => '/catalog/index.php',
         'SORT' => 100,
     ),
+
+
+    119 =>
+        array(
+            'CONDITION' => '#^/articles/([^/]+)/([^/]+)/.*#',
+            'RULE' => 'FIRST_LEVEL_SECTION_CODE=$1&SECTION_CODE=$2',
+            'ID' => 'bitrix:news',
+            'PATH' => '/articles/index.php',
+        ),
+    120 =>
+        array(
+            'CONDITION' => '#^/articles/([^/]+)/.*#',
+            'RULE' => 'SECTION_CODE=$1&',
+            'ID' => 'bitrix:news',
+            'PATH' => '/articles/index.php',
+        ),
+    150 =>
+        array (
+            'CONDITION' => '#^/articles/#',
+            'RULE' => '',
+            'ID' => 'bitrix:news',
+            'PATH' => '/articles/index.php',
+            'SORT' => 100,
+        ),
 
 
   1000 => // такое только в конец

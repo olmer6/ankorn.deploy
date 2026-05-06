@@ -4,5 +4,8 @@ $arTemplate = array (
   'DESCRIPTION' => '',
   'SORT' => '',
   'TYPE' => '',
+  "EDITOR_STYLES" => array (
+        '/local/templates/ankorn/editor.css',
+  )
 );
 ?>

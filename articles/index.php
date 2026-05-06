@@ -25,7 +25,7 @@ $APPLICATION->SetTitle("Статьи");
 	[
 		"IBLOCK_TYPE" => "news",
 		"IBLOCK_ID" => "1",
-		"NEWS_COUNT" => "50",
+		"NEWS_COUNT" => "6",
 		"USE_SEARCH" => "N",
 		"USE_RSS" => "N",
 		"NUM_NEWS" => "20",
@@ -66,7 +66,7 @@ $APPLICATION->SetTitle("Статьи");
 			4 => "",
 		],
 		"LIST_PROPERTY_CODE" => [
-			0 => "",
+			0 => "SHOW_COUNTER",
 			1 => "",
 		],
 		"HIDE_LINK_WHEN_NO_DETAIL" => "Y",
@@ -79,10 +79,7 @@ $APPLICATION->SetTitle("Статьи");
 			0 => "",
 			1 => "",
 		],
-		"DETAIL_PROPERTY_CODE" => [
-			0 => "",
-			1 => "",
-		],
+		"DETAIL_PROPERTY_CODE" => ["PRODECTS","PROD","SHOW_COUNTER","TIME_READ","AUTOR"],
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 		"DETAIL_PAGER_TITLE" => "Страница",
@@ -92,7 +89,7 @@ $APPLICATION->SetTitle("Статьи");
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"PAGER_TITLE" => "Статьи",
 		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_TEMPLATE" => "",
+        "PAGER_TEMPLATE" => "round",
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000000",
 		"PAGER_SHOW_ALL" => "N",
@@ -111,8 +108,8 @@ $APPLICATION->SetTitle("Статьи");
 		"MESSAGE_404" => "",
 		"SEF_URL_TEMPLATES" => [
 			"news" => "",
-			"section" => "",
-			"detail" => "#ELEMENT_CODE#/",
+            "section" => "articles/#SECTION_CODE#/",
+			"detail" => "articles/#ELEMENT_CODE#/",
 		]
 	],
 	false

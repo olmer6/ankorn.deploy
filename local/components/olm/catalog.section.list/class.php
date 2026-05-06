@@ -96,9 +96,6 @@ class OlmCatalogSectionListComponent extends CBitrixComponent
             $filter['SECTION_ID'] = $sectionId;
         }
 
-        echo '<pre id="inspect" class="ins_1" style="display:none">';
-        var_dump($filter);
-        echo '</pre>';
         // Получаем все разделы с сортировкой по левому полю
         $dbSections = CIBlockSection::GetList(
             array('LEFT_MARGIN' => 'ASC'),
@@ -257,9 +254,6 @@ class OlmCatalogSectionListComponent extends CBitrixComponent
                     $this->arParams['IBLOCK_ID'],
                     $this->arParams['MAX_DEPTH']
                 );
-                echo '<pre id="inspect" class="ins_" style="display:none">';
-                var_dump($this->arResult['SECTIONS']);
-                echo '</pre>';
 
                 // Применяем ограничение по глубине отображения
                 if ($this->arParams['TOP_DEPTH'] > 0) {

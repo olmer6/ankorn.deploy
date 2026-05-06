@@ -1,0 +1,27 @@
+.quote{
+    background-color: #D6DDED;
+    border-radius: 15px;
+    position: relative;
+    padding: 50px 21px 21px;
+    margin: 26px 0 25px;
+}
+.quote:before, .quote:after{
+    background-image: url("img/quote.svg");
+    position: absolute;
+    top: 16px;
+    left: 22px;
+    display: block;
+    content: "";
+    width: 14px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.quote:before{
+    top: 16px;
+    left: 38px;
+}
+.quote::after {
+    top: 16px;
+    left: 22px;
+}

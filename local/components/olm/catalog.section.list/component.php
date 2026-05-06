@@ -217,9 +217,6 @@ class OlmCatalogSectionListComponent extends CBitrixComponent
      */
     public function executeComponent()
     {
-        echo '<pre id="inspect" class="ins_" style="display:none">';
-        var_dump($arResult);
-        echo '</pre>';
         try {
             // Проверяем подключение модуля
             if (!Loader::includeModule('iblock')) {

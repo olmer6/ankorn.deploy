@@ -6,24 +6,25 @@ use CIBlock;
 use CIBlockSection;
 Class DescendantSections
 {
-    const prodIBid = 2;
+    const IBid = 2;
 
     const sefUrl = "catalog/#SECTION_CODE_PATH#/";
 
+
     public static function printDescendantSections(int $id = null, $sectionUrlTemplate)
     {
-        $sections = self::getList($id, $sectionUrlTemplate);
+        $sections = static::getList($id, $sectionUrlTemplate);
         if(count($sections)==0) return false;
-        usort($sections, "self::sortBySort");
-        $html = self::htmlCreate($sections);
+        usort($sections, "static::sortBySort");
+        $html = static::htmlCreate($sections);
         echo $html;
     }
     public static function getList($id = null, $sectionUrlTemplate):array
     {
-        $sections = self::getAllSectionList();
-        $sections = self::definingAncestors($sections);
-        $sections = self::filterByCurrentSectionId($sections, $id);
-        $sections = self::addSectionCodePath($sections, $sectionUrlTemplate);
+        $sections = static::getAllSectionList();
+        $sections = static::definingAncestors($sections);
+        $sections = static::filterByCurrentSectionId($sections, $id);
+        $sections = static::addSectionCodePath($sections, $sectionUrlTemplate);
         return $sections;
     }
 
@@ -41,7 +42,7 @@ Class DescendantSections
 
     private static function definingAncestors(array $sections):array
     {
-        $maxDepthLevel = self::maxDepthLevel($sections);
+        $maxDepthLevel = static::maxDepthLevel($sections);
         for($i = 0; $i <= $maxDepthLevel; $i++){
             foreach($sections as $key=>&$section){
                 $level = $i;
@@ -60,9 +61,9 @@ Class DescendantSections
         }
         return $sections;
     }
-    private static function addSectionCodePath(array $sections, $sectionUrlTemplate):array
+    protected static function addSectionCodePath(array $sections, $sectionUrlTemplate):array
     {
-        if($sectionUrlTemplate == self::sefUrl){
+        if($sectionUrlTemplate == static::sefUrl){
             foreach($sections as $key=>&$section) {
                 if($section["DEPTH_LEVEL"] == 1)
                     $sections[$key]['SECTION_CODE_PATH'] = '/' . str_replace('#SECTION_CODE_PATH#', $section['CODE'], $sectionUrlTemplate).'/';
@@ -103,7 +104,7 @@ Class DescendantSections
         $sections = [];
         $obSections = CIBlockSection::GetList(
             array('LEFT_MARGIN' => 'ASC'),
-            array('IBLOCK_ID' => self::prodIBid,'ACTIVE' => 'Y','GLOBAL_ACTIVE' => 'Y',),
+            array('IBLOCK_ID' => static::IBid,'ACTIVE' => 'Y','GLOBAL_ACTIVE' => 'Y',),
             true,
             array('ID', 'NAME', 'ELEMENT_CNT', 'SECTION_PAGE_URL', 'DEPTH_LEVEL', 'IBLOCK_SECTION_ID', 'SORT', 'LEFT_MARGIN')
         );

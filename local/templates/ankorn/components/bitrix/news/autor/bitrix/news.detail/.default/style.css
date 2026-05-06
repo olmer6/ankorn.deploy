@@ -1,0 +1,31 @@
+.autor_detail{
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+}
+.autor_img{flex-basis: 100px;}
+.autor_data {
+    flex-basis: calc(100% - 100px);
+    padding-left: 21px;
+}
+.autor_name{}
+.autor_position{
+    color:#AC182D;
+    font-size: 14px;
+    margin: 0 0 15px;
+}
+.autor_description{
+
+    color:#000;
+    font-size: 14px;
+}
+
+.autor_detail:after {
+    content: "";
+    left: 0;
+    bottom: 0;
+    width: 73px;
+    height: 3px;
+    position: absolute;
+    background-color: #AC182D;
+}
