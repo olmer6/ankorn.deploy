@@ -245,23 +245,27 @@ while ($section = $obElementGroups->Fetch()) {
     <div class="article-intro">
         <div class="image"><img src="<?=($arResult["DETAIL_PICTURE"]["SRC"])?:$arResult["PREVIEW_PICTURE"]["SRC"];?>" alt="<?=$arResult["NAME"];?>"></div>
         <div class="data">
-            <h2 class="subtitle"><?=$arResult["PROPERTIES"]["SUBTITILE_INTRO"]["VALUE"]?></h2>
-            <div class="content"><?=htmlspecialcharsBack($arResult["PROPERTIES"]["CONTENT_INTRO"]["VALUE"]["TEXT"])?>
 
-            <p><b>Отрасль: </b>
-                <?php foreach($arSections as $key => $arSection)
-                    $branches[] = '<a href="'.$arSection["SECTION_PAGE_URL"].'">'.$arSection["NAME"].'</a>';
-                echo implode(', ', $branches);
-                ?>
-            </p>
+            <?if($arResult["PROPERTIES"]["SUBTITILE_INTRO"]["VALUE"]){?>
+                <h2 class="subtitle"><?=$arResult["PROPERTIES"]["SUBTITILE_INTRO"]["VALUE"]?></h2>
+            <?}?>
+            <div class="content">
 
+                <?if($arResult["PROPERTIES"]["CONTENT_INTRO"]["VALUE"]){?>
+                    <?=htmlspecialcharsBack($arResult["PROPERTIES"]["CONTENT_INTRO"]["VALUE"]["TEXT"])?>
+                <?}?>
+                <p><b>Отрасль: </b>
+                    <?php foreach($arSections as $key => $arSection)
+                        $branches[] = '<a href="'.$arSection["SECTION_PAGE_URL"].'">'.$arSection["NAME"].'</a>';
+                    echo implode(', ', $branches);
+                    ?>
+                </p>
             </div>
             <div class="slogan">Поможем решить и вашу производственную задачу</div>
             <p class="callback_us">
                 <span class="btn-red modal-engineer">Обсудить мою задачу</span>
             </p>
         </div>
-
     </div>
 
     <article role="article" class="node article node--type-article node--promoted node--view-mode-full" id="<?=$itemIds['ID']?>"
