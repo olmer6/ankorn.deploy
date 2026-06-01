@@ -19,7 +19,32 @@ $APPLICATION->SetTitle("Статьи");
 		</div>
 	</section>
 
-<?$APPLICATION->IncludeComponent(
+<?php
+if(CModule::IncludeModule("iblock")) {
+    if ($_GET["SECTION_CODE"]) {
+    $elementRes = CIBlockElement::GetList([], ['IBLOCK_ID' => 1, 'CODE' => $_GET["SECTION_CODE"]], false, false, ['ID']);
+    if ($element = $elementRes->Fetch())
+        $result = ['type' => 'element', 'id' => $element['ID']];
+    }
+}
+
+$sefUrlTemplates = [
+    "news" => "",
+    "section" => "articles/#SECTION_CODE#/",
+    "detail" => "articles/#ELEMENT_CODE#/",
+];
+if( $result['type']=='element') {
+    $_GET["ELEMENT_CODE"] == $_GET["SECTION_CODE"];
+    unset($_GET["SECTION_CODE"]);
+    $sefUrlTemplates = [
+        "news" => "",
+        "section" => "#SECTION_CODE_PATH#/",
+        "detail" => "#ELEMENT_CODE#/",
+    ];
+}
+?>
+
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:news", 
 	"articles_2", 
 	[
@@ -39,8 +64,6 @@ $APPLICATION->SetTitle("Статьи");
 		"SORT_BY2" => "ACTIVE_FROM",
 		"SORT_ORDER2" => "DESC",
 		"CHECK_DATES" => "Y",
-		"SEF_MODE" => "Y",
-		"SEF_FOLDER" => "/articles/",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_SHADOW" => "N",
 		"AJAX_OPTION_JUMP" => "N",
@@ -106,11 +129,9 @@ $APPLICATION->SetTitle("Статьи");
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"SHOW_404" => "N",
 		"MESSAGE_404" => "",
-		"SEF_URL_TEMPLATES" => [
-			"news" => "",
-            "section" => "articles/#SECTION_CODE#/",
-			"detail" => "articles/#ELEMENT_CODE#/",
-		]
+        "SEF_MODE" => "Y",
+        "SEF_FOLDER" => "/articles/",
+		"SEF_URL_TEMPLATES" => $sefUrlTemplates,
 	],
 	false
 );?>

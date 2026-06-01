@@ -88,6 +88,7 @@ $APPLICATION->SetTitle($arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"]);
                         </div>
 
                         <h3 class="article-teaser__title">
+                            <? $arItem["DETAIL_PAGE_URL"] = str_replace('articles/articles','articles', $arItem["DETAIL_PAGE_URL"])?>
                             <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>" class="article-teaser__title-link">
                                 <?= htmlspecialcharsbx($arItem["NAME"]) ?>
                             </a>
