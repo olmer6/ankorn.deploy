@@ -475,6 +475,32 @@ $(function () {
         })
     });
 
+    // product-slider - карусель избранных
+    $('.product-slider').slick({
+        arrows: true,
+        dots: false,
+        infinite: true, // бесконечная прокрутка слайдов
+        variableWidth: true,
+        slidesToShow: 4,
+        prevArrow:'<button type="button" class="slick-prev"></button>',
+        nextArrow:'<button type="button" class="slick-next"></button>',
+        autoplay: true,
+        autoplaySpeed: 4000,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
+    });
 
 })
 // ** Избранное и сравнение **
