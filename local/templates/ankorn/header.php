@@ -203,6 +203,10 @@ if ($currentUri === '/') {
                             <a class="header__menu-link" href="/kontakty/">Контакты</a>
                         </li>
                     </ul>
+                    <div class="soc_icons">
+                        <a href="https://t.me/ANKORNbot" class="header_icon" style="background-image: url('/local/templates/ankorn/img/socicons/tg2_Ok.png');" target="_blank"></a>
+                        <a href="https://max.ru/id2631036482_bot" class="header_icon" style="background-image: url('/local/templates/ankorn/img/socicons/max2_Ok.png');" target="_blank"></a>
+                    </div>
                 </nav>
                 <div class="header__search">
                     <? $APPLICATION->IncludeComponent(

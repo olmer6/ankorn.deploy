@@ -75,7 +75,7 @@ return array (
       array (
         'className' => '\\Bitrix\\Main\\DB\\MysqliConnection',
         'host' => 'localhost',
-        'database' => 'ankorn-dev',
+        'database' => 'ankorn-dev2',
         'login' => 'ankorn',
         'password' => 'tC2vZ4fI2d',
         'options' => 2,

@@ -168,6 +168,16 @@ $eurRate = \CCurrencyRates::GetConvertFactor('EUR', $baseCurrency);
                             echo '</div>';
                             }
                           ?>
+                          <?php
+                            if ($arResult['PROPERTIES']['TR_CU_CERTIFICATE']['VALUE'])
+                            echo "<div class='product-plate plate-green plate-item'>Сертификат тр тс</div>";
+                            if ($arResult['PROPERTIES']['WARRANTY_3_YEAR']['VALUE'])
+                            echo "<div class='product-plate plate-yellow plate-item'>Гарантия 3 года</div>";
+                            if ($arResult['PROPERTIES']['WARRANTY_5_YEAR']['VALUE'])
+                            echo "<div class='product-plate plate-yellow plate-item'>Гарантия 5 лет</div>";
+                            if ($arResult['PROPERTIES']['IN_THE_SI_REGISTRY']['VALUE'])
+                            echo "<div class='product-plate plate-green plate-item'>В реестре си</div>";
+                          ?>
                         </div>
                         <div id="char-plates">
                           <?php 
@@ -206,7 +216,7 @@ $eurRate = \CCurrencyRates::GetConvertFactor('EUR', $baseCurrency);
                         <p>Опишите вашу задачу, приложите техническое задание и чертежи на почту</p>
                         <p class="product-mail-line"><a href="mailto:info@ankorn.ru">info@ankorn.ru</a><img onClick="' . $salesmail . '" src="/local/templates/ankorn/img/copy.svg" class="industry-block-copy-img"/></p>
                         <br />
-                        <p>Наш специалист подберёт оборудование со 100% гарантией соответствия, чтобы вы сохранили главное — бесперебойную работу линий и уважение тех, кто доверяет вам производство.</p>
+                        <p>Наш специалист подберёт оборудование со 100% гарантией соответствия, чтобы вы сохранили главное — бесперебойную работу процессов и уважение тех, кто доверяет вам производство.</p>
                       </div>
                     </div>
                   </div>';
@@ -237,7 +247,7 @@ $eurRate = \CCurrencyRates::GetConvertFactor('EUR', $baseCurrency);
                     <p>Опишите вашу задачу, приложите техническое задание и чертежи на почту</p>
                     <p class="product-mail-line"><a href="mailto:info@ankorn.ru">info@ankorn.ru</a><img onClick="' . $salesmail . '" src="/local/templates/ankorn/img/copy.svg" class="industry-block-copy-img"/></p>
                     <br />
-                    <p>Наш специалист подберёт оборудование со 100% гарантией соответствия, чтобы вы сохранили главное — бесперебойную работу линий и уважение тех, кто доверяет вам производство.</p>
+                    <p>Наш специалист подберёт оборудование со 100% гарантией соответствия, чтобы вы сохранили главное — бесперебойную работу процессов и уважение тех, кто доверяет вам производство.</p>
                   </div>
                 </div>
               </div>';
@@ -253,7 +263,7 @@ $eurRate = \CCurrencyRates::GetConvertFactor('EUR', $baseCurrency);
                     <p>Опишите вашу задачу, приложите техническое задание и чертежи на почту</p>
                     <p class="product-mail-line"><a href="mailto:info@ankorn.ru">info@ankorn.ru</a><img onClick="' . $salesmail . '" src="/local/templates/ankorn/img/copy.svg" class="industry-block-copy-img"/></p>
                     <br />
-                    <p>Наш специалист подберёт оборудование со 100% гарантией соответствия, чтобы вы сохранили главное — бесперебойную работу линий и уважение тех, кто доверяет вам производство.</p>
+                    <p>Наш специалист подберёт оборудование со 100% гарантией соответствия, чтобы вы сохранили главное — бесперебойную работу процессов и уважение тех, кто доверяет вам производство.</p>
                   </div>
                 </div>
               </div>';

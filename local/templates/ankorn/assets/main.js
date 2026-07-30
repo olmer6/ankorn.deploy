@@ -502,6 +502,17 @@ $(function () {
         ]
     });
 
+    // сворачивание фильтра на мобильных
+    $('.smart-filter-title').click(function(){
+        console.log('window.innerWidth');
+        console.log(window.innerWidth);
+        if(window.innerWidth <= 770){
+            $(this).next('.smart-filter-form').slideToggle();
+            $(this).toggleClass('active');
+        }
+
+    })
+
 })
 // ** Избранное и сравнение **
 

@@ -113,6 +113,11 @@ if ( $item['PROPERTIES']['IS_MAIN']['VALUE_ENUM'] ) {
 		echo "</div>";
 	}
 	?>
+<?
+echo '<pre id="inspect" class="ins_" style="display:none">';
+var_dump($item['PROPERTIES']['TR_CU_CERTIFICATE']);
+echo '</pre>';
+?>
 	<? if ($itemHasDetailUrl): ?>
 	<a class="product-item-image-wrapper" href="<?=$item['DETAIL_PAGE_URL']?>" title="<?=$imgTitle?>"
 		data-entity="image-wrapper">

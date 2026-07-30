@@ -57,7 +57,7 @@ print "<h1 id='catalog-h1'>" . $sectionName['NAME'] . "</h1>";
 print "</div>";
 ?>
 <div class='page-container page-container-catalog page-container-catpage'>
-<div class="row mb-4 bx-<?=$arParams["TEMPLATE_THEME"]?>">
+<div class="row mb-4 bx-<?=$arParams["TEMPLATE_THEME"]?> catalog_section_wrap">
 	<? if ($isFilter || $isSidebar): ?>
 		<div class="br-grey col-lg-3 col-md-4 col-sm-5<?=(isset($arParams['FILTER_HIDE_ON_MOBILE']) && $arParams['FILTER_HIDE_ON_MOBILE'] === 'Y' ? ' d-none d-sm-block' : '')?>">
 			<?

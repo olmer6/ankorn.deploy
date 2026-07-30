@@ -634,6 +634,8 @@ text-formatted table td:first-child {
     color: #AC182D;
 }
 
+.header__menu .soc_icons {display:none;}
+
 @media (min-width: 992px) {
     .transparent .header__menu {
         margin: 0 auto;
@@ -5314,6 +5316,17 @@ iframe {
         display: none;
     }
 
+    .header__row .header_icon{display:none}
+    .header__menu .soc_icons {
+        display: flex;
+        flex-direction: row-reverse;
+        margin: 25px 13px 0 0;
+    }
+    .header__menu .soc_icons .header_icon {
+        width: 43px;
+        height: 43px;
+    }
+
     .header__search {
         width: 100%;
         border-top: 1px solid #E4E4E4;
@@ -5456,6 +5469,9 @@ iframe {
     }
 }
 
+.applications__list {
+    max-height: 991px;
+}
 @media (max-width: 480px) {
     
     .header-phone a {
@@ -5524,6 +5540,10 @@ iframe {
     .header-toggler {
       margin-left: 0px;
     }
+
+    .header__logo img {
+        max-width: 87px;
+    }
 }
 
 @media (max-width: 399px) {
@@ -5543,9 +5563,6 @@ iframe {
     }
 }
 
-.applications__list {
-    max-height: 991px;
-}
 
 @media (max-width: 640px) {
   .amo-button-holder {
@@ -6555,3 +6572,50 @@ ul.ship-payment-list {
 .d-sm-none.bx-soa-cart-total-button-container {
     display: block !important;
 }
+
+/*  official_distributor  */
+.official_distributor{
+    background-image: url("/local/templates/ankorn/img/official_distributor_bg.jpg");
+    background-size: cover;
+}
+.official_distributor .page-title h2{text-align: center}
+.official_distributor .page-title h2::after{left: calc(50% - 36px);}
+.official_distributor .content_block{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.official_distributor .content_block .sert{
+    padding-right: 68px;
+    flex-basis: 30%;
+}
+.official_distributor .content_block .description{
+    display:flex;
+    flex-direction: column;
+    flex-basis: 40%;
+}
+.official_distributor .content_block .description ul{padding-left: 15px;}
+.official_distributor .content_block .description li{}
+.official_distributor .content_block .slogan {
+    flex-basis: 100%;
+    margin-top: 40px;
+    font-size: 1.2em;
+    text-align: center;
+}
+@media (max-width: 1024px) {
+    .official_distributor .content_block .sert {
+        flex-basis: 50%;
+        margin-bottom: 35px;
+        padding: 0 35px;
+    }
+    .official_distributor .content_block .description{flex-basis: 100%;}
+}
+@media (max-width: 767px) {
+
+    .official_distributor .content_block .sert {
+        flex-basis: 100%;
+        margin-bottom: 35px;
+        padding: 0 35px;
+    }
+}
+/*  official_distributor / end */
