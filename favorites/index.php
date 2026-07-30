@@ -2,33 +2,30 @@
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetTitle("Избранные товары");
 CJSCore::Init(array('ajax', 'ui.notification'));
-?>
-<div class="page-container">
-    <div class="favorites-page">
-        <h1 id="catalog-h1">Отложенные товары товары</h1>
-        <div id="favorites-container">
-            <!-- Товары будут подгружены через JavaScript -->
-            <div class="favorites-loading">Загрузка...</div>
-        </div>
-        
-        <div class="favorites-summary" style="display:none;">
-            <div class="summary-row">
-                <span>Общая стоимость:</span>
-                <span id="total-price">0 ₽</span>
-            </div>
-            <button id="add-all-to-cart" class="btn btn-primary">
-                Добавить все в корзину
-            </button>
-        </div>
-        
-        <div id="favorites-empty" style="display:none;">
-            <p>В избранном пока нет товаров</p>
-            <a href="/catalog/" class="btn">Перейти в каталог</a>
-        </div>
-    </div>
+?><div class="page-container">
+	<div class="favorites-page">
+		<h1 id="catalog-h1">Отложенные товары</h1>
+		<div id="favorites-container">
+			 <!-- Товары будут подгружены через JavaScript -->
+			<div class="favorites-loading">
+				Загрузка...
+			</div>
+		</div>
+		<div class="favorites-summary" style="display:none;">
+			<div class="summary-row">
+				 Общая стоимость: <span id="total-price">0 ₽</span>
+			</div>
+ <button id="add-all-to-cart" class="btn btn-primary">
+			Добавить все в корзину </button>
+		</div>
+		<div id="favorites-empty" style="display:none;">
+			<p>
+				В избранном пока нет товаров
+			</p>
+ <a href="/catalog/" class="btn">Перейти в каталог</a>
+		</div>
+	</div>
 </div>
-
-
 <script>
 // Загружаем избранное при открытии страницы
 document.addEventListener('DOMContentLoaded', function() {
@@ -252,12 +249,14 @@ function addToCartAjax(productId, quantity = 1) {
                     button.disabled = false;
                 }, 1000);
             }
+            
             // Показываем уведомление
             showCartNotification(data.message);
+            
             // Обновляем счетчик корзины
             updateCartCounter();
             // Регистрируем цель метрики
-            ym(45467883,'reachGoal','add-to-cart');
+            ym(45467883,'reachGoal','add-to-cart');            
         } else {
             // Ошибка
             if (button) {
@@ -372,8 +371,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-</script>
-
-<?php
+</script><?php
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');
 ?>

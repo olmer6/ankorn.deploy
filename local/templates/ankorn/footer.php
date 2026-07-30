@@ -12,6 +12,10 @@
                         <div class="footer-top-text">
                             Подбор и поставка контрольно-измерительных приборов для автоматизации технологических процессов.
                         </div>
+<br>
+						<div class="footer-top-text">
+                            Эксклюзивный дистрибьютор Nivelco в России
+                        </div>
 
 
                     </div>
@@ -24,7 +28,7 @@
 									<a href="/catalog/datchiki-izmereniya-urovnya/">Датчики измерения уровня</a>
                                 </li>
                                 <li class="menu-item">
-									<a href="/catalog/datchiki-izmereniya-davleniya/">Датчики измерения давления</a>
+									<a href="/catalog/datchiki-izmereniya-davleniya/">Датчики преобразователи давления</a>
                                 </li>
                                 <li class="menu-item">
 									<a href="/catalog/datchiki-analiza-zhidkosti/">Датчики анализа жидкости</a>
@@ -147,7 +151,7 @@
             <div class="footer-bottom-row">
                 <div class="footer-bottom-col">
                     <div class="footer-copyright">
-                        © 2025
+                        © 2026
                         «Анкорн». <div class="footer-copyright-wrap">Все права защищены.</div>
                     </div>
                 </div>

@@ -24,14 +24,6 @@ $arUrlRewrite=array (
     'PATH' => '/catalog/index.php',
     'SORT' => 100,
   ),
-  1002 => 
-  array (
-    'CONDITION' => '#^/yastore.checkout/#',
-    'RULE' => '',
-    'ID' => 'yastore:checkout',
-    'PATH' => '/yastore.checkout/index.php',
-    'SORT' => 100,
-  ),
   13 => 
   array (
     'CONDITION' => '#^/personal/order/#',
@@ -56,20 +48,20 @@ $arUrlRewrite=array (
     'PATH' => '/services/index.php',
     'SORT' => 100,
   ),
+  9 => 
+  array (
+    'CONDITION' => '#^/articles/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/articles/index.php',
+    'SORT' => 100,
+  ),
   14 => 
   array (
     'CONDITION' => '#^/personal/#',
     'RULE' => '',
     'ID' => 'bitrix:sale.personal.section',
     'PATH' => '/personal/index.php',
-    'SORT' => 100,
-  ),
-  1001 => 
-  array (
-    'CONDITION' => '#^/articles/#',
-    'RULE' => '',
-    'ID' => 'bitrix:news',
-    'PATH' => '/articles/index.php',
     'SORT' => 100,
   ),
   6 => 

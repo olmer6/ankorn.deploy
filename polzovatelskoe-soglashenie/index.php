@@ -1,7 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("description", "Настоящее Соглашение определяет условия использования Пользователями материалов и сервисов сайта https://ankorn.ru");
-$APPLICATION->SetPageProperty("title", "Пользовательское соглашение");
+$APPLICATION->SetPageProperty("title", "Пользовательское соглашение сайта Анкорн");
 $APPLICATION->SetTitle("Пользовательское соглашение");
 ?>
 

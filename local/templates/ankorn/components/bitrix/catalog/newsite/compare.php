@@ -16,6 +16,9 @@ $this->setFrameMode(true);
 
 
 <?php if(!$_SESSION[$arParams["COMPARE_NAME"]][$arParams["IBLOCK_ID"]]["ITEMS"]){
+    echo '<pre id="inspect" class="ins_" style="display:none">';
+    var_dump($_SESSION[$arParams["COMPARE_NAME"]][$arParams["IBLOCK_ID"]]["ITEMS"]);
+    echo '</pre>';
     ?>
     <div class="page-container">
         <div class="favorites-page">

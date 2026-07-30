@@ -142,7 +142,7 @@ class amoIntegration
         }
         if (isset($data['COMPANY_DETAILS_FILE_URL'])) {
             $relativePath = strstr($data['COMPANY_DETAILS_FILE_URL'], 'upload/');
-            $lead->cf()->byId(Amo::LEAD_CF["file_link"])->setValue('https://' . $_SERVER['HTTP_HOST'] .$relativePath);
+            $lead->cf()->byId(Amo::LEAD_CF["file_link"])->setValue('https://' . $_SERVER['HTTP_HOST'] . '/' . $relativePath);
         }
 
         $lead->save();
@@ -188,6 +188,9 @@ class amoIntegration
             }
             if (isset($data["form"]["COMPANY"])) {
                 $company->name = $data["form"]["COMPANY"];
+            }
+            if (isset($data["form"]["COMPANY_NAME"])) {
+                $company->name = $data["form"]["COMPANY_NAME"];
             }
 
             if (isset($data["form"]["AUTHOR_EMAIL"])) {

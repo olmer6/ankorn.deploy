@@ -1,7 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("description", "Политика в отношении использования файлов Cookie");
-$APPLICATION->SetPageProperty("title", "Политика использования файлов cookie ООО «Анкорн»");
+$APPLICATION->SetPageProperty("title", "Политика использования файлов cookie сайта Анкорн");
 $APPLICATION->SetTitle("Политика использования файлов cookie ООО «Анкорн»");
 ?>
 

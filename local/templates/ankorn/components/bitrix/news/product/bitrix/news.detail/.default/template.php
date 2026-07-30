@@ -205,7 +205,7 @@ $eurRate = \CCurrencyRates::GetConvertFactor('EUR', $baseCurrency);
                       }
                     ?>
                     <div class="price-descr">
-                        Цена товаров зависит от модификации прибора и формируется исходя из текущего курса евро к рублю
+                        Цена товаров зависит от модификации прибора
                     </div>
                     <div class="product-content-button">
                         <button class="btn-red modal-price">Заказать</button>

@@ -157,12 +157,12 @@ $returned_result['message'] = 'Заказ успешно создан';
 
 ob_start();
 ?>
-    <h2>создан новый заказ</h2>
-    <p>Контактное лицо: <strong><?=$_POST['USER_NAME']?></strong></p>
-    <p>E-mail: <strong><?=$_POST['EMAIL']?></strong></p>
-    <p> Tелефон: <strong><?=$_POST['PHONE']?></strong></p>
-    <p>Комментарий:</p>
-    <p><strong><?=$_POST['COMMENT']?></strong></p>
+<h2>создан новый заказ</h2>
+<p>Контактное лицо: <strong><?=$_POST['USER_NAME']?></strong></p>
+<p>E-mail: <strong><?=$_POST['EMAIL']?></strong></p>
+<p> Tелефон: <strong><?=$_POST['PHONE']?></strong></p>
+<p>Комментарий:</p>
+<p><strong><?=$_POST['COMMENT']?></strong></p>
 <?php if($companyDetailsFileURL){?>Файл реквизитов компании: <a href="<?=$companyDetailsFileURL?>"><?=$companyDetailsFileURL?></a><?php };?>
 <?php if($ArchiveFileURL){?>Архив с дополнительными материалами: <a href="<?=$ArchiveFileURL?>"><?=$ArchiveFileURL?></a><?php };?>
 <?php

@@ -3,7 +3,7 @@ define("HIDE_SIDEBAR", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 ?>
 <?php
-	if ( ($APPLICATION->GetCurPage() == '/catalog/') ||  ($APPLICATION->GetCurPage(false) == '/catalog/index.php'))  {
+	if (($APPLICATION->GetCurPage() == '/catalog/') ||  ($APPLICATION->GetCurPage(false) == '/catalog/index.php'))  {
 	?>
 	<div id="parentCatalog">
 		<div class="page-container">
@@ -344,7 +344,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 	false
 );?>
 <?php
-if ( ($APPLICATION->GetCurPage() == '/catalog/') ||  ($APPLICATION->GetCurPage(false) == '/catalog/index.php'))  {
+if (($APPLICATION->GetCurPage() == '/catalog/') ||  ($APPLICATION->GetCurPage(false) == '/catalog/index.php'))  {
 	echo "</div></div>";
 }
 ?>
