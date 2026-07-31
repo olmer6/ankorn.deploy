@@ -31,3 +31,6 @@ if(file_exists($_SERVER["DOCUMENT_ROOT"] .'/comf5/amoIntegration/FormHandler.php
     include $_SERVER["DOCUMENT_ROOT"] .'/comf5/amoIntegration/FormHandler.php';
 }
 //COMF5 END
+
+ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
+ini_set('display_errors', 0);
