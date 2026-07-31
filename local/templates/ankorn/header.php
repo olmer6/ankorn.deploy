@@ -110,6 +110,25 @@ if ($currentUri === '/') {
   echo $schemaMarkup;
 ?>
 
+    <?php  // микроразметка?>
+    <?
+    $pageTitle = htmlspecialcharsbx($APPLICATION->GetPageProperty('title') ?: $APPLICATION->GetTitle());
+    $pageDescription = htmlspecialcharsbx($APPLICATION->GetPageProperty('description'));
+    $currentUrl = (CMain::IsHTTPS() ? "https://" : "http://") . SITE_SERVER_NAME . $APPLICATION->GetCurUri();
+    ?>
+    <meta property="og:title" content="<?=$pageTitle?>">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="<?=$pageDescription?>">
+    <meta property="og:site_name" content="Анкорн">
+    <meta property="og:url" content="<?=$currentUrl?>">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:image" content="<?php $APPLICATION->ShowProperty('og_image_url')?>">
+    <meta property="og:image:width" content="<?php $APPLICATION->ShowProperty('og_image_width')?>">
+    <meta property="og:image:height" content="<?php $APPLICATION->ShowProperty('og_image_height')?>">
+    <meta property="og:image:type" content="<?php $APPLICATION->ShowProperty('og_image_type')?>">
+    <meta property="og:image:alt" content="<?php $APPLICATION->ShowProperty('og_image_alt')?>">
+
+
 </head>
 <body>
 
