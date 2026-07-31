@@ -24,7 +24,7 @@ $arUrlRewrite=array (
     'PATH' => '/catalog/index.php',
     'SORT' => 100,
   ),
-  1002 => 
+  1020 =>
   array (
     'CONDITION' => '#^/yastore.checkout/#',
     'RULE' => '',
@@ -64,7 +64,17 @@ $arUrlRewrite=array (
     'PATH' => '/personal/index.php',
     'SORT' => 100,
   ),
-  1001 => 
+
+  1009 =>
+    array (
+        'CONDITION' => '#^/articles/([^/]+)/.*#',
+        'RULE' => 'SECTION_CODE=$1',
+        'ID' => 'bitrix:news',
+        'PATH' => '/articles/index.php',
+        'SORT' => 100,
+    ),
+
+  1010 =>
   array (
     'CONDITION' => '#^/articles/#',
     'RULE' => '',

@@ -25,10 +25,14 @@ if(CModule::IncludeModule("iblock")) {
     }
 }
 
+echo '<pre id="inspect" class="ins_2" style="display:none">';
+var_dump($result);
+echo '</pre>';
+
 $sefUrlTemplates = [
-    "news" => "",
-    "section" => "#SECTION_CODE#/",
-    "detail" => "#ELEMENT_CODE#/",
+    "news" => "articles/",
+    "section" => "articles/#SECTION_CODE#/",
+    "detail" => "#SECTION_CODE#/#ELEMENT_CODE#/",
 ];
 if( $result['type']=='element') {
     $_GET["ELEMENT_CODE"] == $_GET["SECTION_CODE"];
@@ -120,7 +124,8 @@ if( $result['type']=='element') {
 		"STRICT_SECTION_CHECK" => "N",
 		"USE_CATEGORIES" => "N",
 		"USE_FILTER" => "N",
-		"USE_PERMISSIONS" => "N",
+        "FILTER_NAME" => "articlesArFilter",
+        "USE_PERMISSIONS" => "N",
 		"USE_RATING" => "N",
 		"USE_RSS" => "N",
 		"USE_SEARCH" => "N",
