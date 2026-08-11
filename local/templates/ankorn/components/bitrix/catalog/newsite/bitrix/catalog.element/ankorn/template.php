@@ -816,7 +816,7 @@ $arNewsFilterLast = [
             ],
             "SEF_MODE" => "Y",
             "SEF_RULE" => "",
-            "SET_BROWSER_TITLE" => "Y",
+            "SET_BROWSER_TITLE" => "N",
             "SET_LAST_MODIFIED" => "N",
             "SET_META_DESCRIPTION" => "N",
             "SET_META_KEYWORDS" => "N",
