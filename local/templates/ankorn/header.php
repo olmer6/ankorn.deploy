@@ -111,14 +111,14 @@ if ($currentUri === '/') {
 ?>
 
     <?php  // микроразметка?>
-    <?
+    <?php
     $pageTitle = htmlspecialcharsbx($APPLICATION->GetPageProperty('title') ?: $APPLICATION->GetTitle());
     $pageDescription = htmlspecialcharsbx($APPLICATION->GetPageProperty('description'));
     $currentUrl = (CMain::IsHTTPS() ? "https://" : "http://") . SITE_SERVER_NAME . $APPLICATION->GetCurUri();
     ?>
     <meta property="og:title" content="<?=$pageTitle?>">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="<?=$pageDescription?>">
+    <meta property="og:description" content="<?php $APPLICATION->ShowProperty('description')?>">
     <meta property="og:site_name" content="Анкорн">
     <meta property="og:url" content="<?=$currentUrl?>">
     <meta property="og:locale" content="ru_RU">
