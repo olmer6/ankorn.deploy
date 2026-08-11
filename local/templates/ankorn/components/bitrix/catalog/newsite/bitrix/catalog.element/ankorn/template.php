@@ -173,8 +173,8 @@ $eurRate = \CCurrencyRates::GetConvertFactor('EUR', $baseCurrency);
                             echo "<div class='product-plate plate-green plate-item'>Сертификат тр тс</div>";
                             if ($arResult['PROPERTIES']['WARRANTY_3_YEAR']['VALUE'])
                             echo "<div class='product-plate plate-yellow plate-item'>Гарантия 3 года</div>";
-                            if ($arResult['PROPERTIES']['WARRANTY_5_YEAR']['VALUE'])
-                            echo "<div class='product-plate plate-yellow plate-item'>Гарантия 5 лет</div>";
+                            if ($arResult['PROPERTIES']['WARRANTY_2_YEAR']['VALUE'])
+                            echo "<div class='product-plate plate-yellow plate-item'>Гарантия 2 года</div>";
                             if ($arResult['PROPERTIES']['IN_THE_SI_REGISTRY']['VALUE'])
                             echo "<div class='product-plate plate-green plate-item'>В реестре си</div>";
                           ?>
