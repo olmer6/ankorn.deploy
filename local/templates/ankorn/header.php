@@ -114,7 +114,7 @@ if ($currentUri === '/') {
     <?php
     $pageTitle = htmlspecialcharsbx($APPLICATION->GetPageProperty('title') ?: $APPLICATION->GetTitle());
     $pageDescription = htmlspecialcharsbx($APPLICATION->GetPageProperty('description'));
-    $currentUrl = (CMain::IsHTTPS() ? "https://" : "http://") . SITE_SERVER_NAME . $APPLICATION->GetCurUri();
+    $currentUrl = (CMain::IsHTTPS() ? "https://" : "http://") . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
     ?>
     <meta property="og:title" content="<?=$pageTitle?>">
     <meta property="og:type" content="website">
