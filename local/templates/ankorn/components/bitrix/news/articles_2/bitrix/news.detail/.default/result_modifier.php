@@ -66,4 +66,7 @@ if (!empty($arResult['ID'])) {
     }
     // ALT всегда отправляем
     $APPLICATION->SetPageProperty('og_image_alt', $imageAlt);
+    // убираем индексацию дублей
+    if($arResult["LIST_PAGE_URL"] != "/articles/")
+        $APPLICATION->SetPageProperty('robots', "noindex, nofollow");
 }

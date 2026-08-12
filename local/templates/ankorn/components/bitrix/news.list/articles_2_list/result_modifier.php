@@ -19,3 +19,8 @@ $arResult["HITS"]=$results;
 foreach($arResult["ITEMS"] as &$item){
     $item["SHOW_COUNTER"]=$results[$item["ID"]]["SHOW_COUNTER"];
 }
+// укорачиваем url элемента
+foreach($arResult["ITEMS"] as &$item){
+    if(strstr($item["DETAIL_PAGE_URL"], '/articles/'))
+        $item["DETAIL_PAGE_URL"] = "/articles/".$item["CODE"].'/';
+}
