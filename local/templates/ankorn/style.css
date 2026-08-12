@@ -3207,7 +3207,7 @@ text-formatted table td:first-child {
 .text-formatted table td {
     height: inherit;
     border: 1px solid #505050!important;
-    padding: 0 10px;
+    padding: 4 10px;
     text-align: inherit;
     font-size: 16px;
     line-height: 1.5;
@@ -4619,6 +4619,15 @@ table {
     margin-top: 40px;
 }
 
+.product-mod-param .mod-table,
+#product-tab-body-1 table,
+#product-tab-body-2 table,
+#product-tab-body-3 table,
+#product-tab-body-4 table,
+#product-tab-body-5 table,
+#product-tab-body-6 table{
+    border: 1px solid #dedede;
+}
 .product-mod-param .mod-table td,
 #product-tab-body-1 table td,
 #product-tab-body-2 table td,
