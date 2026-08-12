@@ -32,16 +32,6 @@ $this->setFrameMode(true);
     $IDs = array_chunk($IDs, 12);
     $pageCount = count($IDs);
     $arFilter["ID"] =($IDs[$_GET["autorPageNum"]])?:$IDs[0];
-/*
-    if($_GET["ajax"]=="Y") $APPLICATION->RestartBuffer();
-    echo '<pre id="inspect" class="ins_0" style="display:none">';
-    var_dump($_GET);
-    echo '</pre>';
-    echo '<pre id="inspect" class="ins_0" style="display:none">';
-    var_dump($arFilter);
-    echo '</pre>';
-    if($_GET["ajax"]=="Y") die();
-*/
 ?>
 <script>
     pageNum = 1;

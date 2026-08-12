@@ -130,29 +130,6 @@ $sateliteHandler  = new SateliteHandler();
             </tbody>
         </table>
         <?endif;?>
-
-
-
-        <?php
-        echo '<pre id="inspect" class="ins_1" style="margin: 40px 0px;">';
-        //  var_dump($items);
-        echo '</pre>';
-        echo '<pre id="inspect" class="ins_2" style="margin: 40px 0px;">';
-        // var_dump($arSelect);
-        echo '</pre>';
-        echo '<pre id="inspect" class="ins_2" style="margin: 40px 0px;">';
-        // var_dump($associated_properties);
-        echo '</pre>';
-
-
-
-
-
-
-
-
-
-        ?>
     </div>
 
 <?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

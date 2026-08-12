@@ -41,10 +41,6 @@ if (!empty($arResult['ID'])) {
     }
     if ($imageId > 0) {
         $arImage = CFile::GetFileArray($imageId);
-
-        echo '<pre id="inspect" class="ins_" style="display:none">';
-        var_dump($arImage);
-        echo '</pre>';
         if ($arImage) {
             global $APPLICATION;
             $APPLICATION->SetPageProperty('og_image_url', $arImage['SRC']?:"https://disk.yandex.ru/i/s9drpgwe0krlWg");

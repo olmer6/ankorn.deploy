@@ -379,18 +379,6 @@ class AnkornCatalogPropApdater
 
         if(false)  // временно отключаем этот функционал
         {
-            if ($item["PROPERTIES"]['PARAM_MAT4']['VALUE']) {
-                echo '<pre id="inspect" class="ins_1" style="margin: 40px 0px;">';
-                var_dump(
-                    [$item['ID'] => $item['NAME']],
-                    [$item["PROPERTIES"]['PARAM_MAT4']['NAME'] => $item["PROPERTIES"]['PARAM_MAT4']['VALUE']]
-                );
-                echo '</pre>';
-            }
-        }
-
-        if(false)  // временно отключаем этот функционал
-        {
             if ($item["PROPERTIES"]['IS_MAIN']['VALUE'] == 22) {
                 $settings['SORT'] = 100;
                 if ($item["PROPERTIES"]['PARAM_TYPE1']['VALUE']) {
@@ -532,10 +520,6 @@ class AnkornCatalogPropApdater
 
         if($ArPropertyValues != []) CIBlockElement::SetPropertyValuesEx($item['ID'], self::ibid, $ArPropertyValues);
         if($settings != []) self::updateItemSetting($item['ID'], $settings);
-
-        echo '<pre id="inspect" class="ins_1" style="margin: 40px 0px;">';
-        var_dump([$item['ID']=>$item['NAME']]);
-        echo '</pre>';
     }
 
     /**
@@ -550,11 +534,6 @@ class AnkornCatalogPropApdater
         $el = new CIBlockElement;
         $settings["MODIFIED_BY"] = $USER->GetID();
         if(isset($settings['PROPERTY_VALUES'])) unset($settings['PROPERTY_VALUES']);
-
-        echo '<pre id="inspect" class="ins_1" style="margin: 40px 0px;">';
-        var_dump($id, $settings);
-        echo '</pre>';
-
         $res = $el->Update($id, $settings);
         return $res;
     }

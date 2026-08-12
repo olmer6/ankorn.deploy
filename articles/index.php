@@ -25,10 +25,6 @@ if(CModule::IncludeModule("iblock")) {
     }
 }
 
-echo '<pre id="inspect" class="ins_2" style="display:none">';
-var_dump($result);
-echo '</pre>';
-
 $sefUrlTemplates = [
     "news" => "articles/",
     "section" => "articles/#SECTION_CODE#/",

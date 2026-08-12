@@ -215,11 +215,6 @@ class SateliteHandler
     {
         $elementGroups = $arSectionIds['elementGroups'];
         $mainSection = $arSectionIds['mainSection'];
-
-        echo '<pre id="inspect" class="ins_1" style="margin: 40px 0px;">';
-        var_dump(['$itemId'=>$itemId, '$elementGroups'=>$elementGroups, '$mainSection'=>$mainSection]);
-        echo '</pre>';
-
         CIBlockElement::SetElementSection($itemId, $elementGroups,sectionId:$mainSection);
     }
 
