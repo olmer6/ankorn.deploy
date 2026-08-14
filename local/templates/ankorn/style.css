@@ -4614,9 +4614,10 @@ table {
 #product-tab-body-4 h2,
 #product-tab-body-5 h2,
 #product-tab-body-6 h2 {
-    margin-bottom: 0;
+    margin-bottom: 10px;
     border-bottom: 3px solid #AC182D;
     margin-top: 40px;
+    display: inline-block;
 }
 
 .product-mod-param .mod-table,
@@ -4635,7 +4636,7 @@ table {
 #product-tab-body-4 table td,
 #product-tab-body-5 table td,
 #product-tab-body-6 table td {
-    border: 0 solid!important;
+  /*  border: 0 solid!important;*/
 }
 
 .product-mod-param .mod-table tr:nth-child(2n+1),
