@@ -260,19 +260,20 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
                     $nextPageNumber = $arResult["NAV_RESULT"]->NavPageNomer+1;
                     $nextPageUrl = 'https://ankorn.ru'.$_SERVER["REDIRECT_URL"].'?PAGEN_1='.$nextPageNumber.'&numberMissing='.$numberMissing;
                     $missingItems = file_get_contents($nextPageUrl);
-                    $dom = new DOMDocument();
-                    @$dom->loadHTML($missingItems);
-                    $xpath = new DOMXPath($dom);
-                    $elements = $xpath->query("//*[contains(@class, 'product-item-small-card')]");
-                    $result = '';
-                    foreach ($elements as $element) {
-                        $result .= $dom->saveHTML($element);
-                        $numberMissing--;
-                        if(!$numberMissing) break;
+                    if($missingItems){
+                        $dom = new DOMDocument();
+                        @$dom->loadHTML($missingItems);
+                        $xpath = new DOMXPath($dom);
+                        $elements = $xpath->query("//*[contains(@class, 'product-item-small-card')]");
+                        $result = '';
+                        foreach ($elements as $element) {
+                            $result .= $dom->saveHTML($element);
+                            $numberMissing--;
+                            if(!$numberMissing) break;
+                        }
+                        echo $result;
                     }
-                    echo $result;
                 }
-
             }
 			else
 			{
