@@ -641,3 +641,114 @@ div.title-search-result td.title-search-price span {
 .bx-searchtitle.theme-yellow .bx-searchtitle-voice svg path {
 	fill: #F9A91D;
 }
+
+
+/* дополнительные стили для страницы */
+
+/* ===== Десктоп: 2 колонки 2/3 + 1/3 ===== */
+ .search-layout {
+	 display: flex !important;
+	 flex-wrap: nowrap !important;
+	 gap: 24px;
+	 width: 100%;
+	 margin-bottom: 30px;
+	 align-items: flex-start;
+ }
+
+.search-swipe-wrapper {
+	display: flex !important;
+	flex-wrap: nowrap !important;
+	width: 100% !important;
+	gap: 24px;
+}
+
+.search-col {
+	min-width: 0;
+	box-sizing: border-box;
+}
+
+.search-col--main {
+	flex: 0 0 calc(66.666% - 12px) !important;
+	max-width: calc(66.666% - 12px) !important;
+	width: calc(66.666% - 12px) !important;
+}
+
+.search-col--side {
+	flex: 0 0 calc(33.333% - 12px) !important;
+	max-width: calc(33.333% - 12px) !important;
+	width: calc(33.333% - 12px) !important;
+}
+
+/* Вкладки скрыты на десктопе */
+.search-tabs {
+	display: none !important;
+}
+
+/* ===== Мобилка ≤ 991px ===== */
+@media (max-width: 991px) {
+	.search-layout {
+		display: block !important;
+		overflow: hidden;
+	}
+
+	.search-tabs {
+		display: flex !important;
+		margin-bottom: 16px;
+		border-bottom: 1px solid #e0e0e0;
+	}
+
+	.search-tabs__btn {
+		flex: 1;
+		padding: 12px 8px;
+		border: none;
+		background: transparent;
+		font-size: 15px;
+		font-weight: 500;
+		color: #666;
+		cursor: pointer;
+		position: relative;
+	}
+
+	.search-tabs__btn.active {
+		color: #222;
+	}
+
+	.search-tabs__btn.active::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -1px;
+		height: 2px;
+		background: #222;
+	}
+
+	.search-swipe-wrapper {
+		display: flex !important;
+		width: 200% !important;
+		gap: 0 !important;
+		transition: transform .3s ease;
+		will-change: transform;
+	}
+
+	.search-swipe-wrapper.slide-1 {
+		transform: translateX(0);
+	}
+
+	.search-swipe-wrapper.slide-2 {
+		transform: translateX(-50%);
+	}
+
+	.search-col {
+		width: 50% !important;
+		max-width: 50% !important;
+		flex: 0 0 50% !important;
+		padding: 0 8px;
+		box-sizing: border-box;
+	}
+
+	/* Скрываем заголовки h2 на мобильных, чтобы не дублировать вкладки */
+	.search-col h2 {
+		display: none !important;
+	}
+}

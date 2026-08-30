@@ -615,3 +615,46 @@ function JCTitleSearchAG(arParams)
 	};
 	BX.ready(function (){_this.Init(arParams)});
 }
+
+/* для страницы поиска в целом */
+
+(function() {
+	const tabs = document.querySelectorAll('.search-tabs__btn');
+	const swipe = document.getElementById('searchSwipe');
+	let current = 1;
+	let startX = 0;
+	let isDragging = false;
+
+	function switchTab(tab) {
+		current = tab;
+		tabs.forEach(b => b.classList.toggle('active', +b.dataset.tab === tab));
+		if (swipe) {
+			swipe.classList.remove('slide-1', 'slide-2');
+			swipe.classList.add('slide-' + tab);
+		}
+	}
+
+	tabs.forEach(btn => {
+		btn.addEventListener('click', function() {
+			switchTab(+this.dataset.tab);
+		});
+	});
+
+	// Свайп только на мобильных
+	if (window.matchMedia('(max-width: 991px)').matches && swipe) {
+		swipe.addEventListener('touchstart', e => {
+			startX = e.touches[0].clientX;
+			isDragging = true;
+		}, {passive: true});
+
+		swipe.addEventListener('touchend', e => {
+			if (!isDragging) return;
+			isDragging = false;
+			const diff = e.changedTouches[0].clientX - startX;
+			if (Math.abs(diff) > 50) {
+				if (diff < 0 && current === 1) switchTab(2);
+				if (diff > 0 && current === 2) switchTab(1);
+			}
+		}, {passive: true});
+	}
+})();
