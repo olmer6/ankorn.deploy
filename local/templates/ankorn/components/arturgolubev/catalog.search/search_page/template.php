@@ -59,7 +59,11 @@ if (!empty($arElements) && is_array($arElements))
 	$searchFilter = array(
 		"ID" => $arElements,
 	);
-	
+
+    /**
+     *  смартфильтр временно отключим 01,09,2026
+     */
+    /*
 	$checkModule = CModule::CreateModuleObject('iblock');
 	if(CheckVersion($checkModule->MODULE_VERSION, '18.6.200')){
 		$APPLICATION->IncludeComponent(
@@ -94,10 +98,12 @@ if (!empty($arElements) && is_array($arElements))
 			array('HIDE_ICONS' => 'Y')
 		);
 	}
-	
+    */
+
+
 	$APPLICATION->IncludeComponent(
 		"bitrix:catalog.section",
-		".default",
+		"catalog_search",
 		array(
 			"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 			"IBLOCK_ID" => $arParams["IBLOCK_ID"],
@@ -125,7 +131,7 @@ if (!empty($arElements) && is_array($arElements))
 			"OFFERS_LIMIT" => $arParams["OFFERS_LIMIT"],
 			"SECTION_URL" => $arParams["SECTION_URL"],
 			"DETAIL_URL" => $arParams["DETAIL_URL"],
-			"BASKET_URL" => $arParams["BASKET_URL"],
+			"BASKET_URL" => "/personal/cart/",
 			"ACTION_VARIABLE" => $arParams["ACTION_VARIABLE"],
 			"PRODUCT_ID_VARIABLE" => $arParams["PRODUCT_ID_VARIABLE"],
 			"PRODUCT_QUANTITY_VARIABLE" => $arParams["PRODUCT_QUANTITY_VARIABLE"],
@@ -133,15 +139,19 @@ if (!empty($arElements) && is_array($arElements))
 			"SECTION_ID_VARIABLE" => $arParams["SECTION_ID_VARIABLE"],
 			"CACHE_TYPE" => $arParams["CACHE_TYPE"],
 			"CACHE_TIME" => $arParams["CACHE_TIME"],
-			"DISPLAY_COMPARE" => $arParams["DISPLAY_COMPARE"],
-			"PRICE_CODE" => $arParams["PRICE_CODE"],
+			"DISPLAY_COMPARE" => "Y",
+            "MESS_BTN_COMPARE" => "Сравнение",
+            "COMPARE_PATH" => "/catalog/compare/",
+            "USE_COMPARE_LIST" => "Y",
+            "COMPARE_NAME" => "CATALOG_COMPARE_LIST",
+			"PRICE_CODE" => array("PRICE"),
 			"USE_PRICE_COUNT" => $arParams["USE_PRICE_COUNT"],
 			"SHOW_PRICE_COUNT" => $arParams["SHOW_PRICE_COUNT"],
 			"PRICE_VAT_INCLUDE" => $arParams["PRICE_VAT_INCLUDE"],
 			"PRODUCT_PROPERTIES" => $arParams["PRODUCT_PROPERTIES"],
 			"USE_PRODUCT_QUANTITY" => $arParams["USE_PRODUCT_QUANTITY"],
-			"CONVERT_CURRENCY" => $arParams["CONVERT_CURRENCY"],
-			"CURRENCY_ID" => $arParams["CURRENCY_ID"],
+			"CONVERT_CURRENCY" => "Y",
+			"CURRENCY_ID" => "RUB",
 			"HIDE_NOT_AVAILABLE" => $arParams["HIDE_NOT_AVAILABLE"],
 			"HIDE_NOT_AVAILABLE_OFFERS" => $arParams["HIDE_NOT_AVAILABLE_OFFERS"],
 			"DISPLAY_TOP_PAGER" => $arParams["DISPLAY_TOP_PAGER"],
