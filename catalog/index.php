@@ -40,7 +40,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 	"bitrix:catalog", 
 	"newsite", 
 	[
-		"IBLOCK_TYPE" => "catalog",
+		"IBLOCK_TYPE" => "products",
 		"IBLOCK_ID" => "2",
 		"TEMPLATE_THEME" => "site",
 		"HIDE_NOT_AVAILABLE" => "Y",
