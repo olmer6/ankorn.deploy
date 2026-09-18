@@ -1,0 +1,100 @@
+/* Только выпадашка. Форма .search-header остаётся как в шапке. */
+div.title-search-result {
+	display: none;
+	position: absolute;
+	z-index: 10050;
+	overflow: hidden;
+	min-width: 200px;
+	margin-top: 3px;
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: 0 4px 18px rgba(0,0,0,.12);
+	border: 0 none !important;
+	box-sizing: border-box;
+}
+
+.bx_smart_searche,
+.bx_smart_searche * {
+	box-sizing: border-box;
+}
+
+.bx_smart_searche {
+	font-size: 14px;
+	line-height: 1.35;
+	max-height: 70vh;
+	overflow-y: auto;
+}
+
+.bx_smart_searche .bx_item_block_title {
+	font-weight: 700;
+	font-size: 13px;
+	padding: 8px 12px 4px;
+	color: #666;
+}
+
+.bx_smart_searche a.bx_item_block_href {
+	display: block;
+	padding: 8px 12px;
+	text-decoration: none;
+	color: #222;
+	position: relative;
+}
+
+.bx_smart_searche a.bx_item_block_href:hover {
+	background: #f6f6f6;
+}
+
+.bx_smart_searche .bx_item_block_item_image {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+}
+
+.bx_smart_searche .bx_item_block_item_image img,
+.bx_smart_searche .bx_item_block_item_image svg {
+	max-width: 100%;
+	max-height: 100%;
+	display: block;
+}
+
+.bx_smart_searche .bx_item_block_item_info_wrap {
+	display: inline-block;
+	vertical-align: middle;
+	width: calc(100% - 54px);
+}
+
+.bx_smart_searche .bx_item_block_item_name,
+.bx_smart_searche .bx_item_block_href_category_name,
+.bx_smart_searche .bx_item_block_item_simple_name {
+	color: #222;
+}
+
+.bx_smart_searche .bx_item_block_href_category_title {
+	font-size: 12px;
+	color: #888;
+}
+
+.bx_smart_searche .bx_item_block_hrline {
+	height: 1px;
+	background: #eee;
+	margin: 0;
+}
+
+.bx_smart_searche .bx_item_block.all_result {
+	padding: 8px 12px 12px;
+	text-align: center;
+}
+
+.bx_smart_searche .all_result_button {
+	display: inline-block;
+	color: #AC182D;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.bx_smart_searche .bx_item_block_item_clear {
+	clear: both;
+}
