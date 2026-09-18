@@ -228,31 +228,36 @@ if ($currentUri === '/') {
                     </div>
                 </nav>
                 <div class="header__search">
-                    <? $APPLICATION->IncludeComponent(
-	"bitrix:search.title", 
-	"search-input", 
-	array(
-		"CATEGORY_0" => array(
-			0 => "iblock_products",
-		),
-		"CATEGORY_0_TITLE" => "",
-		"CHECK_DATES" => "Y",
-		"CONTAINER_ID" => "title-search",
-		"INPUT_ID" => "title-search-input",
-		"NUM_CATEGORIES" => "1",
-		"ORDER" => "date",
-		"PAGE" => "#SITE_DIR#search/index.php",
-		"SHOW_INPUT" => "Y",
-		"SHOW_OTHERS" => "N",
-		"TOP_COUNT" => "5",
-		"USE_LANGUAGE_GUESS" => "Y",
-		"COMPONENT_TEMPLATE" => "search-input",
-		"CATEGORY_0_iblock_products" => array(
-			0 => "all",
-		)
-	),
-	false
-); ?>
+                    <?$APPLICATION->IncludeComponent(
+                        "arturgolubev:search.title",
+                        "search_header",
+                        array(
+                            "NUM_CATEGORIES" => "2",
+                            "TOP_COUNT" => "5",
+                            "ORDER" => "rank",
+                            "PAGE" => "/search/",
+
+                            "CATEGORY_0" => array("iblock_products"),
+                            "CATEGORY_0_iblock_products" => array("2"),
+                            "CATEGORY_0_TITLE" => "Каталог",
+
+                            "CATEGORY_1" => array("iblock_how_we_work"),
+                            "CATEGORY_1_iblock_how_we_work" => array("7"),
+                            "CATEGORY_1_TITLE" => "Статьи",
+
+                            "CONTAINER_ID" => "title-search",
+                            "INPUT_ID" => "title-search-input",
+                            "SHOW_INPUT" => "Y",
+                            "SHOW_PREVIEW" => "Y",
+                            "PREVIEW_WIDTH_NEW" => "40",
+                            "PREVIEW_HEIGHT_NEW" => "40",
+                            "CHECK_DATES" => "N",
+                            "USE_LANGUAGE_GUESS" => "Y",
+                            "SHOW_HISTORY" => "N",
+                            "QUICK_VARIANTS_SHOW" => "N",
+                            "VOICE_INPUT" => "N",
+                        )
+                    );?>
                 </div>
             </div>
         </div>
