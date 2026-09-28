@@ -137,24 +137,24 @@ div.search-page-params {
 
 /* blue */
 .search-page.theme-blue .search-title b {
-	color: #5ca6e4;
+	color: #008000;
 }
 .search-page.theme-blue .search-item {
-	border-color: #0083d1;
+	border-color: #008000;
 }
 .search-page.theme-blue input[type=text] {
-	border-color: #0083d1;
+	border-color: #008000;
 }
 .search-page.theme-blue input[type=submit] {
-	border-color:#0083d1;
-	background-color:#0083d1;
+	border-color:#008000;
+	background-color:#008000;
 }
 .search-page.theme-blue input[type=submit]:hover {
-	border-color:#5ca6e4;
-	background-color:#5ca6e4;
+	border-color:#008000;
+	background-color:#008000;
 }
 .search-page.theme-blue .ag-spage-clarify-item, .search-page.theme-blue .ag-spage-clarify-item:hover {
-	border-color:#5ca6e4;
+	border-color:#008000;
 }
 /* black */
 .search-page.theme-black .search-title b {
