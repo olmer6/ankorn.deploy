@@ -1,6 +1,0 @@
-<?
-$sSectionName = "Уровнемеры";
-$arDirProperties = Array(
-
-);
-?>
