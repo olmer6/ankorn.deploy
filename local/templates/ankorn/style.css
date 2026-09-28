@@ -408,6 +408,33 @@ text-formatted table td:first-child {
     color: #fff;
     background-color: #7f1221;
 }
+.btn-green {
+    font-family: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: #008000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 600;
+    padding: 19px 25px;
+    letter-spacing: 1px;
+    white-space: normal;
+    text-transform: uppercase;
+    transition: background-color 0.4s;
+}
+
+.btn-green:hover {
+    color: #fff;
+    background-color: #008000;
+}
 
 .btn-gray {
     font-family: inherit;

@@ -184,5 +184,9 @@ if (!empty($arElements) && is_array($arElements))
 }
 elseif (is_array($arElements))
 {
-	echo Loc::getMessage("CT_BCSE_NOT_FOUND");
+    $request = \Bitrix\Main\Context::getCurrent()->getRequest();
+    $query = trim($request->get('q') ?? '');
+	echo Loc::getMessage("CT_BCSE_NOT_FOUND1").$query.Loc::getMessage("CT_BCSE_NOT_FOUND2");
+    echo Loc::getMessage("CT_BCSE_NOT_FOUND3");
 }
+echo Loc::getMessage("CONTACT_US_WE_LL_HELP");
