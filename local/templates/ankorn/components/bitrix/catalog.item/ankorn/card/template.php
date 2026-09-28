@@ -39,35 +39,36 @@ else {
 if ( $item['PROPERTIES']['IS_MAIN']['VALUE_ENUM'] ) {
     if($item['TITILE_FOR_MAIN_CARD_IN_LIST']) $item['NAME'] = $item['TITILE_FOR_MAIN_CARD_IN_LIST'];
     ?>
-
     <div class="product-item wide">
         <h3 class="product-item-title">
             <a href="<?=$item['DETAIL_PAGE_URL']?>" title="<?=$item['NAME']?>"><?=$item['NAME']?></a>
         </h3>
 
-        <div class="medium-description">
-            <a class="product-item-image-wrapper" href="<?=$item['DETAIL_PAGE_URL']?>" title="<?=($imgTitle)?:$item['NAME']?>" data-entity="image-wrapper">
-                <span class="product-item-image-original" style="background-image: url(<?=$item['PREVIEW_PICTURE']['SRC']?>); "></span>
-            </a>
+        <a href="<?=$item['DETAIL_PAGE_URL']?>">
+            <div class="medium-description">
+                <span class="product-item-image-wrapper">
+                    <span class="product-item-image-original" style="background-image: url(<?=$item['PREVIEW_PICTURE']['SRC']?>); "></span>
+                </span>
 
-            <div class="wide-preview-text">
-                <?=$item['PREVIEW_TEXT']?>
+                <div class="wide-preview-text">
+                    <?=$item['PREVIEW_TEXT']?>
+                </div>
             </div>
-        </div>
-        <div class="wide-container">
-            <div class="wide-container-top">
-                <div class="mainstr1"><?=$item['PROPERTIES']['MAINSTR1']['VALUE']?></div>
-                <div class="mainstr2"><?=$item['PROPERTIES']['MAINSTR2']['VALUE']?></div>
+            <div class="wide-container">
+                <div class="wide-container-top">
+                    <div class="mainstr1"><?=$item['PROPERTIES']['MAINSTR1']['VALUE']?></div>
+                    <div class="mainstr2"><?=$item['PROPERTIES']['MAINSTR2']['VALUE']?></div>
+                </div>
+                <div class="mainstr3">
+                    <?
+                    if(!empty($item['PROPERTIES']['MAINSTR3']['~VALUE']['TEXT']) && is_string($item['PROPERTIES']['MAINSTR3']['~VALUE']['TEXT']))
+                       echo  $item['PROPERTIES']['MAINSTR3']['~VALUE']['TEXT'];
+                    /*
+                    */
+                    ?>
+                </div>
             </div>
-            <div class="mainstr3">
-                <?
-                if(!empty($item['PROPERTIES']['MAINSTR3']['~VALUE']['TEXT']) && is_string($item['PROPERTIES']['MAINSTR3']['~VALUE']['TEXT']))
-                   echo  $item['PROPERTIES']['MAINSTR3']['~VALUE']['TEXT'];
-                /*
-                */
-                ?>
-            </div>
-        </div>
+        </a>
     </div>
     <div class="product-buttons-container">
         <a href="<?=$item['DETAIL_PAGE_URL']?>" class="product-deeper">Подробнее</a>
