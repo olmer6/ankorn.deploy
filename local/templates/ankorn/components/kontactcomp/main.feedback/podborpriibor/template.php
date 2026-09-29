@@ -13,7 +13,7 @@ use Bitrix\Main\Localization\Loc;
 
 
 <div class="apply-form">
-    <form class="default-form"  action="<?= POST_FORM_ACTION_URI ?>" method="POST" enctype="multipart/form-data">
+    <form class="default-form"  action="<?= htmlspecialcharsbx($APPLICATION->GetCurPage(false)) ?>" method="POST" enctype="multipart/form-data">
         <?=bitrix_sessid_post()?>
         <div class="form-block">
             <div class="input-block">
