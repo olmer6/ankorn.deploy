@@ -241,8 +241,8 @@ if ($currentUri === '/') {
                             "CATEGORY_0_iblock_products" => array("2"),
                             "CATEGORY_0_TITLE" => "Каталог",
 
-                            "CATEGORY_1" => array("iblock_how_we_work"),
-                            "CATEGORY_1_iblock_how_we_work" => array("7"),
+                            "CATEGORY_1" => array("iblock_application"),
+                            "CATEGORY_1_iblock_application" => array("6"),
                             "CATEGORY_1_TITLE" => "Статьи",
 
                             "CONTAINER_ID" => "title-search",

@@ -299,7 +299,7 @@ CModule::IncludeModule("iblock");
                                 "arrFILTER" => [
                                     0 => "main",                 // Искать по статическим страницам сайта (контентные файлы)
                                     1 => "iblock_news",          // Искать по инфоблокам типа news
-                                    2 => "iblock_how_we_work",   // Искать по инфоблокам типа how_we_work
+                                    2 => "iblock_application",   // Искать по инфоблокам типа application
                                 ],
                                 "arrFILTER_main" => [
                                     0 => "",
@@ -307,7 +307,7 @@ CModule::IncludeModule("iblock");
                                 "arrFILTER_iblock_news" => [
                                     0 => "all",                  // Искать во всех инфоблоках этого типа
                                 ],
-                                "arrFILTER_iblock_how_we_work" => [
+                                "arrFILTER_iblock_application" => [
                                     0 => "all",                  // Искать во всех инфоблоках этого типа
                                 ],
                                 "arrWHERE" => ""
