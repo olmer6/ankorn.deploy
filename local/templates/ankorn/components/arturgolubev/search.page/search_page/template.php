@@ -135,7 +135,7 @@ global $APPLICATION;
 			</div>
 		</div>
 	<?else:?>
-		<?ShowNote(GetMessage("SEARCH_NOTHING_TO_FOUND"));?>
+		<?=GetMessage("SEARCH_NOTHING_TO_FOUND");?>
 	<?endif;?>
 </div>
 

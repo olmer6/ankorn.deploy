@@ -20,8 +20,8 @@ CModule::IncludeModule("iblock");
                 "CATEGORY_0_iblock_products" => array("2"), // или "all"
                 "CATEGORY_0_TITLE" => "Каталог",
 
-                "CATEGORY_1" => array("iblock_how_we_work"),
-                "CATEGORY_1_iblock_how_we_work" => array("7"), // или "all"
+                "CATEGORY_1" => array("iblock_application"),
+                "CATEGORY_1_iblock_application" => array("6"), // или "all"
                 "CATEGORY_1_TITLE" => "Статьи",
 
                 "CHECK_DATES" => "N",
@@ -290,7 +290,7 @@ CModule::IncludeModule("iblock");
                                 "PAGER_SHOW_ALWAYS" => "N",
                                 "PAGER_TEMPLATE" => ".default",
                                 "PAGER_TITLE" => "Название результатов поиска",
-                                "PAGE_RESULT_COUNT" => "50",
+                                "PAGE_RESULT_COUNT" => "20",
                                 "PREVIEW_TEXT" => "",
                                 "PRICE_CODE" => "",
                                 "PRICE_VAT_INCLUDE" => "Y",
@@ -324,6 +324,11 @@ CModule::IncludeModule("iblock");
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="text-center m-b-30">
+            Не получается найти нужное?<br>
+            <b>Свяжитесь с нами — поможем</b><br><br>
+            <span class="btn-green call">Получить консультацию</span>
         </div>
 
 	</div>
